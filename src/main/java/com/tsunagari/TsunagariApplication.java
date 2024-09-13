@@ -11,6 +11,11 @@ public class TsunagariApplication {
 	//chae~
 	
 	public static void main(String[] args) {
+
 		SpringApplication.run(TsunagariApplication.class, args);
+
+		// test yongmin
+		// test yongmin2 2222 
+		
 	}
 }
