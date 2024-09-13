@@ -14,8 +14,13 @@ public class TsunagariApplication {
 
 		SpringApplication.run(TsunagariApplication.class, args);
 
+	// 주석 안준호
+
+
+
 		// test yongmin
 		// test yongmin2 2222 
-		
+
+
 	}
 }
