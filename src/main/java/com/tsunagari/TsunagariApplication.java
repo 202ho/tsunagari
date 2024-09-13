@@ -7,8 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TsunagariApplication {
 
 	
+	
+	//chae~
+	
 	public static void main(String[] args) {
 		SpringApplication.run(TsunagariApplication.class, args);
 	}
-
 }
