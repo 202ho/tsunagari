@@ -10,7 +10,8 @@ public class TsunagariApplication {
 
 		SpringApplication.run(TsunagariApplication.class, args);
 
-		// test yongmin 
+		// test yongmin
+		// test yongmin2 2222 
 		
 	}
 
