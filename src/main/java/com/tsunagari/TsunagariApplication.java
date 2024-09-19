@@ -9,10 +9,10 @@ public class TsunagariApplication {
 	//test
 	//jeong uk
 
-	
-	
+
+
 	//chae~
-	
+
 
 	public static void main(String[] args) {
 
@@ -23,7 +23,7 @@ public class TsunagariApplication {
  // test test
 
 		// test yongmin
-		// test yongmin2 2222 
+		// test yongmin2 2222
 
 
 	}
