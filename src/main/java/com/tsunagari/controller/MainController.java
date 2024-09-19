@@ -23,7 +23,8 @@ public class MainController {
     public String SearchKeyword(Model model){
 
 
-    return "ActivityList";
+    return "/main/main";
     }
 
+    // 검색했을때 - 컨텐츠 화면으로 보내주는 기능
 }
