@@ -27,8 +27,10 @@ public class Activity {
     private Date enddate;
     @Column(name = "price",nullable = false)
     private int price;
+    //찜
     @Column(name = "likecount",nullable = false)
     private int likecount;
+
     @Column(name = "maxpeople",nullable = false)
     private int maxpeople;
     @Column(name = "keyword", nullable = false)
