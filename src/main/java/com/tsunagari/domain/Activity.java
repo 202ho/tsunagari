@@ -33,8 +33,12 @@ public class Activity {
     private int maxpeople;
     @Column(name = "keyword", nullable = false)
     private String keyword;
+    @Column(name = "city",nullable = false)
+    private String city;
+    @Column(name = "thumbnauil",nullable = false)
+    private String thumbnauil;
 
-    public Activity(int id, String title, String content, String address, Date regdate, Date enddate, int price, int likecount, int maxpeople, String keyword ) {
+    public Activity(int id, String title, String content, String city, String address, Date regdate, Date enddate, int price, int likecount, int maxpeople, String keyword, String thumbnauil ) {
         this.id =id;
         this.hostid =hostid;
         this.title=title;
@@ -46,6 +50,8 @@ public class Activity {
         this.likecount=likecount;
         this.maxpeople=maxpeople;
         this.keyword=keyword;
+        this.city=city;
+        this.thumbnauil=thumbnauil;
     }
 
     public int getId() {
