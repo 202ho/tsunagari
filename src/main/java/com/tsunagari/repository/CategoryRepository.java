@@ -4,9 +4,13 @@ import com.tsunagari.domain.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-// 레퍼지토리 기능 - save find get 기능을 사용하기 위해서
+import java.util.List;
+
+// 레퍼지토리에서 조회
 @Repository
 public interface CategoryRepository extends JpaRepository<Category,Long> {
 
+    List<Category> findAll();
 
 }
+
