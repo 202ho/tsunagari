@@ -26,5 +26,5 @@ public class MainController {
     return "/main/main";
     }
 
-    // 검색했을때 - 컨텐츠 화면으로 보내주는 기능
+    // 검했을때 - 컨텐츠 화면으로 보내주는 기능
 }
