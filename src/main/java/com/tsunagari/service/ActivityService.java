@@ -16,8 +16,8 @@ public class ActivityService {
     ActivityRepository activityRepository;
 
 
-    public List<Activity> findAllOrderByLikecount(Pageable pageable) {
-        return activityRepository.findAllOrderByLikecount(pageable).getContent();
+    public List<Activity> findAllByOrderByLikecountDesc(Pageable pageable) {
+        return activityRepository.findAllByOrderByLikecountDesc(pageable).getContent();
     }
 
 

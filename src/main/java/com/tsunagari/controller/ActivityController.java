@@ -21,7 +21,7 @@ public class ActivityController {
     @GetMapping("/activity/list")
     public String getActivityList(@PageableDefault(size = 8) Pageable pageable, Model model) {
 
-        List<Activity> activityList = activityService.findAllOrderByLikecount(pageable);
+        List<Activity> activityList = activityService.findAllByOrderByLikecountDesc(pageable);
         model.addAttribute("activityList",activityList);
 
         return "/activity/list";
