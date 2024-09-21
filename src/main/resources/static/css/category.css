@@ -1,0 +1,86 @@
+/* 기본 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 테이블 스타일 */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+td {
+    color: #333;
+}
+
+/* 버튼 스타일 */
+button, .create-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+button:hover, .create-btn:hover {
+    background-color: #218838;
+}
+
+/* 액션 링크 스타일 */
+.actions a {
+    margin: 0 5px;
+    color: #007bff;
+}
+
+.actions a:hover {
+    color: #0056b3;
+}
+
+/* 페이지 정렬 */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.create-btn-container {
+    text-align: right;
+    margin: 20px auto;
+    width: 80%;
+}

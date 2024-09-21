@@ -1,9 +1,12 @@
 package com.tsunagari.service;
 
 import com.tsunagari.domain.Activity;
+import com.tsunagari.domain.Category;
 import com.tsunagari.repository.ActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CategoryService {
@@ -22,4 +25,7 @@ public class CategoryService {
     }
 
 
+    public List<Category> getAllCategories() {
+        return List.of();
+    }
 }
