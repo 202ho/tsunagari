@@ -12,8 +12,8 @@
         </form>
 
         <div class="text-end">
-          <button type="button" class="btn btn-outline-dark me-2">로그인</button>
-          <button type="button" class="btn btn-warning">회원가입</button>
+          <button type="button" class="btn btn-outline-dark me-2" onclick="location.href='/signin'">로그인</button>
+          <button type="button" class="btn btn-warning" onclick="location.href='/signup'">회원가입</button>
         </div>
       </div>
     </div>

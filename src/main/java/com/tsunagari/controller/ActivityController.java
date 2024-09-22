@@ -24,6 +24,6 @@ public class ActivityController {
         List<Activity> activityList = activityService.findAllByOrderByLikecountDesc(pageable);
         model.addAttribute("activityList",activityList);
 
-        return "/activity/list";
+        return "activity/list";
     }
 }

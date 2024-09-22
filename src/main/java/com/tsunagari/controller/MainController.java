@@ -28,7 +28,7 @@ public class MainController {
         Activity pouplarActivity = activityRepository.findTopByOrderByLikecountDesc();
         //결과를 모델-> 뷰
         model.addAttribute("pouplarActivity", pouplarActivity);
-    return "/main/main";
+    return "main/main";
     }
 
     // 검색했을때 - 컨텐츠 화면으로 보내주는 기능-js
