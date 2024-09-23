@@ -4,28 +4,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/layout.css">
 <title>tsunagari</title>
 </head>
+
 <body>
-<%@ include file="/WEB-INF/views/common/header.jsp" %>
-    <h3>안녕하세요</h3>
-    <hr>
-    <p>test list</p>
-    <c:forEach var="testItem" items="${testList}">
-            <p>${testItem.title}</p>
-        </c:forEach>
-    <hr>
-    <p>
-        <c:out value="${hello}"></c:out>
-    </p>
-    <c:forEach var="msg" items="${msgList}">
-        <p>${msg}</p>
-    </c:forEach>
-    <div>
-        <img src="resources/image/dog.jpg" style="width:100px">
-    </div>
+    <%@ include file="/WEB-INF/views/common/header.jsp" %>
+    <%@ include file="/WEB-INF/views/common/activityList.jsp" %>
 </body>
+
 </html>
