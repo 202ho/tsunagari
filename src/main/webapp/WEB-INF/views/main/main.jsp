@@ -54,7 +54,7 @@
                 <h3>카테고리7</h3>
             </div>
             <div class="categorywon">
-                <a href="#"><img src="" class="categoryImg"></a>
+                <a href="/categories"><img src="" class="categoryImg"></a>
                 <h3>전체보기</h3>
             </div>
 
