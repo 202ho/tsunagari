@@ -26,31 +26,4 @@ public class CategoryController {
         // 'categories.jsp' 파일을 반환하여 카테고리 목록을 보여줌
         return "categories";  // JSP 파일은 'categories.jsp'로 연결됨
     }
-
-    // 새로운 카테고리를 추가하는 폼을 보여주는 메서드
-    @GetMapping("/new")
-    public String showNewCategoryForm(Model model) {
-        // 새로운 빈 카테고리 객체를 모델에 추가하여 View로 전달 (폼에 바인딩됨)
-        model.addAttribute("category", new Category());
-        // 'category_form.jsp' 파일을 반환하여 카테고리 추가 폼을 보여줌
-        return "category_form";
-    }
-
-    // POST 요청으로 새로운 카테고리를 저장하는 메서드 (폼에서 전송된 데이터 처리)
-    @PostMapping
-    public String saveCategory(@ModelAttribute("category") Category category) {
-        // 전송된 카테고리 데이터를 서비스 계층을 통해 저장
-        categoryService.saveCategory(category);
-        // 카테고리 목록 페이지로 리다이렉트 (목록이 갱신됨)
-        return "redirect:/categories";
-    }
-
-    // 카테고리를 삭제하는 메서드 (카테고리 ID를 URL에서 추출하여 처리)
-    @GetMapping("/delete/{id}")
-    public String deleteCategory(@PathVariable("id") Long id) {
-        // 서비스 계층을 통해 해당 ID의 카테고리를 삭제
-        categoryService.deleteCategory(id);
-        // 카테고리 목록 페이지로 리다이렉트 (삭제 후 목록이 갱신됨)
-        return "redirect:/categories";
-    }
 }

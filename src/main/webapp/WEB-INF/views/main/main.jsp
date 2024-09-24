@@ -59,6 +59,7 @@
             </div>
 
         </div>
+        
         </section>
         <!--플렉스 컨테이너를 이용해서 상하 좌우 간격 맞추기-->
         <article class="content">
