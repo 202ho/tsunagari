@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Categories</title>
+</head>
+<body>
+<h1>카테고리 목록</h1>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>이름</th>
+    <th>작업</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- 카테고리 목록을 반복하여 출력 -->
+  <tr th:each="category : ${categories}">
+    <td th:text="${category.id}"></td>  <!-- 카테고리 ID 출력 -->
+    <td th:text="${category.name}"></td>  <!-- 카테고리 이름 출력 -->
+    <td>
+      <a th:href="@{/categories/delete/{id}(id=${category.id})}">삭제</a>  <!-- 카테고리 삭제 링크 -->
+    </td>
+  </tr>
+  </tbody>
+</table>
+<a href="/categories/new">새 카테고리 추가</a>  <!-- 새 카테고리 추가 페이지로 이동 -->
+</body>
+</html>
