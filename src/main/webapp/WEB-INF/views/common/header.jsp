@@ -10,13 +10,14 @@
                 </svg>
             </a>
 
-            <form class="col-12 col-lg flex-grow-1 mb-3 mb-lg-0 mx-lg-3">
-                <input type="search" class="form-control form-control-dark" placeholder="search" aria-label="Search">
-            </form>
+        <div class="input-group col-12 col-lg flex-grow-1 mb-3 mb-lg-0 mx-lg-3">
+          <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary header-search-btn'" type="button" id="button-addon2">검색</button>
+        </div>
 
             <div class="text-end" style="width: 200px;">
-                <button type="button" class="btn btn-outline-dark me-2">로그인</button>
-                <button type="button" class="btn btn-warning">회원가입</button>
+                <button type="button" class="btn btn-outline-primary me-2 header-login-btn" style="color: #2E8EE5; border-color: #2E8EE5;">로그인</button>
+                <button type="button" class="btn btn-primary" style="background-color: #2E8EE5; border-color: #2E8EE5;">회원가입</button>
             </div>
         </div>
 
