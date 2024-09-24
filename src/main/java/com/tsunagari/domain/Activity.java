@@ -37,23 +37,28 @@ public class Activity {
     private String keyword;
     @Column(name = "city",nullable = false)
     private String city;
-    @Column(name = "thumbnauil",nullable = false)
-    private String thumbnauil;
+    @Column(name = "thumbnail",nullable = false)
+    private String thumbnail;
 
-    public Activity(int id, String title, String content, String city, String address, Date regdate, Date enddate, int price, int likecount, int maxpeople, String keyword, String thumbnauil ) {
-        this.id =id;
-        this.hostid =hostid;
-        this.title=title;
-        this.content=content;
-        this.address=address;
-        this.regdate=regdate;
-        this.enddate=enddate;
-        this.price=price;
-        this.likecount=likecount;
-        this.maxpeople=maxpeople;
-        this.keyword=keyword;
-        this.city=city;
-        this.thumbnauil=thumbnauil;
+
+    public Activity(int id, int hostid, String title, String content, String address, Date regdate, Date enddate, int price, int likecount, int maxpeople, String keyword, String city, String thumbnail) {
+        this.id = id;
+        this.hostid = hostid;
+        this.title = title;
+        this.content = content;
+        this.address = address;
+        this.regdate = regdate;
+        this.enddate = enddate;
+        this.price = price;
+        this.likecount = likecount;
+        this.maxpeople = maxpeople;
+        this.keyword = keyword;
+        this.city = city;
+        this.thumbnail = thumbnail;
+    }
+
+    public Activity() {
+
     }
 
     public int getId() {
@@ -98,5 +103,13 @@ public class Activity {
 
     public String getKeyword() {
         return keyword;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
     }
 }
