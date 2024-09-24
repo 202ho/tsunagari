@@ -1,37 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
 
 body {
-    font - family: "Noto Sans KR", sans - serif;
+    font-family: "Noto Sans KR", sans - serif;
 }
-.header - login - btn: hover {
-        background - color: #2E8EE5 !important;
+
+.header-login-btn:hover {
+    background-color: #2e8ee5 !important;
     color: white !important;
-  }
+}
 
-  .search-form .input-group {
-      position: relative;
-  }
+.search-form .input-group {
+    position: relative;
+}
 
-  .header-search-btn {
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      border: none;
-      background: transparent;
-      padding: 0 10px;
-  }
+.header-search-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border: none;
+    background: transparent;
+    padding: 0 10px;
+}
 
-  .header-search-btn img {
-      width: 20px;
-      height: 20px;
-  }
+.header-search-btn img {
+    width: 20px;
+    height: 20px;
+}
 
-  .header-search-btn:hover {
-      background-color: #f8f9fa;
-  }
+.header-search-btn:hover {
+    background-color: #f8f9fa;
+}
 
 .activity-layout {
     display: flex;
-    justify-content:center;
+    justify-content: center;
 }

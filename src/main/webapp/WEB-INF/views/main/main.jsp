@@ -54,11 +54,12 @@
                 <h3>카테고리7</h3>
             </div>
             <div class="categorywon">
-                <a href="#"><img src="" class="categoryImg"></a>
+                <a href="/categories"><img src="" class="categoryImg"></a>
                 <h3>전체보기</h3>
             </div>
 
         </div>
+        
         </section>
         <!--플렉스 컨테이너를 이용해서 상하 좌우 간격 맞추기-->
         <article class="content">

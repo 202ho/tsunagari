@@ -34,7 +34,10 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
 
-
-
-
+    // 폼에서 입력한 카테고리 정보를 저장
+    public void saveCategory(Category category) {
+    }
+    // 카테고리를 삭제
+    public void deleteCategory(Long id) {
+    }
 }
