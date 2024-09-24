@@ -8,13 +8,14 @@ public class LoginController {
 
     // 로그인 페이지 출력
     @GetMapping("/signin")
-    public String login() {
-        return "/signin/signin";
+    public String signin() {
+
+        return "signin/signin";
     }
     // 회원가입 페이지 출력
     @GetMapping("/signup")
     public String signup() {
-        return "/signup/signup";
+        return "signup/signup";
     }
 
 }

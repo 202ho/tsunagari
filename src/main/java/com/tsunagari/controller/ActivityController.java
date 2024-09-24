@@ -57,7 +57,7 @@ public class ActivityController {
         model.addAttribute("nextDisabled", activityPage.isLast() ? "disabled" : "");
         model.addAttribute("activityList",subActivityList);
 
-        return "/activity/list";
+        return "activity/list";
     }
 
     @GetMapping("/activity/detail/{id}")
