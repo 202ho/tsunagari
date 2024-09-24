@@ -23,9 +23,10 @@ public class ActivityService {
         return activityRepository.findAll(pageable);
     }
 
-    public Page<Activity> findAllByOrderByLikecountDesc(int pageNumber, int pageSize) {
+
+    public Page<Activity> findByTitleContaining(int pageNumber, int pageSize, String keyword) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
-        return activityRepository.findAllByOrderByLikecountDesc(pageable);
+        return activityRepository.findByTitleContaining(keyword, pageable);
     }
 
 }

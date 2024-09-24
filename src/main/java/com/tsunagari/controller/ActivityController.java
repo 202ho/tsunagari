@@ -29,13 +29,16 @@ public class ActivityController {
         String title = "";
         if(!category.isEmpty()) {
             title = category;
+            //
         } else if(!search.isEmpty()) {
             title = search;
+            activityPage = activityService.findByTitleContaining( page, pageGroupSize, search);
         } else {
             title = "인기 액티비티";
             activityPage = activityService.getActivitiesLikecountDesc(page, pageGroupSize);
         }
         List<Activity> activityList = activityPage.getContent();
+
         int activityCnt = activityList.size();
         int pageSize = 8;
         int pageCnt = activityCnt / pageSize;
@@ -54,7 +57,7 @@ public class ActivityController {
         model.addAttribute("nextDisabled", activityPage.isLast() ? "disabled" : "");
         model.addAttribute("activityList",subActivityList);
 
-        return "/activity/list";
+        return "activity/list";
     }
 
     @GetMapping("/activity/detail/{id}")

@@ -9,7 +9,8 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<form action="#" name="regForm" method="post">
+<form action="/signin" name="regForm" method="post">
+    <input type="hidden" name="csrf_token" value="${sessionScope.csrfToken}" />
 	<table>
 		<tr>
 			<td align="center"></td>
@@ -19,7 +20,7 @@
 		<td align="left"> Email </td>
 		</tr>
 		<tr>
-			<td><input type="text" name="emailid"> <input type="button" value="중복확인"></td>
+			<td><input type="text" name="email"> <input type="button" value="중복확인"></td>
 		</tr>
 		<tr>
 			<td align="left" > Password </td>
@@ -54,12 +55,12 @@
 		</tr>
 		<tr>
 		<td>
-		<textarea size="50pt"></textarea>
+		<textarea size="50pt" name="intro"></textarea>
 		</td>
 		</tr>
 		<tr>
 			<td align="center">
-				<input type="submit" value="회원가입" onclick="#"><br>
+				<input type="submit" value="회원가입" ><br>
 			</td>
 		</tr>
 	</table>

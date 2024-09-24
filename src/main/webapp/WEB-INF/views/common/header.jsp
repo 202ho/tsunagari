@@ -17,8 +17,8 @@
         </div>
 
             <div class="text-end" style="width: 200px;">
-                <button type="button" class="btn btn-outline-primary me-2 header-login-btn" style="color: #2E8EE5; border-color: #2E8EE5;">로그인</button>
-                <button type="button" class="btn btn-primary" style="background-color: #2E8EE5; border-color: #2E8EE5;">회원가입</button>
+                <button type="button" class="btn btn-outline-primary me-2 header-login-btn"  onclick="location.href='/signin'" style="color: #2E8EE5; border-color: #2E8EE5;">로그인</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='/signup'" style="background-color: #2E8EE5; border-color: #2E8EE5;">회원가입</button>
             </div>
         </div>
 

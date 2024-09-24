@@ -13,12 +13,13 @@ $(document).ready(function() {
     });
 
 
-     $('.header-search-btn').on('click', function(e) {
+     $('#button-addon2').on('click', function(e) {
             e.preventDefault();
             var searchTerm = $(this).siblings('input[type="text"]').val();
             console.log(searchTerm , "click ")
-//            if (searchTerm) {
-//                var url = '/activity/list?search=' + encodeURIComponent(searchTerm);
+            if (searchTerm) {
+                var url = '/activity/list?search=' + encodeURIComponent(searchTerm);
+                window.location.href = url;
 //                $.ajax({
 //                    url: url,
 //                    method: 'GET',
@@ -31,7 +32,7 @@ $(document).ready(function() {
 //                        console.error('검색 오류:', error);
 //                    }
 //                });
-//            }
+            }
         });
 
         // Enter 키 입력 시에도 검색 실행
