@@ -10,8 +10,10 @@ import org.springframework.stereotype.Repository;
 public interface ActivityRepository extends JpaRepository<Activity, Long> {
 
     //인기 액티비티 조회
+    //findbyAll
     Activity findTopByOrderByLikecountDesc();
 
     Page<Activity> findAllByOrderByLikecountDesc(Pageable pageable);
 
+    Page<Activity> findByTitleContaining(String keyword, Pageable pageable);
 }

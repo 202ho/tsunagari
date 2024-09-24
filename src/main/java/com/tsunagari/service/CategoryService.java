@@ -12,20 +12,9 @@ import java.util.List;
 @Service
 public class CategoryService {
 
-/*
-    private final ActivityRepository activityRepository;
-    //액티비티에서 찜을 가져오고 찜이 많은 순서대로 오름차순
-    @Autowired
-    public CategoryService(ActivityRepository activityRepository){
-        this.activityRepository = activityRepository;
-    }
-    public Activity findTopByOrderByLikecountDesc() {
-        return activityRepository.findTopByOrderByLikecountDesc();
-    }
-*/
-
     private final CategoryRepository categoryRepository;
 
+    @Autowired
     public CategoryService(CategoryRepository categoryRepository){
         this.categoryRepository=categoryRepository;
 
@@ -33,8 +22,4 @@ public class CategoryService {
     public List<Category> getAllCategories(){
         return categoryRepository.findAll();
     }
-
-
-
-
 }

@@ -9,6 +9,8 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/layout.css">
 <link rel="stylesheet" href="resources/css/main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/resources/js/activity.js"></script>
 <title>tsunagari</title>
 </head>
 <body>
@@ -17,10 +19,16 @@
     <main>
 
         <section class="movecontents">
-            <div class="컨텐츠1">이미지 1</div>
-            <div class="컨텐츠1">이미지 2</div>
-            <div class="컨텐츠1">이미지 3</div>
-        </section>
+            <div>
+            <a href="#"><img src="#"></a>
+            </div>
+            <div>
+            <a href="#"><img src="#"></a>
+            </div>
+            <div>
+            <a href="#"><img src="#"></a>
+            </div>
+            </section>
 
         <!--카테고리 나열 칸-->
         <section class="category">
@@ -54,11 +62,12 @@
                 <h3>카테고리7</h3>
             </div>
             <div class="categorywon">
-                <a href="#"><img src="" class="categoryImg"></a>
+                <a href="/categories"><img src="" class="categoryImg"></a>
                 <h3>전체보기</h3>
             </div>
 
         </div>
+        
         </section>
         <!--플렉스 컨테이너를 이용해서 상하 좌우 간격 맞추기-->
         <article class="content">
@@ -77,7 +86,6 @@
                 <img src="#" alt="츠나가리"><br>
                 <span>제작 팀 : 202호</span><br>
                 <span>CopyWrite 2024. cocoder. All Rights Reserved.</span>
-
             </p>
 
 
