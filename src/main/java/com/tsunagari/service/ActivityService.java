@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-//레퍼지토리에서 저장되어있는 애들 가져오기 -findAll()
+//찜이 많은 애들을 가져오되 내림차순 순으로 가져오기
 @Service
 public class ActivityService {
 
@@ -27,6 +27,5 @@ public class ActivityService {
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
         return activityRepository.findAllByOrderByLikecountDesc(pageable);
     }
-
 
 }

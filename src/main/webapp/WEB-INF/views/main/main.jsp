@@ -17,10 +17,16 @@
     <main>
 
         <section class="movecontents">
-            <div class="컨텐츠1">이미지 1</div>
-            <div class="컨텐츠1">이미지 2</div>
-            <div class="컨텐츠1">이미지 3</div>
-        </section>
+            <div>
+            <a href="#"><img src="#"></a>
+            </div>
+            <div>
+            <a href="#"><img src="#"></a>
+            </div>
+            <div>
+            <a href="#"><img src="#"></a>
+            </div>
+            </section>
 
         <!--카테고리 나열 칸-->
         <section class="category">
@@ -78,7 +84,6 @@
                 <img src="#" alt="츠나가리"><br>
                 <span>제작 팀 : 202호</span><br>
                 <span>CopyWrite 2024. cocoder. All Rights Reserved.</span>
-
             </p>
 
 
