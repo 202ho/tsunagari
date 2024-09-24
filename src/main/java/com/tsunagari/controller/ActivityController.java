@@ -4,11 +4,13 @@ import com.tsunagari.domain.Activity;
 import com.tsunagari.repository.ActivityRepository;
 import com.tsunagari.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -19,10 +21,36 @@ public class ActivityController {
     ActivityService activityService;
 
     @GetMapping("/activity/list")
-    public String getActivityList(@PageableDefault(size = 8) Pageable pageable, Model model) {
+    public String getActivityList(@RequestParam(defaultValue = "") String category, @RequestParam(defaultValue = "") String search, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "0") int currentPage , Model model) {
 
-        List<Activity> activityList = activityService.findAllByOrderByLikecountDesc(pageable);
-        model.addAttribute("activityList",activityList);
+
+        int pageGroupSize = 24;
+        Page<Activity> activityPage = Page.empty();
+        if(!category.isEmpty()) {
+
+        } else if(!search.isEmpty()) {
+
+        } else {
+            activityPage = activityService.getActivitiesLikecountDesc(page, pageGroupSize);
+        }
+        List<Activity> activityList = activityPage.getContent();
+        int activityCnt = activityList.size();
+        int pageSize = 8;
+        int pageCnt = activityCnt / pageSize;
+        int remain = activityCnt % pageSize;
+        if( remain == 0) pageCnt -= 1;
+        int subMax = Math.min(pageSize * (currentPage + 1), activityList.size());
+        List<Activity> subActivityList = activityList.subList( pageSize * currentPage  , subMax);
+
+
+
+
+        model.addAttribute("page",page);
+        model.addAttribute("currentPage",currentPage);
+        model.addAttribute("pageCnt",pageCnt);
+        model.addAttribute("prevDisabled", page == 0 ? "disabled" : "");
+        model.addAttribute("nextDisabled", activityPage.isLast() ? "disabled" : "");
+        model.addAttribute("activityList",subActivityList);
 
         return "/activity/list";
     }

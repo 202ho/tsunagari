@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<header class="p-3 bg-white text-dark">
+<header class="p-3 bg-white text-dark" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); margin-bottom:4px;>
 
     <div class="container-fluid">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
