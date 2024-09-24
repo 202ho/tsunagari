@@ -25,22 +25,14 @@ public class MainController {
     @Autowired
     private ActivityRepository activityRepository;
 
+    // 검색했을때 - 컨텐츠 화면으로 보내주는 기능-js
+    @Autowired
+    private CategoryService categoryService;
+
     @GetMapping("/main")
     public String getPouplarActivity(Model model){
         Activity pouplarActivity = activityRepository.findTopByOrderByLikecountDesc();
         model.addAttribute("pouplarActivity", pouplarActivity);
     return "/main/main";
     }
-
-    // 검색했을때 - 컨텐츠 화면으로 보내주는 기능-js
-    @Autowired
-    private CategoryService categoryService;
-
-    @GetMapping("/main")
-    public String getCategories(Model model){
-        List<Category> categories = categoryService.getAllCategories();
-        model.addAttribute("categories", categories);
-        return "/activity/list";
-    }
-
 }
