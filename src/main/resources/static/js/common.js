@@ -1,18 +1,7 @@
 
 $(document).ready(function() {
 
-    $('.activity-item').on('click', function(e) {
-        var activityId = $(this).data('activity-id');
-        if (activityId) {
-            var url = '/activity/detail/' + activityId;
-            window.location.href = url;
-        }
-//        else {
-//            console.error('Activity ID is not available');
-//        }
-    });
-
-
+// header 검색
      $('#button-addon2').on('click', function(e) {
             e.preventDefault();
             var searchTerm = $(this).siblings('input[type="search"]').val();
@@ -20,5 +9,16 @@ $(document).ready(function() {
             var url = '/activity/list?search=' + encodeURIComponent(searchTerm);
             window.location.href = url;
         });
+
+        // 액티비티 리스트
+            $('.activity-item').on('click', function(e) {
+                var activityId = $(this).data('activity-id');
+                if (activityId) {
+                    var url = '/activity/detail/' + activityId;
+                    window.location.href = url;
+                }
+            });
+
 });
+
 

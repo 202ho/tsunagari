@@ -30,7 +30,7 @@
                 </c:forEach>
             </div>
 
-            <nav aria-label="Page navigation ">
+            <nav aria-label="Page navigation " style="margin-top:50px;">
                 <ul class="pagination">
                     <li class="page-item ${prevDisabled}">
                         <a class="page-link" href="/activity/list?page=${page-1}&currentPage=${0}" aria-label="Previous">
