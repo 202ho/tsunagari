@@ -1,12 +1,9 @@
 package com.tsunagari.controller;
 
 import com.tsunagari.domain.Activity;
-import com.tsunagari.repository.ActivityRepository;
 import com.tsunagari.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,11 +25,12 @@ public class ActivityController {
         Page<Activity> activityPage = Page.empty();
         String title = "";
         if(!category.isEmpty()) {
-            title = category;
+            System.out.println("category => " + category);
+            title = category + " 카테고리";
             //
         } else if(!search.isEmpty()) {
-            title = search;
-            activityPage = activityService.findByTitleContaining( page, pageGroupSize, search);
+            title = search + " 검색 결과";
+            activityPage = activityService.findByTitleContainingIgnoreCase( page, pageGroupSize, search);
         } else {
             title = "인기 액티비티";
             activityPage = activityService.getActivitiesLikecountDesc(page, pageGroupSize);
@@ -47,8 +45,6 @@ public class ActivityController {
         int subMax = Math.min(pageSize * (currentPage + 1), activityList.size());
         List<Activity> subActivityList = activityList.subList( pageSize * currentPage  , subMax);
 
-
-
         model.addAttribute("title",title);
         model.addAttribute("page",page);
         model.addAttribute("currentPage",currentPage);
@@ -56,6 +52,7 @@ public class ActivityController {
         model.addAttribute("prevDisabled", page == 0 ? "disabled" : "");
         model.addAttribute("nextDisabled", activityPage.isLast() ? "disabled" : "");
         model.addAttribute("activityList",subActivityList);
+        model.addAttribute("activityCnt",activityCnt);
 
         return "activity/list";
     }
