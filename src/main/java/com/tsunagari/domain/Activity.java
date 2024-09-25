@@ -39,9 +39,11 @@ public class Activity {
     private String city;
     @Column(name = "thumbnail",nullable = false)
     private String thumbnail;
+    @Column(name = "category")
+    private String category;
 
 
-    public Activity(int id, int hostid, String title, String content, String address, Date regdate, Date enddate, int price, int likecount, int maxpeople, String keyword, String city, String thumbnail) {
+    public Activity(int id, int hostid, String title, String content, String address, Date regdate, Date enddate, int price, int likecount, int maxpeople, String keyword, String city, String thumbnail, String category) {
         this.id = id;
         this.hostid = hostid;
         this.title = title;
@@ -55,6 +57,7 @@ public class Activity {
         this.keyword = keyword;
         this.city = city;
         this.thumbnail = thumbnail;
+        this.category = category;
     }
 
     public Activity() {
@@ -111,5 +114,8 @@ public class Activity {
 
     public String getThumbnail() {
         return thumbnail;
+    }
+    public String getCategory() {
+        return category;
     }
 }

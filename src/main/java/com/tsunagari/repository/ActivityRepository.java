@@ -15,5 +15,5 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
 
     Page<Activity> findAllByOrderByLikecountDesc(Pageable pageable);
 
-    Page<Activity> findByTitleContaining(String keyword, Pageable pageable);
+    Page<Activity> findByTitleContainingIgnoreCase(String keyword, Pageable pageable);
 }
