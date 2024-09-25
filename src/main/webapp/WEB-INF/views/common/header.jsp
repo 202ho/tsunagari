@@ -13,7 +13,7 @@
 
         <div class="input-group col-12 col-lg flex-grow-1 mb-3 mb-lg-0 mx-lg-3">
           <input type="search" class="header-search-input form-control" placeholder="액티비티를 검색하세요." aria-label="Recipient's username" aria-describedby="button-addon2">
-          <button class="btn btn-outline-secondary header-search-btn'" type="button" id="button-addon2">검색</button>
+          <button class="btn btn-outline-secondary header-search-btn'" type="button" id="header-search-btn">검색</button>
         </div>
 
             <div class="text-end" style="width: 200px;">

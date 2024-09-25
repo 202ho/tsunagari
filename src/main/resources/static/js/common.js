@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
 // header 검색
-     $('#button-addon2').on('click', function(e) {
+     $('#header-search-btn').on('click', function(e) {
             e.preventDefault();
             var searchTerm = $(this).siblings('input[type="search"]').val();
             searchTerm = searchTerm.trim();
