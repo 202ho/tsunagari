@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<div class="activity-list-container">
+<div class="activity-list-container" style="padding: 10px;">
     <div class="title-box">
         <h5>${title}</h5>
     </div>

@@ -60,7 +60,7 @@ public class ActivityController {
     @GetMapping("/activity/detail/{id}")
     public String getActivityDetail(@PathVariable Long id, Model model) {
 
-        model.addAttribute("id",id);
-        return "/activity/detail";
+        model.addAttribute("id", id);
+        return "activity/detail";
     }
 }
