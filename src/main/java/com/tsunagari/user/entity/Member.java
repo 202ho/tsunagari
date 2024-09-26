@@ -54,8 +54,6 @@ public class Member implements UserDetails {
         this.password = password;
         this.nickname = nickname;
         this.ishost = ishost;
-//        this.intro = intro;
-//        this.phone = phone;
     }
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -64,12 +62,12 @@ public class Member implements UserDetails {
 
     @Override
     public String getPassword() {
-        return "password";
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return "loginId";
+        return email;
     }
 
     // 계정 만료 여부 반환

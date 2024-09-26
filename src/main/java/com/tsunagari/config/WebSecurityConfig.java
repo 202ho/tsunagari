@@ -41,11 +41,12 @@ public class WebSecurityConfig {
                         .anyRequest().permitAll() // 모든 요청을 허용
                 )
                 .formLogin(formLogin -> formLogin
-                        .loginPage("/signin")
-                        .defaultSuccessUrl("/main") // 로그인 성공 후 이동할 URL
+                        .loginPage("/login")
+                        .loginProcessingUrl("/login-process")
+                        .defaultSuccessUrl("/activity/list") // 로그인 성공 후 이동할 URL
                 )
                 .logout(logout -> logout
-                        .logoutSuccessUrl("/main") // 로그아웃 성공 후 이동할 URL
+                        .logoutSuccessUrl("/login") // 로그아웃 성공 후 이동할 URL
                         .invalidateHttpSession(true) // 로그아웃 후 세션 삭제
                 )
                 .csrf(AbstractHttpConfigurer::disable); // CSRF 비활성화
