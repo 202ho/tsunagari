@@ -1,7 +1,7 @@
 package com.tsunagari.config;
 
-import com.tsunagari.service.UserDetailService;
-import lombok.RequiredArgsConstructor;
+import com.tsunagari.user.service.UserDetailService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,10 +20,10 @@ import static org.springframework.boot.autoconfigure.security.servlet.PathReques
 
 @Configuration
 @EnableWebSecurity
-@RequiredArgsConstructor
 public class WebSecurityConfig {
 
-    private final UserDetailService userService;
+    @Autowired
+    private UserDetailService userService;
 
     // 스프링 시큐리티 기능 비활성화 지정
     @Bean

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/docHead.jsp" %>
 <link href="/resources/css/auth.css" rel="stylesheet" type="text/css">
+<script src="/resources/js/auth.js"></script>
 </head>
 
 <body>
@@ -10,15 +11,17 @@
     <div class="auth-form-layout">
         <h4 class="m-5">회원가입</h4>
 
-        <form action="/register" name="regForm" method="post" class="auth-form">
+        <div  class="auth-form">
             <div class="input-group mb-3">
-                <input type="email" class="form-control auth-input" name="email" placeholder="이메일">
-                <button class="btn btn-outline-secondary" type="button" style="font-size:14px;">중복체크</button>
+                <input type="email" id="r-email"  class="form-control auth-input" placeholder="이메일">
+                <button class="btn btn-outline-secondary" type="button" id="register-email-check-btn" style="font-size:14px;">중복체크</button>
             </div>
+
+            <input type="hidden" id="email-check-result" value="N">
 
 
             <div class="input-group  mb-3">
-                <input type="password" class="form-control auth-input" id="r-password1" name="password" placeholder="비밀번호">
+                <input type="password" class="form-control auth-input" id="r-password1"  placeholder="비밀번호">
             </div>
 
 
@@ -28,13 +31,13 @@
 
 
             <div class="input-group mb-3">
-                <input type="text" class="form-control auth-input" name="nickname" placeholder="닉네임">
+                <input type="text" class="form-control auth-input" id="r-nickname" placeholder="닉네임">
             </div>
 
 
-            <button type="submit" class="btn btn-primary auth-btn mt-3 w-100" style="background-color: #2E8EE5; border-color: #2E8EE5; ">시작하기!</button>
+            <button type="button" class="btn btn-primary auth-btn mt-3 w-100" id="register-btn" style="background-color: #2E8EE5; border-color: #2E8EE5; ">시작하기!</button>
 
-        </form>
+        </div>
     </div>
 
     <%@ include file="/WEB-INF/views/common/footer.jsp" %>
