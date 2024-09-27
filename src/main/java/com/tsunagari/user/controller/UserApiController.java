@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequiredArgsConstructor
 @Controller
 public class UserApiController {
-    private final UserService userService;
+    private UserService userService;
 
     @PostMapping("/user")
     public String signup(AddUserRequest request) {

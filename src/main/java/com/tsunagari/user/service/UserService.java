@@ -18,24 +18,27 @@ public class UserService {
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    public Long save(AddUserRequest dto){
-        return userRepository.save(Member.builder()
-                .email(dto.getEmail())
-                // 패스워드를 저장할 때 시큐리티를 설정하며 패스워드 인코딩용으로 등록된 빈을 사용하여 암호화한 후에 저장
-                .password(bCryptPasswordEncoder.encode(dto.getPassword()))
-                .build()).getId();
+    public Long save(AddUserRequest dto) {
+        // 패스워드를 암호화하고 Member 객체를 생성
+        Member member = new Member(
+                dto.getEmail(),
+                bCryptPasswordEncoder.encode(dto.getPassword()),
+                dto.getNickname(),
+                dto.getIshost(),
+                dto.getIntro(),
+                dto.getPhone()
+        );
+        return userRepository.save(member).getId();
     }
-
-    public Long save(RegisterRequest dto){
-        return userRepository.save(Member.builder()
-                .email(dto.getEmail())
-                .password(bCryptPasswordEncoder.encode(dto.getPassword()))
-                .nickname(dto.getNickname())
-                .ishost(0L)
-                .build()).getId();
+    public Long save(RegisterRequest dto) {
+        // 패스워드를 암호화하고 Member 객체를 생성
+        Member member = new Member(
+                dto.getEmail(),
+                bCryptPasswordEncoder.encode(dto.getPassword()),
+                dto.getNickname()
+        );
+        return userRepository.save(member).getId();
     }
-
     public Optional<Member> findByEmail(String email){
         return userRepository.findByEmail(email);
     }
