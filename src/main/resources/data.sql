@@ -33,4 +33,5 @@ INSERT INTO activity (hostid, title, content, address, regdate, enddate, price, 
 
 UPDATE activity SET thumbnail = 'https://dictionary.cambridge.org/ko/images/thumb/dog_noun_001_04904.jpg?version=6.0.31';
 
-INSERT INTO member(email, nickname, password,  ishost) VALUES('test@test.com', 'test','test', 0);
+
+INSERT INTO member(email, nickname, password, ishost, intro, phone) VALUES('test@test.com', 'test','test', 'Y', '안녕하세요', '01012344567');
