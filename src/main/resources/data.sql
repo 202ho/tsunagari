@@ -1,3 +1,4 @@
+
 INSERT INTO TEST(title) VALUES('title1');
 INSERT INTO TEST(title) VALUES('title2');
 INSERT INTO TEST(title) VALUES('title3');
@@ -24,6 +25,7 @@ INSERT INTO Category(name) VALUES('음료');
 INSERT INTO member(email, nickname, password, ishost, intro, phone) VALUES('test@test.com', 'test','test', 'Y', '안녕하세요', '01012344567');
 INSERT INTO member(email, nickname, password, ishost, intro, phone) VALUES('test2@test2.com', 'test','test', 'Y', '안녕하세요', '01012344567');
 INSERT INTO member(email, nickname, password, ishost, intro, phone) VALUES('test3@test3.com', 'test','test', 'Y', '안녕하세요', '01012344567');
+
 
 INSERT INTO activity (hostid, title, content, address, regdate, enddate, price, likecount, maxpeople, keyword, city, thumbnail, category, x, y) VALUES
 (3, '3 Hiking Adventure', 'Join us for a fun hiking trip.', '123 Mountain Rd', '2024-09-01', '2024-09-02', 5000, 1, 10, 'hiking', 'Denver', 'thumbnail1.jpg', '아웃도어', '33.450701', '126.570667'),
