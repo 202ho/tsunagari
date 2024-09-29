@@ -1,0 +1,63 @@
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .activity-info {
+            width: 45%;
+        }
+
+        .activity-info h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .activity-info p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .activity-info img {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .reservation-info {
+            width: 50%;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+
+        .reservation-info h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .calendar {
+            margin-bottom: 20px;
+        }
+
+        .reservation-summary {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .reservation-summary p {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            background-color: #ff5a5f;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>

@@ -78,19 +78,6 @@
         </article>
 
     </main>
-
-    <footer>
-        <nav>
-            <p>
-                <!--로고이미지 + 내용-->
-                <img src="#" alt="츠나가리"><br>
-                <span>제작 팀 : 202호</span><br>
-                <span>CopyWrite 2024. cocoder. All Rights Reserved.</span>
-            </p>
-
-
-        </nav>
-    </footer>
-
+    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>
