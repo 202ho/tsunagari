@@ -30,7 +30,7 @@ public class TestController {
         System.out.println(testList.get(1).toString());
         System.out.println(testList.get(2).toString());
         model.addAttribute("testList",testList);
-        return "/test/hello"; // hello.jsp
+        return "test/hello"; // hello.jsp
     }
 
     @GetMapping("/index")
