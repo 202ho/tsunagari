@@ -4,8 +4,7 @@
 
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
-    <h4>상세페이지</h4>
-    <h4>id : ${id} </h4>
+    <h2>게스트의 예약내역</h2>
     <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 

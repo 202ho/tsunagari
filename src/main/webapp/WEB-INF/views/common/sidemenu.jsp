@@ -20,10 +20,10 @@
 
                     <li class="nav-item nav-item-divider"></li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#">마이페이지</a>
+                        <a class="nav-link " aria-current="page" href="/guest/mypage">마이페이지</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#">예약 내역</a>
+                        <a class="nav-link " aria-current="page" href="/guest/reservation">예약 내역</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -31,10 +31,10 @@
                             호스트 관리
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item side-menu-dropdown-item" href="#">호스트 신청</a></li>
-                            <li><a class="dropdown-item side-menu-dropdown-item" href="#">액티비티 관리</a></li>
-                            <li><a class="dropdown-item side-menu-dropdown-item" href="#">예약 관리</a></li>
-                            <li><a class="dropdown-item side-menu-dropdown-item" href="#">정산 관리</a></li>
+                            <li><a class="dropdown-item side-menu-dropdown-item" href="/host/register">호스트 신청</a></li>
+                            <li><a class="dropdown-item side-menu-dropdown-item" href="/host/activity">액티비티 관리</a></li>
+                            <li><a class="dropdown-item side-menu-dropdown-item" href="/host/reservation">예약 관리</a></li>
+                            <li><a class="dropdown-item side-menu-dropdown-item" href="/host/revenue">정산 관리</a></li>
                         </ul>
                     </li>
 
