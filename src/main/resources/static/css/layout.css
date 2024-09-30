@@ -141,6 +141,7 @@ margin-bottom:0px;
     justify-content: center;
     align-items: flex-start;
     gap: 6px;
+    padding-left: 10px;
 }
 
 .nav-item-divider {
@@ -148,10 +149,19 @@ margin-bottom:0px;
     height: 2px;
     background-color :lightgray;
     margin-bottom: 10px;
+    cursor: default;
 }
 
 .navbar-nav {
     gap: 10px;
+}
+
+.nav-item {
+    padding-left: 10px;
+}
+
+.nav-item:not(.dropdown):not(.nav-item-divider):hover {
+    background-color: rgb(248, 249, 250);
 }
 
 .side-menu-dropdown-item {
