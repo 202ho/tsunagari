@@ -5,6 +5,7 @@ import com.tsunagari.user.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
@@ -12,12 +13,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@RequiredArgsConstructor
+
 @Controller
 public class UserApiController {
+
+    @Autowired
     private UserService userService;
 
-    @PostMapping("/user")
+    @PostMapping("/signup")
     public String signup(AddUserRequest request) {
         userService.save(request); // 회원 가입 메서드 호출
         return "redirect:/signin"; // 회원 가입이 완료된 이후에 로그인 페이지로 이동

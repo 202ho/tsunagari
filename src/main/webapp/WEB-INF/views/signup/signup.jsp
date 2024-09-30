@@ -10,7 +10,7 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<form action="/signin" name="regForm" method="post" class="signup-form" onsubmit="validateForm(event)">
+<form action="/signup" name="regForm" method="post" class="signup-form" onsubmit="validateForm(event)">
     <input type="hidden" name="csrf_token" value="${sessionScope.csrfToken}" />
     <input type="hidden" name="phone" value="">
 	<table>
