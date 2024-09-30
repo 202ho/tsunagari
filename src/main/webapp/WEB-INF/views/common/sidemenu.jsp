@@ -32,7 +32,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item side-menu-dropdown-item" href="#">호스트 신청</a></li>
-                            <li><a class="dropdown-item side-menu-dropdown-item" href="#">액티비티 등록</a></li>
+                            <li><a class="dropdown-item side-menu-dropdown-item" href="#">액티비티 관리</a></li>
                             <li><a class="dropdown-item side-menu-dropdown-item" href="#">예약 관리</a></li>
                             <li><a class="dropdown-item side-menu-dropdown-item" href="#">정산 관리</a></li>
                         </ul>
