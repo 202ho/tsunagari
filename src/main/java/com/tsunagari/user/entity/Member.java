@@ -2,7 +2,6 @@ package com.tsunagari.user.entity;
 
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -32,28 +31,36 @@ public class Member implements UserDetails {
     private String password;
 
     // 자기소개
-//    @Column(name = "intro")
-//    private String intro;
+    @Column(name = "intro")
+    private String intro;
 
-//    @Column(name = "phone", nullable = false)
-//    private String phone;
+    @Column(name = "phone", nullable = false)
+    private String phone;
 
     @Column(name = "email", nullable = false,  unique = true)
     private String email;
 
     // 호스트 여부
     @Column(name = "ishost")
-    private Long ishost;
+    private String ishost;
 
     public Member() {
     }
 
-    @Builder
-    public Member(String email, String password, String nickname, Long ishost) {
+
+    public Member(String email, String password, String nickname, String ishost) {
         this.email = email;
         this.password = password;
         this.nickname = nickname;
         this.ishost = ishost;
+        this.intro = intro;
+        this.phone = phone;
+    }
+
+    public Member(String email, String password, String nickname) {
+        this.email = email;
+        this.password = password;
+        this.nickname = nickname;
     }
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -62,12 +69,12 @@ public class Member implements UserDetails {
 
     @Override
     public String getPassword() {
-        return password;
+        return "password";
     }
 
     @Override
     public String getUsername() {
-        return email;
+        return "email";
     }
 
     // 계정 만료 여부 반환
@@ -94,4 +101,7 @@ public class Member implements UserDetails {
         return true; // true -> 사용가능
     }
 
+    public Long getId() {
+        return id;
+    }
 }
