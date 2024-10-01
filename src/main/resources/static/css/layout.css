@@ -84,8 +84,8 @@ margin-bottom:0px;
 .activity-item-box {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    width: 800px;
+    justify-content: flex-start;
+    width: 788px;
     gap: 16px;
     padding-left: 10px;
     padding-right: 10px;
@@ -130,9 +130,9 @@ margin-bottom:0px;
     width:100%;
     font-weight: bold;
     margin-top: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
 .sidemenu-header-profile {

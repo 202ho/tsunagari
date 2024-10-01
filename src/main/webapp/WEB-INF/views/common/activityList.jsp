@@ -2,7 +2,10 @@
 
 <div class="activity-list-container" style="padding: 10px;">
     <div class="title-box">
-        <h5>${title}</h5>
+        <h5 style="margin:0;">${title}</h5>
+        <c:if test="${newActivity}">
+            <button type="button" class="btn btn-primary" onclick="location.href='/activity/new'" style="background-color: #2E8EE5; border-color: #2E8EE5;">등록</button>
+        </c:if>
     </div>
 
     <c:if test="${activityCnt != 0}">
@@ -33,19 +36,19 @@
             <nav aria-label="Page navigation " style="margin-top:50px;">
                 <ul class="pagination">
                     <li class="page-item ${prevDisabled}">
-                        <a class="page-link" href="/activity/list?page=${page-1}&currentPage=${0}" aria-label="Previous">
+                        <a class="page-link" href="${pageLink}?page=${page-1}&currentPage=${0}" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
                     <c:forEach var="pageIdx" begin="0" end="${pageCnt}">
                         <c:set var="active" value="active" />
                         <c:set var="deactivate" value=" " />
-                        <li class="page-item"><a class="page-link ${pageIdx == currentPage ? active : deactivate}" href="/activity/list?page=${page}&currentPage=${pageIdx}">
+                        <li class="page-item"><a class="page-link ${pageIdx == currentPage ? active : deactivate}" href="${pageLink}?page=${page}&currentPage=${pageIdx}">
                                 ${pageIdx+1 +(page*3)}</a>
                         </li>
                     </c:forEach>
                     <li class="page-item ${nextDisabled}">
-                        <a class="page-link" href="/activity/list?page=${page+1}&currentPage=${0}" aria-label="Next">
+                        <a class="page-link" href="${pageLink}?page=${page+1}&currentPage=${0}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
