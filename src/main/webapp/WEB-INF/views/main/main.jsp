@@ -9,29 +9,34 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/layout.css">
 <link rel="stylesheet" href="resources/css/main.css">
+<link rel="stylesheet" href="resources/css/slick.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="/resources/js/activity.js"></script>
+<script src="/resource/js/slideSlick.js"></script>
+
 <title>tsunagari</title>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
+    <div class="activity-layout" style="display: flex; justify-content: center;">
+        <main>
+        <div class ="slick-slider">
 
-    <main>
-      <div class="activity-layout" style="display: flex; justify-content: center;">
-  <section class="movecontents">
-   <div class="row">
-       <c:forEach var="activity" items="${activities}" varStatus="status">
-           <c:if test="${status.index < 3}">
-               <div class="col-md-4">
-                   <a href="#">
-                       <img src="${activity.thumbnail}" alt="${activity.title}" class="img-thumbnail">
-                   </a>
-                   <p>${activity.title}</p>
-               </div>
-           </c:if>
-       </c:forEach>
-   </div>
-  </section>
+           <div class ="slick-slider-content">
+           <a href = "#">
+           <img id="slider-content" src="${activity.thumbnail}" alt="인기카테고리1">${activity.title}</a>
+           </div>
+
+           <div class ="slick-slider-content">
+               <a href = "#">
+               <img id="slider-content" src="${activity.thumbnail}" alt="인기카테고리2">${activity.title}</a>
+           </div>
+
+           <div class ="slick-slider-content">
+               <a href = "#">
+               <img id="slider-content" src="${activity.thumbnail}" alt="인기카테고리3">${activity.title}</a>
+           </div>
+
+        </div>
 
 
         <!--카테고리 나열 칸-->
@@ -70,15 +75,12 @@
                 <h3>전체보기</h3>
             </div>
 
-        </div>
-
         </section>
         <!--플렉스 컨테이너를 이용해서 상하 좌우 간격 맞추기-->
-/*
+
     <c:if test="${activityCnt != 0}">
          <div class="activity-item-box">
                 <c:forEach var="activityItem" items="${activityList}">
-
                     <div class="activity-item" data-activity-id="${activityItem.id}">
                         <div class="activity-item-img-box">
                             <div class="activity-item-img-box-layout">
@@ -86,10 +88,10 @@
                                 <div class="activity-item-like" data-activity-id="${activityItem.id}" ></div>
                             </div>
                         </div>
-  */
-
-        </div>
-    </main>
+                    </c:forEach>
+                 </c:if>
+          </main>
+    </div>
     <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>
