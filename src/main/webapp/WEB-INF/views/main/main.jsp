@@ -17,48 +17,52 @@
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
     <main>
+      <div class="activity-layout" style="display: flex; justify-content: center;">
+  <section class="movecontents">
+   <div class="row">
+       <c:forEach var="activity" items="${activities}" varStatus="status">
+           <c:if test="${status.index < 3}">
+               <div class="col-md-4">
+                   <a href="#">
+                       <img src="${activity.thumbnail}" alt="${activity.title}" class="img-thumbnail">
+                   </a>
+                   <p>${activity.title}</p>
+               </div>
+           </c:if>
+       </c:forEach>
+   </div>
+  </section>
 
-        <section class="movecontents">
-            <div>
-            <a href="#"><img src="#"></a>
-            </div>
-            <div>
-            <a href="#"><img src="#"></a>
-            </div>
-            <div>
-            <a href="#"><img src="#"></a>
-            </div>
-            </section>
 
         <!--카테고리 나열 칸-->
         <section class="category">
 
             <div class="categorywon">
-                <a href="#"><img src="" class="categoryImg"></a>
+                <a href="/categories/${id}"><img src="${categories.image}" class="categoryImg"></a>
                 <h3>카테고리1</h3>
             </div>
             <div class="categorywon">
-                <a href="#"><img src="" class="categoryImg"></a>
+                <a href="/categories/${id}"><img src="" class="categoryImg"></a>
                 <h3>카테고리2</h3>
             </div>
             <div class="categorywon">
-                <a href="#"><img src="" class="categoryImg"></a>
+                <a href="/categories/${id}"><img src="" class="categoryImg"></a>
                 <h3>카테고리3</h3>
             </div>
             <div class="categorywon">
-                <a href="#"><img src="" class="categoryImg"></a>
+                <a href="/categories/${id}"><img src="" class="categoryImg"></a>
                 <h3>카테고리4</h3>
             </div>
             <div class="categorywon">
-                <a href="#"><img src="" class="categoryImg"></a>
+                <a href="/categories/${id}"><img src="" class="categoryImg"></a>
                 <h3>카테고리5</h3>
             </div>
             <div class="categorywon">
-                <a href="#"><img src="" class="categoryImg"></a>
+                <a href="/categories/${id}"><img src="" class="categoryImg"></a>
                 <h3>카테고리6</h3>
             </div>
             <div class="categorywon">
-                <a href="#"><img src="" class="categoryImg"></a>
+                <a href="/categories/${id}"><img src="" class="categoryImg"></a>
                 <h3>카테고리7</h3>
             </div>
             <div class="categorywon">
@@ -67,16 +71,24 @@
             </div>
 
         </div>
-        
+
         </section>
         <!--플렉스 컨테이너를 이용해서 상하 좌우 간격 맞추기-->
-        <article class="content">
-            <div class="컨텐츠2"><a href=""></a></div>
-            <div class="컨텐츠2">컨텐츠 2</div>
-            <div class="컨텐츠2">컨텐츠 3</div>
-            <div class="컨텐츠2">컨텐츠 4</div>
-        </article>
+/*
+    <c:if test="${activityCnt != 0}">
+         <div class="activity-item-box">
+                <c:forEach var="activityItem" items="${activityList}">
 
+                    <div class="activity-item" data-activity-id="${activityItem.id}">
+                        <div class="activity-item-img-box">
+                            <div class="activity-item-img-box-layout">
+                                <img src="${activityItem.thumbnail}">
+                                <div class="activity-item-like" data-activity-id="${activityItem.id}" ></div>
+                            </div>
+                        </div>
+  */
+
+        </div>
     </main>
     <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

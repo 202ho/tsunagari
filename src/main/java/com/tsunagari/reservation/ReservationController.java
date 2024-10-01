@@ -24,7 +24,7 @@ public class ReservationController {
 
         Activity activity = reservationService.getActivityById(activityId);
         Member member = reservationService.getmemberById(memberId);
-        model.addAttribute("activity",activity);
+        model.addAttribute("activityId",activity);
         model.addAttribute("memberId", member);
         return "reservation/form";
     }
