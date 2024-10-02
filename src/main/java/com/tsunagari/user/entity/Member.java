@@ -48,7 +48,7 @@ public class Member implements UserDetails {
     }
 
 
-    public Member(String email, String password, String nickname, String ishost) {
+    public Member(String email, String password, String nickname, String ishost, String intro, String phone) {
         this.email = email;
         this.password = password;
         this.nickname = nickname;

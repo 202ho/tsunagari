@@ -12,7 +12,7 @@
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
-<form action="#" method="post" align="center" class="signin-form">
+<form action="/signin" method="post" align="center" class="signin-form">
 
 	<table>
 		<tr>
@@ -23,13 +23,13 @@
 		<td align="left"> Email </td>
 		</tr>
 		<tr>
-			<td><input type="text" name="id" class="signin-input signin-input"></td>
+			<td><input type="text" name="email" class="signin-input signin-input"></td>
 		</tr>
 		<tr>
 			<td align="left" > Password </td>
 		</tr>
 		<tr>
-			<td><input type="password" name="pass" class="signin-input signin-input"></td>
+			<td><input type="password" name="password" class="signin-input signin-input"></td>
 		</tr>
 
 		<tr>
