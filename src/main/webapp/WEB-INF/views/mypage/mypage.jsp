@@ -6,7 +6,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <title>회원가입</title>
 <link href="resources/css/signup.css" rel="stylesheet" type="text/css">
-<link href="resources/css/mainpage.css" rel="stylesheet" type="text/css">
+<link href="resources/css/mypage.css" rel="stylesheet" type="text/css">
 <script src="resources/js/signup.js"></script>
 </head>
 <body>

@@ -69,12 +69,12 @@ public class Member implements UserDetails {
 
     @Override
     public String getPassword() {
-        return "password";
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return "email";
+        return email;
     }
 
     // 계정 만료 여부 반환

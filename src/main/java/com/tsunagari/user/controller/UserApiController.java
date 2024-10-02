@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Optional;
 
@@ -40,30 +41,31 @@ public class UserApiController {
     }
 
     @PostMapping("/signin")
-    public String signin(@RequestParam String email, @RequestParam String password) {
+    public String signin(@RequestParam String email, @RequestParam String password, RedirectAttributes redirectAttributes) {
         try {
-            // 사용자의 정보를 DB에서 가져옵니다.
+            password = password.trim();
             Optional<Member> optionalMember = userRepository.findByEmail(email);
 
-            // 사용자가 존재하지 않는 경우 처리
             if (optionalMember.isEmpty()) {
-                return "redirect:/signin?error"; // 사용자가 존재하지 않을 경우
+                redirectAttributes.addFlashAttribute("errorMessage", "존재하지 않는 아이디입니다."); // 존재하지 않는 아이디
+                return "redirect:/signin";
             }
 
-            Member member = optionalMember.get(); // 사용자 정보 가져오기
+            Member member = optionalMember.get();
 
-            // 저장된 해시와 입력된 비밀번호를 비교합니다.
             if (!bCryptPasswordEncoder.matches(password, member.getPassword())) {
-                return "redirect:/signin?error"; // 비밀번호 불일치
+                redirectAttributes.addFlashAttribute("errorMessage", "비밀번호가 틀렸습니다."); // 비밀번호 불일치
+                return "redirect:/signin";
             }
 
-            // 인증이 성공하면 인증 객체를 설정합니다.
             Authentication authentication = new UsernamePasswordAuthenticationToken(email, password);
             SecurityContextHolder.getContext().setAuthentication(authentication);
 
             return "redirect:/main"; // 로그인 성공 후 리다이렉트
         } catch (Exception e) {
-            return "redirect:/signin?error"; // 로그인 실패 시 리다이렉트
+            e.printStackTrace();
+            redirectAttributes.addFlashAttribute("errorMessage", "로그인 중 오류가 발생했습니다."); // 로그인 실패 시 리다이렉트
+            return "redirect:/signin";
         }
     }
 

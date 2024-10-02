@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .signin-form{
 	padding-top:200px;
     display: flex;
@@ -37,3 +36,23 @@
 	transform: translateY(2px);
 	box-shadow:none;
 }
+#error-message {
+    display: none;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    margin: 15px auto;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    position: absolute;
+    top: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    opacity: 1;
+}
+
+

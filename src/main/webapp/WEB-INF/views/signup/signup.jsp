@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/common/docHead.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <title>회원가입</title>
 <link href="resources/css/signup.css" rel="stylesheet" type="text/css">
 <script src="resources/js/signup.js"></script>
@@ -16,14 +16,14 @@
 	<table>
 		<tr>
 			<td align="center"></td>
-
 		</tr>
 		<tr>
 		<td align="left"> Email </td>
 		</tr>
 		<tr>
-			<td><input type="text" name="email" class="signup-input"> <input type="button" value="중복확인" class="signup-input signup-input-button"></td>
+			<td><input type="text" name="email" class="signup-input"> <input type="button" value="중복확인" id="register-email-check-btn" class="signup-input signup-input-button"></td>
 		</tr>
+		<input type="hidden" id="email-check-result" value="N">
 		<tr>
 			<td align="left" > Password </td>
 		</tr>
