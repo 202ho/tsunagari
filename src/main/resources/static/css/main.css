@@ -21,19 +21,10 @@
     background-color : gray;
     overflow: hidden;
     position: relative;
-
     display: flex;
-    justify-content: space-between;
-    margin: 10px;
-    }
-
-    h3{
-    position : absolute;
-    font-size : 5px;
-    display : flex;
     justify-content: center;
-    align-items :center;
-
+    align-items : center;
+    margin: 10px;
     }
 
     .categoryImg {
@@ -42,5 +33,7 @@
     border-radius: 70%;
     object-fit: cover;
     position : absolute;
+    top :0;
+    left : 0;
     }
 

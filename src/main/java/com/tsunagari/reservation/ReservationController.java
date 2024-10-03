@@ -5,10 +5,7 @@ import com.tsunagari.user.entity.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 
@@ -18,9 +15,12 @@ public class ReservationController {
     @Autowired
     ReservationService reservationService;
 
+
+//    @RequestParam("activityId")
+//    @RequestParam("memberId")
     @GetMapping("/reservation/form")
-    public String showResrvationForm(@RequestParam("activityId")Long activityId,
-                                     @RequestParam("memberId")Long memberId, Model model){
+    public String showResrvationForm(Long activityId,
+                                     Long memberId, Model model){
 
         Activity activity = reservationService.getActivityById(activityId);
         Member member = reservationService.getmemberById(memberId);
@@ -28,7 +28,7 @@ public class ReservationController {
         model.addAttribute("memberId", member);
         return "reservation/form";
     }
-
+/*
     @PostMapping("/reservation/submit")
     public String submitReservation(@RequestParam("activityId") Long activityId,
                                     @RequestParam("memberId")Long memberId,
@@ -41,6 +41,6 @@ public class ReservationController {
         }
         return "redirect:/reservation/history";
     }
-
+*/
 
 }

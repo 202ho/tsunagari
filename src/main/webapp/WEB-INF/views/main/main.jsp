@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +11,9 @@
 <link rel="stylesheet" href="resources/css/layout.css">
 <link rel="stylesheet" href="resources/css/main.css">
 <link rel="stylesheet" href="resources/css/slick.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/resource/js/slideSlick.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 
 <title>tsunagari</title>
 </head>
@@ -25,7 +27,7 @@
            <a href = "#">
            <img id="slider-content" src="${activity.thumbnail}" alt="인기카테고리1">${activity.title}</a>
            </div>
-
+<!--
            <div class ="slick-slider-content">
                <a href = "#">
                <img id="slider-content" src="${activity.thumbnail}" alt="인기카테고리2">${activity.title}</a>
@@ -35,48 +37,34 @@
                <a href = "#">
                <img id="slider-content" src="${activity.thumbnail}" alt="인기카테고리3">${activity.title}</a>
            </div>
-
+-->
         </div>
-
 
         <!--카테고리 나열 칸-->
         <section class="category">
-
             <div class="categorywon">
-                <a href="/categories/${id}"><img src="${categories.image}" class="categoryImg"></a>
-                <h3>카테고리1</h3>
+                <a class="categories-search-btn" href="#" data-name="${activity.name}">
+                <img src="${categories.image}" class="categoryImg">요가</a>
             </div>
             <div class="categorywon">
-                <a href="/categories/${id}"><img src="" class="categoryImg"></a>
-                <h3>카테고리2</h3>
-            </div>
+                 <a class="categories-search-btn" href="/activity/list?search=등산" data-name="Hiking Adventure">
+                 <img src="${categories.image}" class="categoryImg">등산</a>
+             </div>
+             <div class="categorywon">
+                  <a class="categories-search-btn" href="/activity/list?search=요가" data-name="Yoga Retreat">
+                  <img src="${categories.image}" class="categoryImg">요가</a>
+             </div>
+             <div class="categorywon">
+                  <a class="categories-search-btn" href="/activity/list?search=와인" data-name="Wine Tasting tour">
+                  <img src="${categories.image}" class="categoryImg">와인</a>
+             </div>
             <div class="categorywon">
-                <a href="/categories/${id}"><img src="" class="categoryImg"></a>
-                <h3>카테고리3</h3>
-            </div>
-            <div class="categorywon">
-                <a href="/categories/${id}"><img src="" class="categoryImg"></a>
-                <h3>카테고리4</h3>
-            </div>
-            <div class="categorywon">
-                <a href="/categories/${id}"><img src="" class="categoryImg"></a>
-                <h3>카테고리5</h3>
-            </div>
-            <div class="categorywon">
-                <a href="/categories/${id}"><img src="" class="categoryImg"></a>
-                <h3>카테고리6</h3>
-            </div>
-            <div class="categorywon">
-                <a href="/categories/${id}"><img src="" class="categoryImg"></a>
-                <h3>카테고리7</h3>
-            </div>
-            <div class="categorywon">
-                <a href="/categories"><img src="" class="categoryImg"></a>
+                <a href="/categories">
+                <img src="${categories.image}" class="categoryImg">전체보기</a>
                 <h3>전체보기</h3>
             </div>
 
         </section>
-        <!--플렉스 컨테이너를 이용해서 상하 좌우 간격 맞추기-->
 
     <c:if test="${activityCnt != 0}">
          <div class="activity-item-box">
