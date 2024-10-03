@@ -84,5 +84,32 @@ $(document).ready(function() {
 
     });
 
+ // 로그인
+//    $('#login-btn').on('click', function(e) {
+//        e.preventDefault();
+//        var email = $('#l-email').val().trim();
+//        var password = $('#l-password').val().trim();
+//
+//        $('#login-btn').prop('disabled', true);
+//        console.log("logn click -> " , email);
+//        console.log("logn click -> " , password);
+//
+//        // 로그인
+//        $.ajax({
+//            url: '/login-process',
+//            type: 'POST',
+//            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+//            data: {
+//                username: email,
+//                password: password
+//            },
+//            success: function(response) {
+//                console.log("회원가입 성공, 로그인페이지로 이동합니다.");
+//                window.location.href = "/login";
+//            }
+//        });
+//
+//    });
+
 
 });

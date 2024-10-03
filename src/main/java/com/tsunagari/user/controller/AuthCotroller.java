@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AuthCotroller {
 
-
-
     @GetMapping("/login")
     public String getLogin() {
 
@@ -18,4 +16,11 @@ public class AuthCotroller {
     public String getRegister() {
         return "auth/register";
     }
+
+//    @GetMapping("/logout")
+//    public String logout(HttpServletRequest request, HttpServletResponse response) {
+//        new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
+//
+//        return "redirect:/register";
+//    }
 }

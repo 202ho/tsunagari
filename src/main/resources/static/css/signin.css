@@ -1,12 +1,11 @@
-@charset "UTF-8";
-form{
+.signin-form{
 	padding-top:200px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-input{
+.signin-input{
 	border:1px solid gray;
 	box-sizing: border-box;
 	border-radius: 7px;
@@ -17,23 +16,43 @@ input{
 
 }
 
-input[type="submit"]{
+.signin-input-submit{
 	color: #ffffff;
 	background-color: #3da5ff;
 	margin:5px;
 
 }
 
-input[type="button"]{
+.signin-input-button{
 	background-color: #ffffff;
 	margin:5px;
 }
-input[type="submit"]:active{
+.signin-input-submit:active{
 	transform: translateY(2px);
 	box-shadow:none;
 }
 
-input[type="button"]:active{
+.signin-input-button:active{
 	transform: translateY(2px);
 	box-shadow:none;
 }
+#error-message {
+    display: none;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    margin: 15px auto;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    position: absolute;
+    top: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    opacity: 1;
+}
+
+

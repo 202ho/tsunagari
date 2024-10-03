@@ -18,7 +18,7 @@ public class UserDetailService implements UserDetailsService {
     @Override
     public Member loadUserByUsername(String email) {
         return userRepository.findByEmail(email)
-                .orElseThrow(() -> new IllegalArgumentException((email))); // UserRepository의 Optional<User>가 존재하지 않을경우
+                .orElseThrow(() -> new IllegalArgumentException(("User not found with email: " + email))); // UserRepository의 Optional<User>가 존재하지 않을경우
                                                                             // 예외 메세지 IllegalArgumentException((email)) 발생
     }
 }
