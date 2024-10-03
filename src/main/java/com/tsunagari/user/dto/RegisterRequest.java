@@ -37,4 +37,5 @@ public class RegisterRequest {
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
+
 }
