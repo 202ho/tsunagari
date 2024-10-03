@@ -21,7 +21,7 @@ public class ActivityController {
     @GetMapping("/activity/list")
     public String getActivityList(@RequestParam(defaultValue = "") String category, @RequestParam(defaultValue = "") String search, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "0") int currentPage , Model model) {
 
-        int pageGroupSize = 24;
+        int pageGroupSize = 40;
         Page<Activity> activityPage = Page.empty();
         String title = "";
         if(!category.isEmpty()) {
@@ -53,6 +53,7 @@ public class ActivityController {
         model.addAttribute("nextDisabled", activityPage.isLast() ? "disabled" : "");
         model.addAttribute("activityList",subActivityList);
         model.addAttribute("activityCnt",activityCnt);
+        model.addAttribute("pageLink","/activity/list");
 
         return "activity/list";
     }
@@ -62,5 +63,12 @@ public class ActivityController {
 
         model.addAttribute("id", id);
         return "activity/detail";
+    }
+
+    @GetMapping("/activity/new")
+    public String getNewActivity() {
+
+
+        return "activity/new";
     }
 }

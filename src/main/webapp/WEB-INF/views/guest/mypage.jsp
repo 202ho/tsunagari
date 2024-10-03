@@ -1,29 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/docHead.jsp" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>회원가입</title>
-<link href="resources/css/signup.css" rel="stylesheet" type="text/css">
-<script src="resources/js/signup.js"></script>
+<link href="/resources/css/signup.css" rel="stylesheet" type="text/css">
+<link href="/resources/css/mypage.css" rel="stylesheet" type="text/css">
+<script src="/resources/js/signup.js"></script>
 </head>
+
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<form action="/signup" name="regForm" method="post" class="signup-form" onsubmit="validateForm(event)">
+<!--
+<div class="sidebar">
+    <div class="user-info">
+        <h2>닉네임</h2>
+        <p>이메일@example.com</p>
+    </div>
+    <ul class="menu">
+        <li><a href="#member-info">회원 정보</a></li>
+        <li><a href="#reservation-history">예약 내역</a></li>
+        <li><a href="#host-application">호스트 신청</a></li>
+        <div class="logout-container">
+            <li class="small-link"><a href="/logout" >로그아웃</a></li>
+            <li class="small-link"><a href="#withdraw">회원탈퇴</a></li>
+        </div>
+    </ul>
+</div>
+-->
+<h4>마이페이지</h4>
+<form action="/memberupdete" name="regForm" method="post" class="signup-form" onsubmit="validateForm(event)">
     <input type="hidden" name="csrf_token" value="${sessionScope.csrfToken}" />
     <input type="hidden" name="phone" value="">
 	<table>
 		<tr>
 			<td align="center"></td>
+
 		</tr>
 		<tr>
 		<td align="left"> Email </td>
 		</tr>
 		<tr>
-			<td><input type="text" name="email" class="signup-input"> <input type="button" value="중복확인" id="register-email-check-btn" class="signup-input signup-input-button"></td>
+			<td><input type="text" name="email" class="signup-input"> <input type="button" value="중복확인" class="signup-input signup-input-button"></td>
 		</tr>
-		<input type="hidden" id="email-check-result" value="N">
 		<tr>
 			<td align="left" > Password </td>
 		</tr>

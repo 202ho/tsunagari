@@ -13,12 +13,11 @@ public class UserDetailService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
-
     // 사용자 email로 사용자의 정보를 가져오는 메서드
     @Override
     public Member loadUserByUsername(String email) {
         return userRepository.findByEmail(email)
-                .orElseThrow(() -> new IllegalArgumentException((email))); // UserRepository의 Optional<User>가 존재하지 않을경우
+                .orElseThrow(() -> new IllegalArgumentException(("User not found with email: " + email))); // UserRepository의 Optional<User>가 존재하지 않을경우
                                                                             // 예외 메세지 IllegalArgumentException((email)) 발생
     }
 }
