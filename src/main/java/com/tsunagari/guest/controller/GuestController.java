@@ -1,8 +1,8 @@
 package com.tsunagari.guest.controller;
 
 import com.tsunagari.activity.entity.Activity;
-import com.tsunagari.reservation.entity.Reservation;
-import com.tsunagari.reservation.service.ReservationService;
+import com.tsunagari.reservation.Reservation;
+import com.tsunagari.reservation.ReservationService;
 import com.tsunagari.user.entity.Member;
 import com.tsunagari.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

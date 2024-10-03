@@ -28,7 +28,7 @@ public class ReservationController {
         model.addAttribute("memberId", member);
         return "reservation/form";
     }
-/*
+
     @PostMapping("/reservation/submit")
     public String submitReservation(@RequestParam("activityId") Long activityId,
                                     @RequestParam("memberId")Long memberId,
@@ -39,8 +39,8 @@ public class ReservationController {
             model.addAttribute("errorMessage", "날짜 형식이 올바르지 않습니다.");
             return "reservation/form";
         }
-        return "redirect:/reservation/history";
+        return "redirect:/guest/reservation";
     }
-*/
+
 
 }

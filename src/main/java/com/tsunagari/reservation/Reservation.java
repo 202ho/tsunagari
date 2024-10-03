@@ -14,10 +14,10 @@ public class Reservation {
     @Column(name = "id", updatable = false)
     private int id;
 
-
     @ManyToOne
     @JoinColumn(name = "member_id", referencedColumnName = "id", nullable = false)// member에 id 외래키 설정
     private Member member;
+
 
     @ManyToOne
     @JoinColumn(name = "activity_id", referencedColumnName = "id", nullable = false) // 엑티비티에 id 외래키 설정
@@ -26,17 +26,12 @@ public class Reservation {
     @Column(name = "date", nullable = false)
     private Date date;
 
-    //정산금액
-    @Column(name = "money", nullable = false)
-    private int money;
-
 
     public Reservation(int id, Member member, Activity activity, Date date, int money){
     this.id =id;
     this.member =member;
     this.activity =activity;
     this.date=date;
-    this.money=money;
 
     }
 
@@ -56,7 +51,4 @@ public class Reservation {
         return date;
     }
 
-    public int getMoney() {
-        return money;
-    }
 }

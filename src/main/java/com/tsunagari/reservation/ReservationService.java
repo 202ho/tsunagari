@@ -5,6 +5,9 @@ import com.tsunagari.activity.repository.ActivityRepository;
 import com.tsunagari.user.entity.Member;
 import com.tsunagari.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -48,5 +51,11 @@ public class ReservationService {
         Reservation reservation = new Reservation(0, member, activity, new Date(),activity.getPrice());   //예약생성
         reservationRepository.save(reservation);     //예약저장
     }
+
+    public Page<Reservation> getReservationsByGuestId(Long memberId, int pageNumber, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        return reservationRepository.findByMemberIdOrderByDateDesc(memberId, pageable);
+    }
+
 
 }
