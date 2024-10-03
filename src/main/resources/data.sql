@@ -52,54 +52,7 @@ INSERT INTO activity (hostid, title, content, address, regdate, enddate, price, 
 
 UPDATE activity SET thumbnail = 'https://dictionary.cambridge.org/ko/images/thumb/dog_noun_001_04904.jpg?version=6.0.31';
 
+
+
+
 INSERT INTO member(email, nickname, password, ishost, intro, phone) VALUES('test@test.com', 'test','test', 'Y', '안녕하세요', '01012344567');
-
-INSERT INTO Reservation (guestid, activityid, hostid, title, address, date, price, thumbnail) VALUES (2, 1, 3, '3 Hiking Adventure', '123 Mountain Rd', '2024-10-04', 5000, 'thumbnail1.jpg');
-INSERT INTO Reservation (guestid, activityid, hostid, title, address, date, price, thumbnail) VALUES (2, 2, 3, '3 Cooking Class', '456 Food St', '2024-10-14', 7500, 'thumbnail2.jpg');
-INSERT INTO Reservation (guestid, activityid, hostid, title, address, date, price, thumbnail) VALUES (2, 3, 3, '3 Photography Workshop', '789 Camera Ave', '2024-10-02', 1000, 'thumbnail3.jpg');
-INSERT INTO Reservation (guestid, activityid, hostid, title, address, date, price, thumbnail) VALUES (2, 4, 3, '3 Yoga Retreat', '321 Peace Ln', '2024-10-17', 2000, 'thumbnail4.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,5 ,3 ,'3 Wine Tasting Tour','654 Vineyard Rd','2024-10-21' ,1200 ,'thumbnail5.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,6 ,2 ,'2 Hiking Adventure','123 Mountain Rd','2024-10-29' ,5000 ,'thumbnail1.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,7 ,2 ,'2 Cooking Class','456 Food St','2024-10-03' ,7500 ,'thumbnail2.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,8 ,2 ,'2 Photography Workshop','789 Camera Ave','2024-10-01' ,1000 ,'thumbnail3.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,7 ,2 ,'2 Cooking Class','456 Food St','2024-10-05' ,7500 ,'thumbnail2.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,8 ,2 ,'2 Photography Workshop','789 Camera Ave','2024-10-09' ,1000 ,'thumbnail3.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(3 ,6 ,2 ,'2 Hiking Adventure','123 Mountain Rd','2024-10-29' ,5000 ,'thumbnail1.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(3 ,7 ,2 ,'2 Cooking Class','456 Food St','2024-10-23' ,7500 ,'thumbnail2.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(3 ,8 ,2 ,'2 Photography Workshop','789 Camera Ave','2024-10-20' ,1000 ,'thumbnail3.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(3 ,7 ,2 ,'2 Cooking Class','456 Food St','2024-10-02' ,7500 ,'thumbnail2.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(3 ,8 ,2 ,'2 Photography Workshop','789 Camera Ave','2024-10-09' ,1000 ,'thumbnail3.jpg');
-
-INSERT INTO Reservation (guestid, activityid, hostid, title, address, date, price, thumbnail) VALUES (2, 1, 3, '3 Hiking Adventure', '123 Mountain Rd', '2024-09-04', 5000, 'thumbnail1.jpg');
-INSERT INTO Reservation (guestid, activityid, hostid, title, address, date, price, thumbnail) VALUES (2, 2, 3, '3 Cooking Class', '456 Food St', '2024-09-14', 7500, 'thumbnail2.jpg');
-INSERT INTO Reservation (guestid, activityid, hostid, title, address, date, price, thumbnail) VALUES (2, 3, 3, '3 Photography Workshop', '789 Camera Ave', '2024-09-02', 1000, 'thumbnail3.jpg');
-INSERT INTO Reservation (guestid, activityid, hostid, title, address, date, price, thumbnail) VALUES (2, 4, 3, '3 Yoga Retreat', '321 Peace Ln', '2024-09-17', 2000, 'thumbnail4.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,5 ,3 ,'3 Wine Tasting Tour','654 Vineyard Rd','2024-09-21' ,1200 ,'thumbnail5.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,7 ,2 ,'2 Cooking Class','456 Food St','2024-09-23' ,7500 ,'thumbnail2.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,8 ,2 ,'2 Photography Workshop','789 Camera Ave','2024-09-20' ,1000 ,'thumbnail3.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,7 ,2 ,'2 Cooking Class','456 Food St','2024-09-02' ,7500 ,'thumbnail2.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,8 ,2 ,'2 Photography Workshop','789 Camera Ave','2024-09-09' ,1000 ,'thumbnail3.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(3 ,6 ,2 ,'2 Hiking Adventure','123 Mountain Rd','2024-09-29' ,5000 ,'thumbnail1.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(3 ,7 ,2 ,'2 Cooking Class','456 Food St','2024-09-23' ,7500 ,'thumbnail2.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(3 ,8 ,2 ,'2 Photography Workshop','789 Camera Ave','2024-09-20' ,1000 ,'thumbnail3.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(3 ,7 ,2 ,'2 Cooking Class','456 Food St','2024-09-02' ,7500 ,'thumbnail2.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(3 ,8 ,2 ,'2 Photography Workshop','789 Camera Ave','2024-09-09' ,1000 ,'thumbnail3.jpg');
-
-INSERT INTO Reservation (guestid, activityid, hostid, title, address, date, price, thumbnail) VALUES (2, 1, 3, '3 Hiking Adventure', '123 Mountain Rd', '2024-08-04', 5000, 'thumbnail1.jpg');
-INSERT INTO Reservation (guestid, activityid, hostid, title, address, date, price, thumbnail) VALUES (2, 2, 3, '3 Cooking Class', '456 Food St', '2024-08-14', 7500, 'thumbnail2.jpg');
-INSERT INTO Reservation (guestid, activityid, hostid, title, address, date, price, thumbnail) VALUES (2, 3, 3, '3 Photography Workshop', '789 Camera Ave', '2024-08-02', 1000, 'thumbnail3.jpg');
-INSERT INTO Reservation (guestid, activityid, hostid, title, address, date, price, thumbnail) VALUES (2, 4, 3, '3 Yoga Retreat', '321 Peace Ln', '2024-08-17', 2000, 'thumbnail4.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,5 ,3 ,'3 Wine Tasting Tour','654 Vineyard Rd','2024-08-21' ,1200 ,'thumbnail5.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,6 ,2 ,'2 Hiking Adventure','123 Mountain Rd','2024-08-29' ,5000 ,'thumbnail1.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,7 ,2 ,'2 Cooking Class','456 Food St','2024-08-23' ,7500 ,'thumbnail2.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,8 ,2 ,'2 Photography Workshop','789 Camera Ave','2024-08-20' ,1000 ,'thumbnail3.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,7 ,2 ,'2 Cooking Class','456 Food St','2024-08-02' ,7500 ,'thumbnail2.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(2 ,8 ,2 ,'2 Photography Workshop','789 Camera Ave','2024-08-09' ,1000 ,'thumbnail3.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(3 ,6 ,2 ,'2 Hiking Adventure','123 Mountain Rd','2024-08-29' ,5000 ,'thumbnail1.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(3 ,7 ,2 ,'2 Cooking Class','456 Food St','2024-08-23' ,7500 ,'thumbnail2.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(3 ,8 ,2 ,'2 Photography Workshop','789 Camera Ave','2024-08-20' ,1000 ,'thumbnail3.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(3 ,7 ,2 ,'2 Cooking Class','456 Food St','2024-08-02' ,7500 ,'thumbnail2.jpg');
-INSERT INTO Reservation (guestid ,activityid ,hostid ,title ,address ,date ,price ,thumbnail ) VALUES(3 ,8 ,2 ,'2 Photography Workshop','789 Camera Ave','2024-08-09' ,1000 ,'thumbnail3.jpg');
-
-UPDATE Reservation SET thumbnail = 'https://dictionary.cambridge.org/ko/images/thumb/dog_noun_001_04904.jpg?version=6.0.31';
-
