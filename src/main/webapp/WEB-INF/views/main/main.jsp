@@ -1,33 +1,55 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
-
-<!DOCTYPE html>
-<html>
-<head>
-
-<meta charset="UTF-8">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<link rel="stylesheet" href="resources/css/layout.css">
-<link rel="stylesheet" href="resources/css/main.css">
-<link rel="stylesheet" href="resources/css/slick.css">
+<%@ include file="/WEB-INF/views/common/docHead.jsp" %>
+<link rel="stylesheet" href="/resources/css/layout.css">
+<link rel="stylesheet" href="/resources/css/main.css">
+<link rel="stylesheet" href="/resources/css/slick.css">
+<script src="/resources/js/activity.js"></script>
 <script src="/resource/js/slideSlick.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-
-<title>tsunagari</title>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="activity-layout" style="display: flex; justify-content: center;">
         <main>
+
+
         <div class ="slick-slider">
 
+<div id="carouselExample" class="carousel slide h-100">
+  <div class="carousel-inner h-100">
+
+    <div class="carousel-item h-100 active">
+      <img src="${acc.thumbnail}" class="d-block w-100 h-100 " alt="...">
+    </div>
+
+<c:forEach var="activityItem" items="${accList}">
+
+                <div class="carousel-item h-100 active">
+                <h2>${activityItem.title}</h2>
+                     <img src="${activityItem.thumbnail}" class="d-block w-100 h-100 " alt="...">
+                   </div>
+
+
+                </c:forEach>
+
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!--
            <div class ="slick-slider-content">
            <a href = "#">
            <img id="slider-content" src="${activity.thumbnail}" alt="인기카테고리1">${activity.title}</a>
            </div>
-<!--
+
            <div class ="slick-slider-content">
                <a href = "#">
                <img id="slider-content" src="${activity.thumbnail}" alt="인기카테고리2">${activity.title}</a>
@@ -42,6 +64,12 @@
 
         <!--카테고리 나열 칸-->
         <section class="category">
+        <c:forEach var="category" items="${categoryList}">
+            <div class="categorywon">
+                            <a class="categories-search-btn" href="#" data-name="${category.name}">
+                            <img src="${category.image}" class="categoryImg">요가</a>
+                        </div>
+        </c:forEach>
             <div class="categorywon">
                 <a class="categories-search-btn" href="#" data-name="${activity.name}">
                 <img src="${categories.image}" class="categoryImg">요가</a>
@@ -61,7 +89,6 @@
             <div class="categorywon">
                 <a href="/categories">
                 <img src="${categories.image}" class="categoryImg">전체보기</a>
-                <h3>전체보기</h3>
             </div>
 
         </section>

@@ -4,6 +4,9 @@ INSERT INTO TEST(title) VALUES('title3');
 INSERT INTO TEST(title) VALUES('title4');
 INSERT INTO TEST(title) VALUES('title5');
 
+
+
+
 INSERT INTO activity (hostid, title, content, address, regdate, enddate, price, likecount, maxpeople, keyword, city, thumbnail) VALUES
 (3, '3 Hiking Adventure', 'Join us for a fun hiking trip.', '123 Mountain Rd', '2024-09-01', '2024-09-02', 5000, 1, 10, 'hiking', 'Denver', 'thumbnail1.jpg'),
 (3, '3 Cooking Class', 'Learn to cook Italian cuisine.', '456 Food St', '2024-09-05', '2024-09-05', 7500, 2, 8, 'cooking', 'New York', 'thumbnail2.jpg'),

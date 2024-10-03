@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="ko">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/common/docHead.jsp" %>
 <link href="/resources/css/reservation.css" rel="stylesheet" type="text/css">
-
-<head>
-    <meta charset="UTF-8">
-    <title>활동 예약</title>
 
 </head>
 <body>
@@ -36,15 +32,15 @@
         <!-- Summary of the reservation details -->
         <div class="reservation-summary">
             <p>예약 시간: 오후 2시 30분</p>
-            <p>금액: ${reservation.money}원</p>
+            <p>금액: ${activity.price}원</p>
         </div>
 
         <!-- 예약 신청 버튼 -->
-        <form action="/submitReservation" method="post">
+        <form action="/reservation/submit" method="post">
             <input type="hidden" name="activityId" value="${activity.id}">
-            <input type="hidden" name="memberId" value="${reservation.member.id}">
+            <input type="hidden" name="memberId" value="${memberId}">
             <input type="hidden" name="reservationDate" value="${reservation.date}">
-            <input type="hidden" name="price" value="${reservation.money}">
+            <input type="hidden" name="price" value="${activity.price}">
             <button type="submit" class="submit-btn">신청 예약하기</button>
         </form>
     </div>

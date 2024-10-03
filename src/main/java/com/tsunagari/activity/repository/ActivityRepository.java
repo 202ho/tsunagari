@@ -6,6 +6,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ActivityRepository extends JpaRepository<Activity, Long> {
 
@@ -18,4 +20,6 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
     Page<Activity> findByTitleContainingIgnoreCase(String keyword, Pageable pageable);
 
     Page<Activity> findByHostid(Long hostid, Pageable pageable);
+
+    List<Activity> findTop4ByOrderByLikecountDesc();;
 }
