@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/common/docHead.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<title>회원가입</title>
+<title>마이페이지</title>
 <link href="resources/css/signup.css" rel="stylesheet" type="text/css">
 <link href="resources/css/mypage.css" rel="stylesheet" type="text/css">
 <script src="resources/js/signup.js"></script>
 </head>
 <body>
+<%@ include file="/WEB-INF/views/common/header.jsp" %>
 <div class="sidebar">
     <div class="user-info">
         <h2>닉네임</h2>
@@ -19,13 +20,12 @@
         <li><a href="#member-info">회원 정보</a></li>
         <li><a href="#reservation-history">예약 내역</a></li>
         <li><a href="#host-application">호스트 신청</a></li>
-        <div class="logout-container"> <!-- 로그아웃 컨테이너 추가 -->
-            <li class="small-link"><a href="#logout">로그아웃</a></li>
+        <div class="logout-container">
+            <li class="small-link"><a href="/logout" >로그아웃</a></li>
             <li class="small-link"><a href="#withdraw">회원탈퇴</a></li>
         </div>
     </ul>
 </div>
-<%@ include file="/WEB-INF/views/common/header.jsp" %>
 <form action="/memberupdete" name="regForm" method="post" class="signup-form" onsubmit="validateForm(event)">
     <input type="hidden" name="csrf_token" value="${sessionScope.csrfToken}" />
     <input type="hidden" name="phone" value="">
