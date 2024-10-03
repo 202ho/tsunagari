@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <nav class="navbar bg-body-tertiary fixed-top" style="padding:0;">
     <div class="container-fluid">
@@ -35,6 +34,16 @@
                             <li><a class="dropdown-item side-menu-dropdown-item" href="/host/activity">액티비티 관리</a></li>
                             <li><a class="dropdown-item side-menu-dropdown-item" href="/host/reservation">예약 관리</a></li>
                             <li><a class="dropdown-item side-menu-dropdown-item" href="/host/revenue">정산 관리</a></li>
+
+
+                            <sec:authorize access="hasRole('ROLE_GUEST')">
+                                <li><a class="dropdown-item side-menu-dropdown-item" href="/host/register">호스트 신청</a></li>
+                            </sec:authorize>
+                            <sec:authorize access="hasRole('ROLE_HOST')">
+                                <li><a class="dropdown-item side-menu-dropdown-item" href="/host/activity">액티비티 관리</a></li>
+                                <li><a class="dropdown-item side-menu-dropdown-item" href="/host/reservation">예약 관리</a></li>
+                                <li><a class="dropdown-item side-menu-dropdown-item" href="/host/revenue">정산 관리</a></li>
+                            </sec:authorize>
                         </ul>
                     </li>
 

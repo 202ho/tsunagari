@@ -21,7 +21,7 @@ public class ActivityController {
     @GetMapping("/activity/list")
     public String getActivityList(@RequestParam(defaultValue = "") String category, @RequestParam(defaultValue = "") String search, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "0") int currentPage , Model model) {
 
-        int pageGroupSize = 24;
+        int pageGroupSize = 40;
         Page<Activity> activityPage = Page.empty();
         String title = "";
         if(!category.isEmpty()) {
