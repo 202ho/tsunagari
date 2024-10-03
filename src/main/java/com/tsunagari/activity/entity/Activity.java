@@ -14,7 +14,7 @@ public class Activity {
     private int id;
 
     @Column(name = "hostid",nullable = false)
-    private int hostid;
+    private Long hostid;
     @Column(name = "title",nullable = false)
     private String title;
     @Column(name = "content",nullable = false)
@@ -43,7 +43,7 @@ public class Activity {
     private String category;
 
 
-    public Activity(int id, int hostid, String title, String content, String address, Date regdate, Date enddate, int price, int likecount, int maxpeople, String keyword, String city, String thumbnail, String category) {
+    public Activity(int id, Long hostid, String title, String content, String address, Date regdate, Date enddate, int price, int likecount, int maxpeople, String keyword, String city, String thumbnail, String category) {
         this.id = id;
         this.hostid = hostid;
         this.title = title;
@@ -68,7 +68,7 @@ public class Activity {
         return id;
     }
 
-    public int getHostid() {
+    public Long getHostid() {
         return hostid;
     }
 

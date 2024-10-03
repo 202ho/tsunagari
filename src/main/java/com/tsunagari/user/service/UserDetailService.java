@@ -13,7 +13,6 @@ public class UserDetailService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
-
     // 사용자 email로 사용자의 정보를 가져오는 메서드
     @Override
     public Member loadUserByUsername(String email) {

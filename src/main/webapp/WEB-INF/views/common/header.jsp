@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
@@ -15,19 +14,23 @@
                 <button class="btn btn-outline-secondary header-search-btn'" type="button" id="header-search-btn">검색</button>
             </div>
 
-            <div class="text-end" style="width: 200px;">
-                <!-- 로그인 상태에 따라 버튼 표시 -->
+            <div class="text-end">
                 <sec:authorize access="isAuthenticated()">
-                    <button type="button" class="btn btn-outline-primary me-2 header-login-btn"
-                            onclick="location.href='/logout'" style="color: #2E8EE5; border-color: #2E8EE5;">로그아웃</button>
+                    <div class="navbar" style="width:60px;">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
                 </sec:authorize>
                 <sec:authorize access="!isAuthenticated()">
-                    <button type="button" class="btn btn-outline-primary me-2 header-login-btn"
-                            onclick="location.href='/signin'" style="color: #2E8EE5; border-color: #2E8EE5;">로그인</button>
-                    <button type="button" class="btn btn-primary"
-                            onclick="location.href='/signup'" style="background-color: #2E8EE5; border-color: #2E8EE5;">회원가입</button>
+                    <button type="button" class="btn btn-outline-primary me-2 header-login-btn" onclick="location.href='/signin'" style="color: #2E8EE5; border-color: #2E8EE5;">로그인</button>
+                    <button type="button" class="btn btn-primary" onclick="location.href='/signup'" style="background-color: #2E8EE5; border-color: #2E8EE5;">회원가입</button>
                 </sec:authorize>
             </div>
         </div>
     </div>
 </header>
+
+<sec:authorize access="isAuthenticated()">
+    <%@ include file="/WEB-INF/views/common/sidemenu.jsp" %>
+</sec:authorize>

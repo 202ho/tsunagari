@@ -1,0 +1,63 @@
+.reservation-layout {
+
+    display:flex;
+    justify-content:center;
+    align-items : center;
+}
+
+.reservation-content {
+    width:800px;
+    display:flex;
+    flex-direction: column;
+        justify-content:center;
+        align-items : center;
+
+}
+
+.title-box {
+    display:flex;
+            justify-content:flex-start;
+}
+
+.reservation-item-box {
+    width:100%;
+}
+
+.reservation-item {
+    display:flex;
+    justify-content:center;
+    align-items : center;
+    height: 140px;
+}
+    .reservation-item.even {
+        background-color: rgb(240,250,250);
+    }
+
+.reservation-item-img-box-layout {
+    width:140px;
+    height:100%;
+    padding:10px;
+}
+
+.reservation-item-img-box {
+width:100%;
+height:100%;
+}
+
+.reservation-item-img-box img{
+width:100%;
+height:100%;
+object-fit: cover;
+}
+
+.reservation-item-info-box {
+     flex-grow: 1;
+    height:100%;
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+

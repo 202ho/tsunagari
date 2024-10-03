@@ -4,8 +4,8 @@
 
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
-    <h4>상세페이지</h4>
-    <h4>id : ${id} </h4>
+    <h2>호스트 예약 관리 페이지</h2>
+    https://ui.toast.com/tui-calendar
     <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 
