@@ -64,7 +64,7 @@ public class Member implements UserDetails {
     }
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (ishost != null && ishost == 1) {
+        if (ishost != null && ishost == "Y") {
             return List.of(new SimpleGrantedAuthority("ROLE_HOST"));
         } else {
             return List.of(new SimpleGrantedAuthority("ROLE_GUEST"));

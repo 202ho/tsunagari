@@ -28,8 +28,12 @@ public class GuestController {
     private ReservationService reservationService;
 
     @GetMapping("/mypage")
-    public String getMypage() {
+    public String getMypage(Model model) {
 
+
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        Optional<Member> user = userService.findByEmail(email);
+        model.addAttribute("user", user);
         return "guest/mypage";
     }
 
