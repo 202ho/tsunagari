@@ -81,6 +81,10 @@ public class Member implements UserDetails {
         return email;
     }
 
+    public String getNickname() {
+        return nickname;
+    }
+
     // 계정 만료 여부 반환
     @Override
     public boolean isAccountNonExpired() {

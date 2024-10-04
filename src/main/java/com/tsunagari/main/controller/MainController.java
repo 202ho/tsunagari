@@ -28,6 +28,6 @@ public class MainController {
     public String getPouplarActivity(Model model){
         Activity pouplarActivity = activityRepository.findTopByOrderByLikecountDesc();
         model.addAttribute("pouplarActivity", pouplarActivity);
-    return "/main/main";
+    return "main/main";
     }
 }
