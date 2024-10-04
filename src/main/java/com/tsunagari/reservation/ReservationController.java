@@ -15,9 +15,6 @@ public class ReservationController {
     @Autowired
     ReservationService reservationService;
 
-
-//    @RequestParam("activityId")
-//    @RequestParam("memberId")
     @GetMapping("/reservation/form")
     public String showResrvationForm(Long activityId,
                                      Long memberId, Model model){

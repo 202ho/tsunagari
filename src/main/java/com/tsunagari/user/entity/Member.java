@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-@Getter
 @Entity
 public class Member implements UserDetails {
 
@@ -64,7 +63,7 @@ public class Member implements UserDetails {
     }
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (ishost != null && ishost == "Y") {
+        if (ishost != null && ishost.equals("Y")) {
             return List.of(new SimpleGrantedAuthority("ROLE_HOST"));
         } else {
             return List.of(new SimpleGrantedAuthority("ROLE_GUEST"));
@@ -111,5 +110,49 @@ public class Member implements UserDetails {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getIntro() {
+        return intro;
+    }
+
+    public void setIntro(String intro) {
+        this.intro = intro;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getIshost() {
+        return ishost;
+    }
+
+    public void setIshost(String ishost) {
+        this.ishost = ishost;
     }
 }

@@ -30,12 +30,6 @@
                             호스트 관리
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item side-menu-dropdown-item" href="/host/register">호스트 신청</a></li>
-                            <li><a class="dropdown-item side-menu-dropdown-item" href="/host/activity">액티비티 관리</a></li>
-                            <li><a class="dropdown-item side-menu-dropdown-item" href="/host/reservation">예약 관리</a></li>
-                            <li><a class="dropdown-item side-menu-dropdown-item" href="/host/revenue">정산 관리</a></li>
-
-
                             <sec:authorize access="hasRole('ROLE_GUEST')">
                                 <li><a class="dropdown-item side-menu-dropdown-item" href="/host/register">호스트 신청</a></li>
                             </sec:authorize>
