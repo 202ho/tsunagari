@@ -1,0 +1,120 @@
+.host-register-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+
+.host-register-content {
+    width:800px;
+    display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+}
+.host-register-img-box-layout {
+    width:100%;
+    height:500px;
+}
+.host-register-img-box {
+    width: 800px;
+    height: 500px;
+    position: absolute;
+    background-image: url('/resources/image/host-register.png');
+    background-position: center center;
+}
+
+.host-register-img-info {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    left: 80px;
+    gap: 10px;
+}
+
+.host-register-img-title {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.host-register-img-content {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom:10px;
+}
+
+.host-register-content-title {
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.host-register-content-sub {
+    font-size: 18px;
+    line-height: 1.7;
+    letter-spacing: -0.45px;
+    color: rgb(102, 102, 102);
+    margin-bottom: 0;
+}
+
+
+.host-register-btn {
+    background-color: #2E8EE5;
+    border-color: #2E8EE5;
+    width: 180px;
+}
+
+.host-register-item-box {
+    display:flex;
+    flex-wrap:wrap;
+    width: 100%;
+    justify-content: center;
+    height:500px;
+    margin-top: 40px;
+    margin-bottom: 20px
+}
+
+.host-register-item {
+    width:33%;
+    height:50%;
+    padding: 25px 15px 25px;
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items:flex-start;
+}
+
+.host-register-item h3{
+    font-size: 47px;
+    font-weight: 300;
+    line-height: 0.7;
+    letter-spacing: -0.33px;
+    color: rgb(1, 76, 156);
+}
+
+.host-register-item h5 {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgb(51, 51, 51);
+    margin-top: 10px;
+}
+
+.host-register-item p {
+    font-size: 16px;
+    line-height: 1.7;
+    letter-spacing: -0.3px;
+    color: rgb(102, 102, 102);
+    padding-left: 2px;
+    max-width: initial;
+    word-break: break-all;
+}
+
+.host-register-item.border-right {
+    border-right: 1px solid rgb(244, 244, 244);
+}
+
+.host-register-item.border-bottom {
+    border-bottom: 1px solid rgb(244, 244, 244);
+}
