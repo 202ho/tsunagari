@@ -20,7 +20,7 @@ public class MainController {
     //좋아요 수가 많은 순으로 액티비티 검색
     @Autowired
     private ActivityRepository activityRepository;
-    // 검색했을때 - 컨텐츠 화면으로 보내주는 기능-js
+
     @Autowired
     private CategoryService categoryService;
 
