@@ -1,5 +1,5 @@
 
-const colorSet = ['#ffe3fc', '#FDFD96', '#cff2ff'];
+const colorSet = ['#ffe3fc', '#FDFD96', '#cff2ff', '#cfffdc'];
 $(document).ready(function() {
 
 const Calendar = tui.Calendar;
@@ -41,7 +41,6 @@ function getFormattedDate(dateString){
                 url: '/api/host/reservation?date=' + date,
                 type: 'GET',
                 success: function(response) {
-                    console.log(response.reservation)
                     const reservationList = response.reservation.map( (el,idx) => {
                         return {
                                    id: el.activityId,
@@ -53,10 +52,9 @@ function getFormattedDate(dateString){
                                    end: new Date(el.date),
                                    state:'',
                                    attendees:[el.count],
-                                   backgroundColor: colorSet[idx % 3],
+                                   backgroundColor: colorSet[idx % 4],
                                  }
                     })
-                    console.log(reservationList)
                     calendar.createEvents(reservationList)
                 },
                 error: function(xhr, status, error) {
