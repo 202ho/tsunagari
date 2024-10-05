@@ -1,3 +1,52 @@
 .revenue-layout {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    margin: 50px;
+}
 
+.revenue-layout h5 {
+    width:780px;
+}
+
+.month-revenue {
+    width:780px;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.revenue-info {
+    width:380px;
+    height:380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.revenue-info img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.revenue-info ul {
+    width: 80%;
+    overflow-y: scroll;
+    max-height: 80%;
+}
+.revenue-info .list-group-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.revenue-nav {
+        margin-top: 20px;
+        margin-bottom: 40px;
+    display: flex;
+    align-items:center;
+    width:780px;
+    gap:30px;
 }
