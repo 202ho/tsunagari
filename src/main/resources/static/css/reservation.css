@@ -128,8 +128,10 @@ object-fit: cover;
     padding:10px;
     display: flex;
     flex-direction: column;
+}
 
-
+.toastui-calendar-section-button {
+    display:none;
 }
 
 
