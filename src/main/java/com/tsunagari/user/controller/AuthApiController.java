@@ -83,7 +83,7 @@ public class AuthApiController {
                 response.put("message", "호스트 신청을 할 수 없습니다.");
             }
         }
-        
+
         return ResponseEntity.ok(response);
     }
 }

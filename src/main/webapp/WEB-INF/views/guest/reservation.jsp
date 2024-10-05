@@ -74,7 +74,7 @@
         </c:if>
 
         <c:if test="${listCnt == 0}">
-            <div style="margin-top: 120px;">예약이 없습니다.</div>
+            <div style="margin: 120px;">예약이 없습니다.</div>
         </c:if>
     </div>
     </div>

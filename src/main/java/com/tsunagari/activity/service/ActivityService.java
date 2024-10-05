@@ -27,6 +27,11 @@ public class ActivityService {
         return activityRepository.findByTitleContainingIgnoreCase(keyword, pageable);
     }
 
+    public Page<Activity> findByCategoryContainingIgnoreCase(int pageNumber, int pageSize, String keyword) {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(Sort.Order.desc("id")));
+        return activityRepository.findByCategoryContainingIgnoreCase(keyword, pageable);
+    }
+
     public Page<Activity> findByHostid(int pageNumber, int pageSize, Long hostId) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(Sort.Order.desc("id")));
         return activityRepository.findByHostid(hostId, pageable);

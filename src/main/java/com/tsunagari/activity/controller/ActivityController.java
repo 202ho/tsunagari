@@ -25,9 +25,8 @@ public class ActivityController {
         Page<Activity> activityPage = Page.empty();
         String title = "";
         if(!category.isEmpty()) {
-            System.out.println("category => " + category);
             title = category + " 카테고리";
-            //
+            activityPage = activityService.findByCategoryContainingIgnoreCase(page,pageGroupSize,category);
         } else if(!search.isEmpty()) {
             title = search + " 검색 결과";
             activityPage = activityService.findByTitleContainingIgnoreCase( page, pageGroupSize, search);

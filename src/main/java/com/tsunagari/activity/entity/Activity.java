@@ -39,7 +39,7 @@ public class Activity {
     private String city;
     @Column(name = "thumbnail",nullable = false)
     private String thumbnail;
-    @Column(name = "category")
+    @Column(name = "category",nullable = false)
     private String category;
 
 
