@@ -24,4 +24,10 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
             "WHERE a.hostid = :hostId AND FUNCTION('YEAR', r.date) = :year AND FUNCTION('MONTH', r.date) = :month " +
             "GROUP BY r.activity.id, r.date")
     List<Object[]> findGroupedByActivityAndDate(@Param("hostId") Long hostId, @Param("year") int year, @Param("month") int month);
+
+    @Query("SELECT a.id, a.title, COUNT(r), SUM(a.price) FROM Reservation r " +
+            "JOIN r.activity a " +
+            "WHERE a.hostid = :hostId AND FUNCTION('YEAR', r.date) = :year AND FUNCTION('MONTH', r.date) = :month " +
+            "GROUP BY a.id, a.title")
+    List<Object[]> findGroupedByActivity(@Param("hostId") Long hostId, @Param("year") int year, @Param("month") int month);
 }

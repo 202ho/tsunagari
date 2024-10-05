@@ -75,4 +75,25 @@ public class ReservationService {
         return ret;
     }
 
+    public List<RevenueReservation>  findGroupedByActivity(Long hostId, String dateString) {
+        String[] parts = dateString.split("-");
+        int year = Integer.parseInt(parts[0]);
+        int month = Integer.parseInt(parts[1]);
+        List<Object[]> results = reservationRepository.findGroupedByActivity(hostId, year, month);
+        List<RevenueReservation> ret = new ArrayList();
+
+        for (Object[] result : results) {
+            Integer activityId = (Integer) result[0];
+            String title = (String) result[1];
+            Long count = ((Number) result[2]).longValue();
+            Long priceTotal = ((Number) result[3]).longValue();
+
+            RevenueReservation reservation = new RevenueReservation(activityId,title,count,priceTotal);
+            ret.add(reservation);
+        }
+        return ret;
+    }
+
+
+
 }

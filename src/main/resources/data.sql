@@ -73,16 +73,6 @@ INSERT INTO activity (hostid, title, content, address, regdate, enddate, price, 
 
 UPDATE activity SET thumbnail = 'https://dictionary.cambridge.org/ko/images/thumb/dog_noun_001_04904.jpg?version=6.0.31';
 
-INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 1, '2024-10-01');
-INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 2, '2024-10-05');
-INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 2, '2024-10-05');
-INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 2, '2024-10-10');
-INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 3, '2024-10-10');
-INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 3, '2024-10-10');
-INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 4, '2024-10-15');
-INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 4, '2024-10-15');
-INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 5, '2024-10-20');
-
 INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 1, '2024-09-01');
 INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 2, '2024-09-05');
 INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 3, '2024-09-10');
@@ -101,3 +91,12 @@ INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 2, '2024-11-05')
 INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 3, '2024-11-10');
 INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 4, '2024-11-15');
 
+INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 1, '2024-10-01');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 2, '2024-10-05');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 2, '2024-10-05');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 2, '2024-10-10');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 3, '2024-10-10');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 3, '2024-10-10');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 4, '2024-10-15');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 4, '2024-10-15');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 5, '2024-10-20');

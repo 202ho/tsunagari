@@ -11,17 +11,17 @@
         <h5>정산 관리</h5>
         <div class="revenue-nav">
             <div class="btn btn-light border revenue-nav-prev"><</div>
-            <div class="revenue-nav-date" style="font-size:1.25rem;">2024-10</div>
+            <div class="revenue-nav-date" >0</div>
             <div class="btn btn-light border revenue-nav-next">></div>
         </div>
         <div class="month-revenue">
-            <canvas class="revenue-info" id="revenue-chart" ></canvas>
+            <div class="revenue-chart-layout">
+                <!--
+                <canvas class="revenue-info" id="revenue-chart" ></canvas>
+                -->
+            </div>
             <div class="revenue-info">
-                <ul class="list-group">
-                    <li class="list-group-item list-group-item-dark "><span>총 수익  : </span><span>10</span></li>
-                    <li class="list-group-item "><span>타이틀1 : </span><span>1000</span></li>
-                    <li class="list-group-item "><span>타이틀2 : </span><span>2000</span></li>
-                    <li class="list-group-item "><span>타이틀3 : </span><span>1000</span></li>
+                <ul class="list-group" id="revenue-info-ul">
                 </ul>
             </div>
         </div>

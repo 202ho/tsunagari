@@ -2,6 +2,7 @@ package com.tsunagari.host.controller;
 
 import com.tsunagari.reservation.MonthDayReservation;
 import com.tsunagari.reservation.ReservationService;
+import com.tsunagari.reservation.RevenueReservation;
 import com.tsunagari.user.entity.Member;
 import com.tsunagari.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,21 @@ public class HostApiController {
         Long hostId = 3L;
 
         List<MonthDayReservation> reservationList = reservationService.getGroupedReservations(hostId,date);
+        response.put("reservation",reservationList);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/revenue")
+    public  ResponseEntity<?> getRevenue(@RequestParam(defaultValue = "") String date) {
+//        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+//        Optional<Member> user = userService.findByEmail(email);
+//        if(user.isEmpty()) return ResponseEntity.badRequest().build();
+
+        Map<String, List<RevenueReservation>> response = new HashMap<>();
+//        Member member = user.get();
+        // Long hostId= member.getId();
+        Long hostId = 3L;
+        List<RevenueReservation> reservationList = reservationService.findGroupedByActivity(hostId,date);
         response.put("reservation",reservationList);
         return ResponseEntity.ok(response);
     }

@@ -3,7 +3,8 @@
     flex-direction: column;
     justify-content:center;
     align-items:center;
-    margin: 50px;
+    margin-top: 50px;
+    margin-bottom: 130px;
 }
 
 .revenue-layout h5 {
@@ -43,10 +44,16 @@
 }
 
 .revenue-nav {
-        margin-top: 20px;
-        margin-bottom: 40px;
+    margin-top: 20px;
+    margin-bottom: 40px;
     display: flex;
     align-items:center;
     width:780px;
-    gap:30px;
+    gap:20px;
+}
+
+.revenue-nav-date {
+    text-align: left;
+    width: 85px;
+    font-size: 1.25rem;
 }
