@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 
 @Service
 public class ReservationService {
@@ -57,5 +57,22 @@ public class ReservationService {
         return reservationRepository.findByMemberIdOrderByDateDesc(memberId, pageable);
     }
 
+    public List<MonthDayReservation>  getGroupedReservations(Long hostId, String dateString) {
+        String[] parts = dateString.split("-");
+        int year = Integer.parseInt(parts[0]);
+        int month = Integer.parseInt(parts[1]);
+        List<Object[]> results = reservationRepository.findGroupedByActivityAndDate(hostId, year, month);
+        List<MonthDayReservation> ret = new ArrayList();
+        for (Object[] result : results) {
+            Integer activityId = (Integer) result[0];
+            Date date = (Date) result[1];
+            String title = (String) result[2];
+            String address = (String) result[3];
+            Long count = ((Number) result[4]).longValue();
+            MonthDayReservation reserv = new MonthDayReservation(activityId,date,title,address,count);
+            ret.add(reserv);
+        }
+        return ret;
+    }
 
 }

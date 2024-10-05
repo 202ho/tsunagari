@@ -21,6 +21,10 @@ INSERT INTO Category(name) VALUES('수상레포츠');
 INSERT INTO Category(name) VALUES('요리');
 INSERT INTO Category(name) VALUES('음료');
 
+INSERT INTO member(email, nickname, password, ishost, intro, phone) VALUES('test@test.com', 'test','test', 'Y', '안녕하세요', '01012344567');
+INSERT INTO member(email, nickname, password, ishost, intro, phone) VALUES('test2@test2.com', 'test','test', 'Y', '안녕하세요', '01012344567');
+INSERT INTO member(email, nickname, password, ishost, intro, phone) VALUES('test3@test3.com', 'test','test', 'Y', '안녕하세요', '01012344567');
+
 INSERT INTO activity (hostid, title, content, address, regdate, enddate, price, likecount, maxpeople, keyword, city, thumbnail, category) VALUES
 (3, '3 Hiking Adventure', 'Join us for a fun hiking trip.', '123 Mountain Rd', '2024-09-01', '2024-09-02', 5000, 1, 10, 'hiking', 'Denver', 'thumbnail1.jpg', '아웃도어'),
 (3, '3 Cooking Class', 'Learn to cook Italian cuisine.', '456 Food St', '2024-09-05', '2024-09-05', 7500, 2, 8, 'cooking', 'New York', 'thumbnail2.jpg', '피트니스'),
@@ -69,11 +73,30 @@ INSERT INTO activity (hostid, title, content, address, regdate, enddate, price, 
 
 UPDATE activity SET thumbnail = 'https://dictionary.cambridge.org/ko/images/thumb/dog_noun_001_04904.jpg?version=6.0.31';
 
-INSERT INTO member(email, nickname, password, ishost, intro, phone) VALUES('test@test.com', 'test','test', 'Y', '안녕하세요', '01012344567');
-INSERT INTO member(email, nickname, password, ishost, intro, phone) VALUES('test2@test2.com', 'test','test', 'Y', '안녕하세요', '01012344567');
-
 INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 1, '2024-10-01');
 INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 2, '2024-10-05');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 2, '2024-10-05');
 INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 3, '2024-10-10');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 3, '2024-10-10');
 INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 4, '2024-10-15');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 4, '2024-10-15');
 INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 5, '2024-10-20');
+
+INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 1, '2024-09-01');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 2, '2024-09-05');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 3, '2024-09-10');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 4, '2024-09-15');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 5, '2024-09-20');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 2, '2024-09-05');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 3, '2024-09-10');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 4, '2024-09-15');
+
+INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 1, '2024-11-01');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 2, '2024-11-05');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 3, '2024-11-10');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 4, '2024-11-15');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 5, '2024-11-20');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 2, '2024-11-05');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 3, '2024-11-10');
+INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 4, '2024-11-15');
+

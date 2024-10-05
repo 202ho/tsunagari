@@ -130,9 +130,30 @@ object-fit: cover;
     flex-direction: column;
 }
 
+.calendar-app-layout {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+        margin: 30px;
+}
+.calender-nav {
+    width: 780px;
+    display:flex;
+        justify-content:flex-start;
+        align-items:center;
+margin-bottom: 30px;
+    gap: 10px;
+}
 .toastui-calendar-section-button {
     display:none;
 }
-
-
-
+.calendar-app-layout h5{
+    width:780px;
+    margin-bottom:30px;
+    margin-top:20px;
+}
+.calender-nav-date {
+    margin-left: 1rem;
+    font-size: 1.25rem;
+}
