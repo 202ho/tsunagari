@@ -22,10 +22,6 @@ public class Member implements UserDetails {
     @Column(name = "nickname")
     private String nickname;
 
-//    @Column(name = "loginId", nullable = false, unique = true)
-//    private String loginId;
- // email로 통일 한다고 했던거 같아서 일단 주석처리
-
     @Column(name = "password", nullable = false)
     private String password;
 

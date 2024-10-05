@@ -19,25 +19,26 @@
             <div class="reservation-item-box">
                 <c:forEach var="item" items="${list}" varStatus="status">
 
-                    <div class="reservation-item ${status.index % 2 == 0 ? 'even' : 'odd'}" data-activity-id="${item.id}">
+                    <div class="reservation-item ${status.index == 0 ? 'top' : ''}" data-activity-id="${item.id}">
 
                         <div class="reservation-item-img-box-layout">
                             <div class="reservation-item-img-box">
-                                <img src="${item.thumbnail}">
+                                <img src="${item.activity.thumbnail}">
                             </div>
                         </div>
 
                         <div class="reservation-item-info-box">
                             <div class="reservation-item-date">
-                                <p>${item.date}</p>
+                                <p>${item.dday}</p>
+                                <p>${item.dateStr}</p>
                             </div>
 
                             <div class="reservation-item-title">
-                                <p>${item.title}</p>
+                                <p>${item.activity.title}</p>
                             </div>
 
                             <div class="reservation-item-address">
-                                <p>${item.address}</p>
+                                <p>${item.activity.address}</p>
                             </div>
 
                             <div class="reservation-item-button-box">

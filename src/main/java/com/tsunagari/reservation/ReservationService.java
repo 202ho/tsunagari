@@ -48,7 +48,7 @@ public class ReservationService {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date reseravtionDate = dateFormat.parse(date);
 
-        Reservation reservation = new Reservation(0, member, activity, new Date(),activity.getPrice());   //예약생성
+        Reservation reservation = new Reservation(0, member, activity, new Date());   //예약생성
         reservationRepository.save(reservation);     //예약저장
     }
 
