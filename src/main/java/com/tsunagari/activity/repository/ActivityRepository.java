@@ -21,5 +21,6 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
 
     Page<Activity> findByHostid(Long hostid, Pageable pageable);
 
-    List<Activity> findTop4ByOrderByLikecountDesc();;
+    //좋아요 상위 4개 컨텐츠만
+    List<Activity> findTop4ByOrderByLikecountDesc();
 }

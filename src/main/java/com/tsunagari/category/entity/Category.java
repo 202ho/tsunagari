@@ -13,14 +13,14 @@ public class Category {
     @Column(name ="name", nullable = false )
     private String name;
 
+    //카테고리별 저장된 게시글의 수
+    @Column
+    private int postCount;
 
     public Category(int id, String name) {
      this.id = id;
      this.name = name;
-    }
-
-    public Category() {
-
+     this.postCount= postCount;
     }
 
     public int getId() {
@@ -29,5 +29,7 @@ public class Category {
     public String getName(){
         return name;
     }
-
+    public int getPostCount(){
+        return postCount;
+    }
 }

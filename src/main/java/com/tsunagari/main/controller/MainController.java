@@ -5,6 +5,7 @@ import com.tsunagari.activity.entity.Activity;
 import com.tsunagari.activity.repository.ActivityRepository;
 import com.tsunagari.activity.service.ActivityService;
 import com.tsunagari.category.entity.Category;
+import com.tsunagari.category.repository.CategoryRepository;
 import com.tsunagari.category.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,18 +32,25 @@ public class MainController {
     @Autowired
     private CategoryService categoryService;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
+
     @GetMapping("/main")
     public String getPouplarActivity(Model model){
         Activity pouplarActivity = activityRepository.findTopByOrderByLikecountDesc();
         List<Activity> aclist = activityRepository.findTop4ByOrderByLikecountDesc();
         List<Category> categoryList = categoryService.findAll();
+        List<Category> categoryamount = categoryRepository.findTopNByOrderByPostCountDesc();
 
         System.out.println("acc list size => " + aclist.size());
         System.out.println("get popular => " + pouplarActivity.getTitle());
+        System.out.println("get amount size => " + categoryamount.size() );
+
 
         model.addAttribute("acc", pouplarActivity);
         model.addAttribute("accList", aclist );
         model.addAttribute("categoryList", categoryList);
+        model.addAttribute("cateamount", categoryamount);
     return "main/main";
     }
 }

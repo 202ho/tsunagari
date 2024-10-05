@@ -8,30 +8,24 @@
 
 </head>
 <body>
-    <%@ include file="/WEB-INF/views/common/header.jsp" %>
-    <div class="activity-layout" style="display: flex; justify-content: center;">
-        <main>
+ <%@ include file="/WEB-INF/views/common/header.jsp" %>
+ <div class="activity-layout" style="display: flex; justify-content: center;">
 
 
-        <div class ="slick-slider">
-
-<div id="carouselExample" class="carousel slide h-100">
-  <div class="carousel-inner h-100">
-
-    <div class="carousel-item h-100 active">
-      <img src="${acc.thumbnail}" class="d-block w-100 h-100 " alt="...">
-    </div>
-
-<c:forEach var="activityItem" items="${accList}">
-
-                <div class="carousel-item h-100 active">
-                <h2>${activityItem.title}</h2>
-                     <img src="${activityItem.thumbnail}" class="d-block w-100 h-100 " alt="...">
-                   </div>
-
-
-                </c:forEach>
-
+    <main>
+      <div class ="slick-slider">
+         <div id="carouselExample" class="carousel slide h-100">
+             <div class="carousel-inner h-100">
+                 <c:forEach var="activityItem" items="${accList}" varStatus="status">
+                     <div class="carousel-item h-100 ${status.index == 0 ? 'active' : ''}">
+                       <a href="#">
+                            <img src="${activityItem.thumbnail}" class="d-block w-100 h-100" alt="...">
+                            <div class="carousel-caption-custom">
+                                <h2>${activityItem.title}</h2>
+                       </a>
+                            </div>
+                     </div>
+                 </c:forEach>
 
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -44,25 +38,24 @@
   </button>
 </div>
 
-<!--
-           <div class ="slick-slider-content">
-           <a href = "#">
-           <img id="slider-content" src="${activity.thumbnail}" alt="인기카테고리1">${activity.title}</a>
-           </div>
-
-           <div class ="slick-slider-content">
-               <a href = "#">
-               <img id="slider-content" src="${activity.thumbnail}" alt="인기카테고리2">${activity.title}</a>
-           </div>
-
-           <div class ="slick-slider-content">
-               <a href = "#">
-               <img id="slider-content" src="${activity.thumbnail}" alt="인기카테고리3">${activity.title}</a>
-           </div>
--->
         </div>
 
-        <!--카테고리 나열 칸-->
+ <section class="category">
+        <c:forEach var="categoryamount" items="${cateamount}">
+            <div class="categorywon">
+                            <a class="categories-search-btn" href="#" data-name="${categoryamount.name}">
+                            <img src="${activity.thumbnail}" class="categoryImg">요가</a>
+                        </div>
+        </c:forEach>
+
+            <div class="categorywon">
+                <a href="/categories">
+                <img src="${categories.image}" class="categoryImg">전체보기</a>
+            </div>
+
+        </section>
+
+<!--
         <section class="category">
         <c:forEach var="category" items="${categoryList}">
             <div class="categorywon">
@@ -86,12 +79,8 @@
                   <a class="categories-search-btn" href="/activity/list?search=와인" data-name="Wine Tasting tour">
                   <img src="${categories.image}" class="categoryImg">와인</a>
              </div>
-            <div class="categorywon">
-                <a href="/categories">
-                <img src="${categories.image}" class="categoryImg">전체보기</a>
-            </div>
+    -->
 
-        </section>
 
     <c:if test="${activityCnt != 0}">
          <div class="activity-item-box">

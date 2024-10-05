@@ -5,6 +5,7 @@
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
+ <div class="activity-layout" style="display: flex; justify-content: center;">
 <div class="container">
     <!-- Left Side: Activity Information -->
     <div class="activity-info">
@@ -44,6 +45,7 @@
             <button type="submit" class="submit-btn">신청 예약하기</button>
         </form>
     </div>
+</div>
 </div>
  <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
