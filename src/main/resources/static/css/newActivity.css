@@ -66,8 +66,8 @@
     margin: 30px;
 }
 
-.new-form-btn-box div {
-background-color: #2E8EE5;
+.new-form-btn-box button {
+    background-color: #2E8EE5;
     border-color: #2E8EE5;
     font-size: 1.0rem;
     width: 300px;
