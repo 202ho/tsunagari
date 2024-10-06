@@ -30,4 +30,9 @@ public class MainController {
         model.addAttribute("pouplarActivity", pouplarActivity);
     return "main/main";
     }
+
+    @GetMapping("/index")
+    public String getIndex(Model model) {
+        return "main/main"; // index.jsp
+    }
 }

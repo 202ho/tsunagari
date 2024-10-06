@@ -2,6 +2,8 @@ package com.tsunagari.activity.controller;
 
 import com.tsunagari.activity.entity.Activity;
 import com.tsunagari.activity.service.ActivityService;
+import com.tsunagari.category.entity.Category;
+import com.tsunagari.category.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -16,7 +18,10 @@ import java.util.List;
 public class ActivityController {
 
     @Autowired
-    ActivityService activityService;
+    private ActivityService activityService;
+
+    @Autowired
+    private CategoryService categoryService;
 
     @GetMapping("/activity/list")
     public String getActivityList(@RequestParam(defaultValue = "") String category, @RequestParam(defaultValue = "") String search, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "0") int currentPage , Model model) {
@@ -65,9 +70,9 @@ public class ActivityController {
     }
 
     @GetMapping("/activity/new")
-    public String getNewActivity() {
-
-
+    public String getNewActivity( Model model) {
+        List<Category> categoryList = categoryService.getAllCategories();
+        model.addAttribute("categoryList", categoryList);
         return "activity/new";
     }
 }

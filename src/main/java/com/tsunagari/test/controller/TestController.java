@@ -32,9 +32,4 @@ public class TestController {
         model.addAttribute("testList",testList);
         return "test/hello"; // hello.jsp
     }
-
-    @GetMapping("/index")
-    public String getIndex(Model model) {
-        return "index"; // index.jsp
-    }
 }

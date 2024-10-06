@@ -25,7 +25,6 @@ $(document).ready(function() {
             url: '/api/host/revenue?date=' + formattedDate,
             type: 'GET',
             success: function(response) {
-                console.log(response.reservation);
                 const labelList = response.reservation.map(el => {
                     return el.title;
                 })
