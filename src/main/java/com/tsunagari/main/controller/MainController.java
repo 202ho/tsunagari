@@ -1,6 +1,7 @@
 package com.tsunagari.main.controller;
 
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.tsunagari.activity.entity.Activity;
 import com.tsunagari.activity.repository.ActivityRepository;
 import com.tsunagari.activity.service.ActivityService;
@@ -40,12 +41,12 @@ public class MainController {
         Activity pouplarActivity = activityRepository.findTopByOrderByLikecountDesc();
         List<Activity> aclist = activityRepository.findTop4ByOrderByLikecountDesc();
         List<Category> categoryList = categoryService.findAll();
-        List<Category> categoryamount = categoryRepository.findTopNByOrderByPostCountDesc();
+        List<Category> categoryamount = categoryRepository.findTop4NByOrderByPostCountDesc();
 
         System.out.println("acc list size => " + aclist.size());
         System.out.println("get popular => " + pouplarActivity.getTitle());
         System.out.println("get amount size => " + categoryamount.size() );
-
+        System.out.println("categoryList ==>" + categoryList.size());
 
         model.addAttribute("acc", pouplarActivity);
         model.addAttribute("accList", aclist );

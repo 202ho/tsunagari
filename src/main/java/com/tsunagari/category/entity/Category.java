@@ -17,7 +17,7 @@ public class Category {
     @Column
     private int postCount;
 
-    public Category(int id, String name) {
+    public Category(int id, String name, int postCount) {
      this.id = id;
      this.name = name;
      this.postCount= postCount;
