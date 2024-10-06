@@ -18,7 +18,7 @@
              <div class="carousel-inner h-100">
                  <c:forEach var="activityItem" items="${accList}" varStatus="status">
                      <div class="carousel-item h-100 ${status.index == 0 ? 'active' : ''}">
-                       <a href="#">
+                       <a href="/activity/list?search=${activityItem.id}">
                             <img src="${activityItem.thumbnail}" class="d-block w-100 h-100" alt="...">
                             <div class="carousel-caption-custom">
                                 <h2>${activityItem.title}</h2>
@@ -43,7 +43,8 @@
  <section class="category">
         <c:forEach var="activity" items="${accList}">
             <div class="categorywon">
-               <a class="categories-search-btn" href="#" data-name="${activity.title}">
+            <!-- 카테고리의 이름이 와야하는지? 엑티비티 id가 와야하는지? -->
+               <a class="categories-search-btn" href="/activity/list?search=${activity.category}" data-name="${activity.title}">
                  <img src="${activity.thumbnail}" class="categoryImg">${activity.title}</a>
             </div>
         </c:forEach>
