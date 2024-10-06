@@ -6,7 +6,6 @@
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
  <div class="activity-layout" style="display: flex; justify-content: center;">
-
 <div class="container">
     <!-- Left Side: Activity Information with Image -->
     <div class="activity-info">

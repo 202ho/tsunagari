@@ -12,7 +12,6 @@ import java.util.List;
 public interface ActivityRepository extends JpaRepository<Activity, Long> {
 
     //인기 액티비티 조회
-    //findbyAll
     Activity findTopByOrderByLikecountDesc();
 
     Page<Activity> findAllByOrderByLikecountDesc(Pageable pageable);
@@ -23,4 +22,6 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
 
     //좋아요 상위 4개 컨텐츠만
     List<Activity> findTop4ByOrderByLikecountDesc();
+
+    List<Activity> findAll();
 }
