@@ -21,7 +21,7 @@
                 <div class="new-form-item border-bottom">
                     <div class="new-form-label">대표사진</div>
                     <div class="new-form-data-box ">
-                        <input type="file" class="form-control">
+                        <input type="file" class="form-control" accept=".jpg, .jpeg, .png">
                     </div>
                 </div>
 
