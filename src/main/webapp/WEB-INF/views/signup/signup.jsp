@@ -40,7 +40,10 @@
 			<td align="left" > Nickname</td>
 		</tr>
 		<tr>
-			<td><input type="text" name="nickname" class="signup-input"> <input type="button" value="중복확인" class="signup-input signup-input-button"></td>
+			<td>
+			<input type="text" name="nickname" class="signup-input">
+			<input type="button" value="중복확인" id="nickname-check-btn" class="signup-input signup-input-button">
+			</td>
 		</tr>
 		<tr>
 		<td align="left" > Phone</td>

@@ -11,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -32,8 +33,15 @@ public class GuestController {
 
 
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
+
         Optional<Member> user = userService.findByEmail(email);
-        model.addAttribute("user", user);
+        if (user.isPresent()) {
+            Member member = user.get();
+            model.addAttribute("member", member);
+        }
+        else{
+            model.addAttribute("error", "사용자 정보를 찾을 수 없습니다.");
+        }
         return "guest/mypage";
     }
 
@@ -70,5 +78,25 @@ public class GuestController {
         model.addAttribute("pageLink","/guest/reservation");
 
         return "guest/reservation";
+    }
+
+    @PostMapping("/mypage")
+    public String updateMember(
+            @RequestParam("nickname") String nickname,
+            @RequestParam("password") String password,
+            @RequestParam("phone") String phone,
+            @RequestParam("intro") String intro,
+            Model model) {
+
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        Optional<Member> user = userService.findByEmail(email);
+        if (user.isPresent()) {
+            userService.updateMember(user.get().getId(), nickname, password, phone, intro);
+
+            return "redirect:/main";
+        } else {
+            model.addAttribute("error", "사용자 정보를 찾을 수 없습니다.");
+            return "guest/mypage"; // 오류 발생 시 마이페이지로 리다이렉트
+        }
     }
 }

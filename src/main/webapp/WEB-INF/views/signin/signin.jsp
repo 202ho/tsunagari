@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인</title>
+<title></title>
 <link href="resources/css/signin.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-<%@ include file="/WEB-INF/views/common/header.jsp" %>
+<%@ include file="/WEB-INF/views/common/header.jsp"%>
 <div class="alert alert-danger" id="error-message">
     <c:if test="${not empty errorMessage}">${errorMessage}</c:if>
 </div>
@@ -43,12 +43,14 @@
 <script defer>
 document.addEventListener("DOMContentLoaded", function() {
     const errorMessage = document.getElementById("error-message");
-    if (errorMessage.textContent.trim()) {
+
+    // 메시지가 존재하면 화면에 표시
+    if (errorMessage && errorMessage.textContent.trim()) {
         errorMessage.style.display = 'block';
 
         // 3초 후에 메시지 숨기기
         setTimeout(function() {
-            errorMessage.style.display = 'none'; // 메시지 숨기기
+            errorMessage.style.display = 'none';
         }, 3000);
     }
 });

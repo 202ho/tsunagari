@@ -42,5 +42,25 @@ public class UserService {
     public Optional<Member> findByEmail(String email){
         return userRepository.findByEmail(email);
     }
+    public Optional<Member> findByNickname(String nickname) { return userRepository.findByNickname(nickname); }
 
+    public void updateMember(Long memberId, String nickname, String password, String phone, String intro) {
+        Optional<Member> optionalMember = userRepository.findById(memberId);
+
+        if (optionalMember.isPresent()) {
+            Member member = optionalMember.get();
+            member.setNickname(nickname);
+            member.setPhone(phone);
+            member.setIntro(intro);
+
+            // 비밀번호가 비어있지 않은 경우에만 업데이트
+            if (password != null && !password.isEmpty()) {
+                member.setPassword(bCryptPasswordEncoder.encode(password)); // 비밀번호 암호화
+            }
+
+            userRepository.save(member); // 변경된 사용자 정보 저장
+        } else {
+            throw new RuntimeException("사용자를 찾을 수 없습니다.");
+        }
+    }
 }

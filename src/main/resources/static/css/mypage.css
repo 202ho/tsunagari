@@ -1,55 +1,59 @@
-.sidebar {
-    width: 250px;
-    padding: 20px;
-    position: absolute;
-    top: 110px;
-    left: 250px;
-    height: 70%;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
-    z-index: 1;                  /* 다른 요소와의 겹침 방지 */
+.signup-form {
+    padding-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-        .user-info {
-            margin-bottom: 20px;
-        }
+.signup-input[readonly] {
+    background-color: #f0f0f0; /* 연한 회색 */
+}
 
-        .user-info h2 {
-            font-size: 20px;
-            margin: 0;
-        }
+.signup-input {
+    border: 1px solid gray;
+    box-sizing: border-box;
+    border-radius: 7px;
+    font-size: 12pt;
+    width: 270px;
+    height: 30px;
+    margin: 5px;
+}
 
-        .user-info p {
-            color: #666;
-        }
+.signup-input-submit {
+    color: #ffffff;
+    background-color: #3da5ff;
+    margin: 5px;
+}
 
-        .menu {
-            margin-top: 100px;
-            list-style: none;
-            padding: 0;
-        }
+.signup-input-button {
+    color: #ffffff;
+    background-color: #3da5ff;
+    margin: 5px;
+    width: 70px;
+    height: 30px;
+    font-size: 10pt;
+}
 
-        .menu li {
-            margin: 10px 0;
-        }
+.signup-input-tel {
+    width: 73px;
+    height: 30px;
+}
 
-        .menu a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
+.signup-textarea {
+    resize: none;
+    font-size: 12pt;
+    width: 350px;
+    height: 80px;
+    border: 1px solid gray;
+    border-radius: 7px;
+}
 
-        .menu a:hover {
-            color: #007BFF; /* 링크 색상 변경 */
-        }
+.signup-input-submit:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
 
-        /* 로그아웃과 회원탈퇴 스타일 수정 */
-        .small-link {
-            font-size: 12px; /* 더 작게 */
-            font-weight: normal; /* 굵기 조정 */
-        }
-
-        .logout-container {
-            margin-top: 100px; /* 호스트 신청과 떨어뜨리기 */
-        }
+.signup-input-button:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}

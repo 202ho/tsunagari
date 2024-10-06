@@ -1,31 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/docHead.jsp" %>
-<link href="/resources/css/signup.css" rel="stylesheet" type="text/css">
 <link href="/resources/css/mypage.css" rel="stylesheet" type="text/css">
-<script src="/resources/js/signup.js"></script>
+<script src="/resources/js/mypage.js"></script>
 </head>
-
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<!--
-<div class="sidebar">
-    <div class="user-info">
-        <h2>닉네임</h2>
-        <p>이메일@example.com</p>
-    </div>
-    <ul class="menu">
-        <li><a href="#member-info">회원 정보</a></li>
-        <li><a href="#reservation-history">예약 내역</a></li>
-        <li><a href="#host-application">호스트 신청</a></li>
-        <div class="logout-container">
-            <li class="small-link"><a href="/logout" >로그아웃</a></li>
-            <li class="small-link"><a href="#withdraw">회원탈퇴</a></li>
-        </div>
-    </ul>
-</div>
--->
 <h4>마이페이지</h4>
-<form action="/memberupdete" name="regForm" method="post" class="signup-form" onsubmit="validateForm(event)">
+<form action="/guest/mypage" name="regForm" method="post" class="signup-form" onsubmit="validateForm(event)">
     <input type="hidden" name="csrf_token" value="${sessionScope.csrfToken}" />
     <input type="hidden" name="phone" value="">
 	<table>
@@ -37,7 +18,7 @@
 		<td align="left"> Email </td>
 		</tr>
 		<tr>
-			<td><input type="text" name="email" class="signup-input"> <input type="button" value="중복확인" class="signup-input signup-input-button"></td>
+			<td><input type="text" name="email" value="${member.email}" class="signup-input" readonly></td>
 		</tr>
 		<tr>
 			<td align="left" > Password </td>
@@ -55,7 +36,11 @@
 			<td align="left" > Nickname</td>
 		</tr>
 		<tr>
-			<td><input type="text" name="nickname" class="signup-input"> <input type="button" value="중복확인" class="signup-input signup-input-button"></td>
+			<td>
+			<input type="text" name="nickname" value="${member.nickname}" class="signup-input">
+			<input type="button" value="중복확인" id="nickname-check-btn" class="signup-input signup-input-button">
+			<input type="hidden" id="nickname-check-result" value="">
+			</td>
 		</tr>
 		<tr>
 		<td align="left" > Phone</td>
@@ -72,12 +57,12 @@
 		</tr>
 		<tr>
 		<td>
-		<textarea size="50pt" name="intro" class="signup-textarea"></textarea>
+		<textarea size="50pt" name="intro" class="signup-textarea">${member.intro}</textarea>
 		</td>
 		</tr>
 		<tr>
 			<td align="center">
-				<input type="submit" value="회원가입" class="signup-input signup-input-submit"><br>
+				<input type="submit" value="수정하기" class="signup-input signup-input-submit"><br>
 			</td>
 		</tr>
 	</table>

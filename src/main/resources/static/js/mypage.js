@@ -1,56 +1,8 @@
 $(document).ready(function() {
-    let isEmailChecked = false;
     let isNicknameChecked = false;
 
-// 이메일 입력 필드에 포커스가 가면 사용 가능 표시 초기화
-$('input[name="email"]').on('focus', function() {
-    $('#email-check-result').val(''); // 이전 결과 초기화
-    isEmailChecked = false; // 플래그 초기화
-    $('#register-email-check-btn').css({
-        'background-color': '',
-        'color': ''
-    }).val('중복확인'); // 버튼 텍스트 초기화
-});
-
-    // 이메일 체크 버튼 이벤트 리스너
-    $('#register-email-check-btn').on('click', function(e) {
-        e.preventDefault();
-        var email = $(this).siblings('input[type="text"]').val().trim(); // 이메일 입력 필드 값 가져오기
-
-        // 이메일 형식 체크
-        var pattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-        var checkResult = pattern.test(email);
-        if (!checkResult) {
-            $('#email-check-result').val('N');
-            return alert("이메일 형식이 올바르지 않습니다!");
-        }
-
-        // 이메일 중복 체크 (서버에 요청)
-        $.ajax({
-            url: '/api/auth/emailCheck',
-            type: 'POST',
-            data: JSON.stringify({ email: email }),
-            contentType: 'application/json',
-            dataType: 'json',
-            success: function(response) {
-                if (response.available) {
-                    // 중복 체크 성공 시
-                    $('#email-check-result').val('Y');
-                    $('#register-email-check-btn').css({
-                        'background-color': '#2FC97A',
-                        'color': 'white'
-                    }).val('사용가능');
-                    alert("사용 가능한 이메일입니다.");
-                    isEmailChecked = true;
-                } else {
-                    // 중복 체크 실패 시
-                    $('#email-check-result').val('N');
-                    alert("이미 사용 중인 이메일입니다. 다른 이메일을 사용해주세요.");
-                    isEmailChecked = false;
-                }
-            }
-        });
-    });
+    // 현재 사용자의 닉네임을 저장
+    const currentNickname = "${member.nickname}";
 
   // 닉네임 입력 필드에 포커스가 가면 사용 가능 표시 초기화
     $('input[name="nickname"]').on('focus', function() {
@@ -65,11 +17,23 @@ $('input[name="email"]').on('focus', function() {
     // 닉네임 체크 버튼 이벤트 리스너
     $('#nickname-check-btn').on('click', function(e) {
         e.preventDefault();
-        var nickname = $(this).siblings('input[type="text"]').val().trim(); // 닉네임 입력 필드 값 가져오기
+        var nickname = $(this).siblings('input[type="text"]').val().trim();
 
-        // 닉네임 형식 체크 (여기에 원하는 규칙 추가 가능)
+        // 닉네임 형식 체크
         if (nickname.length < 2) {
             return alert("닉네임은 최소 2자 이상이어야 합니다!");
+        }
+
+        // 닉네임이 현재 닉네임과 같다면 중복 체크를 통과합니다.
+        if (nickname === currentNickname) {
+            $('#nickname-check-result').val('Y');
+            $('#nickname-check-btn').css({
+                'background-color': '#2FC97A',
+                'color': 'white'
+            }).val('사용가능');
+            alert("현재 사용 중인 닉네임입니다.");
+            isNicknameChecked = true;
+            return;
         }
 
         // 닉네임 중복 체크 (서버에 요청)
@@ -101,12 +65,6 @@ $('input[name="email"]').on('focus', function() {
 
     // 폼 검증 함수
     function validateForm(event) {
-        // 이메일 중복 확인 여부 확인
-        if (!isEmailChecked) {
-            alert("이메일 중복 확인을 해주세요.");
-            event.preventDefault();
-            return;
-        }
         // 닉네임 중복 확인 여부 확인
         if (!isNicknameChecked) {
             alert("닉네임 중복 확인을 해주세요.");
