@@ -52,7 +52,7 @@ public class HostApiController {
 
         Map<String, List<RevenueReservation>> response = new HashMap<>();
 //        Member member = user.get();
-        // Long hostId= member.getId();
+//         Long hostId= member.getId();
         Long hostId = 3L;
         List<RevenueReservation> reservationList = reservationService.findGroupedByActivity(hostId,date);
         response.put("reservation",reservationList);

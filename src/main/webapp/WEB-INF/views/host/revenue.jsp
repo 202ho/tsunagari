@@ -16,9 +16,6 @@
         </div>
         <div class="month-revenue">
             <div class="revenue-chart-layout">
-                <!--
-                <canvas class="revenue-info" id="revenue-chart" ></canvas>
-                -->
             </div>
             <div class="revenue-info">
                 <ul class="list-group" id="revenue-info-ul">

@@ -95,5 +95,16 @@ public class ReservationService {
     }
 
 
+    public boolean deleteReservationById(Long id) {
+        Optional<Reservation> reservation = reservationRepository.findById(id);
+        if (reservation.isPresent()) {
+            reservationRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
 
 }

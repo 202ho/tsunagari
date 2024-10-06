@@ -39,7 +39,13 @@ $(document).ready(function() {
                         data: priceList,
                     }]
                 };
-                makeChart(revenueData);
+                if(response.reservation.length === 0) {
+                    $('.revenue-chart-layout').empty();
+                    let empty = '<p>예약이 없습니다.</p>';
+                    $('.revenue-chart-layout').append(empty);
+                } else {
+                    makeChart(revenueData);
+                }
                 $('#revenue-info-ul').empty();
                 let totalPrice = '<li class="list-group-item list-group-item-dark"><span>총 수익  : </span><span id="revenue-total">' + priceTotal + '</span></li>';
                 $('#revenue-info-ul').append(totalPrice);

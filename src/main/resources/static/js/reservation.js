@@ -1,6 +1,29 @@
 const colorSet = ['#ffe3fc', '#FDFD96', '#cff2ff', '#cfffdc'];
+
 $(document).ready(function() {
 
+    // 게스트 예약 취소버튼
+    $('.guest-reservation-cancel').on('click', function(e) {
+        e.preventDefault();
+        let reservationId = $(this).data('reservation-id');
+        $(this).prop('disabled', true);
+        $.ajax({
+            url: '/api/reservation/delete?id='+reservationId,
+            type: 'DELETE',
+            success: (response)  => {
+                 location.reload();
+                $(this).prop('disabled', false);
+            },
+            error: (xhr, status, error) => {
+                alert("예약을 취소 할 수 없습니다.")
+                $(this).prop('disabled', false);
+            }
+        });
+    });
+
+
+
+    // 호스트 예약관리 달력
     const Calendar = tui.Calendar;
     var calendar = new Calendar('#calendar-app', {
         defaultView: 'month',
@@ -28,6 +51,7 @@ $(document).ready(function() {
         return formattedDate;
     }
 
+    // 호스트 예약관리 달력 날짜 업데이트
     function updateDate(dateString) {
         calendar.clear();
         let date = getFormattedDate(dateString);
@@ -58,6 +82,7 @@ $(document).ready(function() {
         });
     }
 
+    // 호스트 예약관리 달력 초기 생성
     function initCalendar() {
         calendar.today();
         let dateString = calendar.getDate().d.d;
