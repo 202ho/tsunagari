@@ -1,21 +1,29 @@
 package com.tsunagari.activity.controller;
 
-import com.amazonaws.services.s3.AmazonS3Client;
-import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.tsunagari.activity.entity.Activity;
 import com.tsunagari.activity.service.ActivityService;
+import com.tsunagari.reservation.RevenueReservation;
 import com.tsunagari.s3.S3Service;
+import com.tsunagari.user.entity.Member;
+import com.tsunagari.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.text.SimpleDateFormat;
+import java.util.*;
+
 @RestController
 @RequestMapping("/api/activity")
 public class ActivityApiController {
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private ActivityService activityService;
@@ -37,23 +45,29 @@ public class ActivityApiController {
             @RequestParam("new-activity-y") String latitude
     ) {
 
+
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        Optional<Member> user = userService.findByEmail(email);
+        if(user.isEmpty()) return ResponseEntity.badRequest().build();
+        Member member = user.get();
+        Long hostId= member.getId();
+        Date now = new Date();
+        Date end = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        try { end = formatter.parse("2099-12-30"); }
+        catch (Exception e){ end = new Date(); }
+        String addr = address+address2;
+        Activity activity = new Activity(hostId, title, content, addr, now, end,price,0, 100,"", city ,longitude,latitude, "",category);
+        int newActivyId = activityService.saveActivity(activity);
+
         String s3url = s3service.uploadImageToS3(photo);
+        if(s3url.isEmpty()) ResponseEntity.badRequest().build();
 
-        System.out.println("");
-        System.out.println("title => " + title);
-        System.out.println("s3url => " + s3url);
-        System.out.println("content => " + content);
-        System.out.println("address => " + address);
-        System.out.println("address2 => " + address2);
-        System.out.println("price => " + price);
-        System.out.println("category => " + category);
-        System.out.println("photo => " + photo.getOriginalFilename());
-
-        System.out.println("latitude => " + latitude);
-        System.out.println("longitude => " + longitude);
-
-
-
-        return  null;
+        boolean result = activityService.updateActivityThumbnail(newActivyId,s3url);
+        if(result) {
+            return ResponseEntity.ok().build();
+        } else{
+            return ResponseEntity.badRequest().build();
+        }
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 //찜이 많은 애들을 가져오되 내림차순 순으로 가져오기
 @Service
@@ -37,4 +38,14 @@ public class ActivityService {
         return activityRepository.findByHostid(hostId, pageable);
     }
 
+    @Transactional
+    public int saveActivity(Activity activity) {
+        Activity savedActivity = activityRepository.save(activity);
+        return savedActivity.getId(); // Return the ID of the saved activity
+    }
+
+    public boolean updateActivityThumbnail(int activityId, String thumbnail) {
+        int updatedCount = activityRepository.updateThumbnail(activityId, thumbnail);
+        return updatedCount > 0;
+    }
 }

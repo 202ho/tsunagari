@@ -116,7 +116,7 @@ $(document).ready(function() {
                 contentType: false, // Set contentType to false as jQuery will tell the server its a query string request
                 success: function(response) {
                     alert('액티비티가 성공적으로 등록되었습니다.');
-                    // 액티비티 관리페이지 이동
+                    window.location.href = "/host/activity";
                 },
                 error: function(xhr, status, error) {
                     alert('액티비티 등록 중 오류가 발생했습니다.');

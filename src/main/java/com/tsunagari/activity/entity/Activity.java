@@ -47,8 +47,7 @@ public class Activity {
     private String category;
 
 
-    public Activity(int id, Long hostid, String title, String content, String address, Date regdate, Date enddate, int price, int likecount, int maxpeople, String keyword, String city, String x, String y, String thumbnail, String category) {
-        this.id = id;
+    public Activity( Long hostid, String title, String content, String address, Date regdate, Date enddate, int price, int likecount, int maxpeople, String keyword, String city, String x, String y, String thumbnail, String category) {
         this.hostid = hostid;
         this.title = title;
         this.content = content;
