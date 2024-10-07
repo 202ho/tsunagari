@@ -1,6 +1,7 @@
 package com.tsunagari.activity.controller;
 
 import com.tsunagari.activity.entity.Activity;
+import com.tsunagari.activity.repository.ActivityRepository;
 import com.tsunagari.activity.service.ActivityService;
 import com.tsunagari.category.entity.Category;
 import com.tsunagari.category.service.CategoryService;
@@ -22,6 +23,9 @@ public class ActivityController {
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    ActivityRepository activityRepository;
 
     @GetMapping("/activity/list")
     public String getActivityList(@RequestParam(defaultValue = "") String category, @RequestParam(defaultValue = "") String search, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "0") int currentPage , Model model) {
@@ -64,7 +68,10 @@ public class ActivityController {
 
     @GetMapping("/activity/detail/{id}")
     public String getActivityDetail(@PathVariable Long id, Model model) {
+        Activity activity = activityRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid activity ID: " + id));
 
+        model.addAttribute("activity", activity);
         model.addAttribute("id", id);
         return "activity/detail";
     }

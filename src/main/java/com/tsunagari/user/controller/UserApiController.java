@@ -75,7 +75,7 @@ public class UserApiController {
         new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
 
         return "redirect:" + redirectURL; // 로그아웃 버튼을 클릭할때의 현재 페이지 URL로 이동
-                                          // 로그아웃 버튼에 <a href="/logout?redirectURL=${pageContext.request.requestURI}">Logout</a> 넣어서 구현?
+                                          // 로그아웃 버튼에 <a href="/logout?redirectURL=${pageContext.request.requestURI}">Logout</a> 넣어서 구현
     }
 
 }

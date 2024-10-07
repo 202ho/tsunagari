@@ -10,19 +10,19 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-//찜이 많은 애들을 가져오되 내림차순 순으로 가져오기
 @Service
 public class ActivityService {
 
     @Autowired
     ActivityRepository activityRepository;
 
+    //좋아요 내림차순
     public Page<Activity> getActivitiesLikecountDesc(int pageNumber, int pageSize) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(Sort.Order.desc("id"), Sort.Order.desc("likecount")));
         return activityRepository.findAll(pageable);
     }
 
-
+    //검색
     public Page<Activity> findByTitleContainingIgnoreCase(int pageNumber, int pageSize, String keyword) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(Sort.Order.desc("id")));
         return activityRepository.findByTitleContainingIgnoreCase(keyword, pageable);

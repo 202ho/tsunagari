@@ -49,6 +49,7 @@ public class ReservationService {
         Date reseravtionDate = dateFormat.parse(date);
 
         Reservation reservation = new Reservation(0, member, activity, new Date());   //예약생성
+
         reservationRepository.save(reservation);     //예약저장
     }
 
@@ -104,7 +105,6 @@ public class ReservationService {
             return false;
         }
     }
-
 
 
 }

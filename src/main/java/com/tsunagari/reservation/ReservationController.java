@@ -3,11 +3,14 @@ package com.tsunagari.reservation;
 import com.tsunagari.activity.entity.Activity;
 import com.tsunagari.user.entity.Member;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.tsunagari.user.service.UserService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
+import java.util.Optional;
 
 @Controller
 public class ReservationController {
@@ -15,14 +18,24 @@ public class ReservationController {
     @Autowired
     ReservationService reservationService;
 
+    @Autowired
+    private UserService userService;
+
+    //    @RequestParam("activityId")
+//    @RequestParam("memberId")
     @GetMapping("/reservation/form")
-    public String showResrvationForm(Long activityId,
-                                     Long memberId, Model model){
+    public String showResrvationForm(@RequestParam(defaultValue = "") Long activityId,
+                                     Model model){
 
         Activity activity = reservationService.getActivityById(activityId);
-        Member member = reservationService.getmemberById(memberId);
-        model.addAttribute("activityId",activity);
-        model.addAttribute("memberId", member);
+
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        Optional<Member> user = userService.findByEmail(email);
+
+        System.out.println("reservation form = > " + activity.getTitle());
+        System.out.println("reservation form 2 => " + user.get().getId() );
+        model.addAttribute("activity",activity);
+        model.addAttribute("memberId", user.get().getId());
         return "reservation/form";
     }
 

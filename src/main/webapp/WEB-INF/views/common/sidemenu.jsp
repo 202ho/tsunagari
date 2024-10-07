@@ -9,7 +9,7 @@
                 <div class="sidemenu-header-profile">
                     <h4 class="offcanvas-title" id="offcanvasNavbarLabel"><span><sec:authentication property="principal.username" /></span></h4>
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><span><sec:authentication property="principal.nickname" /></span></h5>
-                    <a class="nav-link " aria-current="page" href="/logout">로그아웃</a>
+                    <a class="nav-link " aria-current="page" href="/logout?redirectURL=${pageContext.request.requestURI}">로그아웃</a>
                 </div>
 
             </div>

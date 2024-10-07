@@ -100,3 +100,4 @@ INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 3, '2024-10-10')
 INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 4, '2024-10-15');
 INSERT INTO Reservation (memberid, activityid, date) VALUES (3, 4, '2024-10-15');
 INSERT INTO Reservation (memberid, activityid, date) VALUES (2, 5, '2024-10-20');
+

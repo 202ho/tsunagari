@@ -10,11 +10,12 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 public interface ActivityRepository extends JpaRepository<Activity, Long> {
 
     //인기 액티비티 조회
-    //findbyAll
     Activity findTopByOrderByLikecountDesc();
 
     Page<Activity> findAllByOrderByLikecountDesc(Pageable pageable);
@@ -29,4 +30,9 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
     @Transactional
     @Query("UPDATE Activity a SET a.thumbnail = :thumbnail WHERE a.id = :activityId")
     int updateThumbnail(@Param("activityId") int activityId, @Param("thumbnail") String thumbnail);
+
+    //좋아요 상위 4개 컨텐츠만
+    List<Activity> findTop4ByOrderByLikecountDesc();
+
+    List<Activity> findAll();
 }
