@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/docHead.jsp" %>
 <link rel="stylesheet" href="/resources/css/detail.css">
+<link rel="stylesheet" href="/resources/css/layout.css">
 </head>
 
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
-     <div class="activity-layout" style="display: flex; justify-content: center;">
+ <div class="activity-layout" style="display: flex; justify-content: center;">
+
 
      <div class="activity-detail">
             <div class="activity-thumbnail">
@@ -19,6 +21,7 @@
     <a href="/reservation/form?activityId=${id}" class="btn btn-primary">예약하기</a>
     </div>
     </div>
+
     <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 
 </body>
