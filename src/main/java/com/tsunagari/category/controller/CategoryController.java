@@ -20,7 +20,7 @@ public class CategoryController {
     @GetMapping
     public String listCategories(Model model) {
         // 모든 카테고리 데이터를 가져와서 모델에 추가 (View로 전달됨)
-        model.addAttribute("categories", categoryService.getAllCategories());
+        model.addAttribute("categories", categoryService.findAll());
         // 'categories.jsp' 파일을 반환하여 카테고리 목록을 보여줌
         return "categories";  // JSP 파일은 'categories.jsp'로 연결됨
     }
