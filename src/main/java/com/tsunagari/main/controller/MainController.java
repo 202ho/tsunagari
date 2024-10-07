@@ -1,7 +1,6 @@
 package com.tsunagari.main.controller;
 
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.tsunagari.activity.entity.Activity;
 import com.tsunagari.activity.repository.ActivityRepository;
 import com.tsunagari.activity.service.ActivityService;
@@ -52,6 +51,11 @@ public class MainController {
         model.addAttribute("accList", aclist );
         model.addAttribute("categoryList", categoryList);
         model.addAttribute("cateamount", categoryamount);
-    return "main/main";
+        return "main/main";
+    }
+
+    @GetMapping("/index")
+    public String getIndex(Model model) {
+        return getPouplarActivity(model);
     }
 }

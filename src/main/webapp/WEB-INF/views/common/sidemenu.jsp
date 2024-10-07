@@ -7,8 +7,8 @@
             <div class="offcanvas-header">
 
                 <div class="sidemenu-header-profile">
-                    <h4 class="offcanvas-title" id="offcanvasNavbarLabel">이메일</h4>
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">닉네임</h5>
+                    <h4 class="offcanvas-title" id="offcanvasNavbarLabel"><span><sec:authentication property="principal.username" /></span></h4>
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><span><sec:authentication property="principal.nickname" /></span></h5>
                     <a class="nav-link " aria-current="page" href="/logout?redirectURL=${pageContext.request.requestURI}">로그아웃</a>
                 </div>
 
@@ -30,12 +30,6 @@
                             호스트 관리
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item side-menu-dropdown-item" href="/host/register">호스트 신청</a></li>
-                            <li><a class="dropdown-item side-menu-dropdown-item" href="/host/activity">액티비티 관리</a></li>
-                            <li><a class="dropdown-item side-menu-dropdown-item" href="/host/reservation">예약 관리</a></li>
-                            <li><a class="dropdown-item side-menu-dropdown-item" href="/host/revenue">정산 관리</a></li>
-
-
                             <sec:authorize access="hasRole('ROLE_GUEST')">
                                 <li><a class="dropdown-item side-menu-dropdown-item" href="/host/register">호스트 신청</a></li>
                             </sec:authorize>

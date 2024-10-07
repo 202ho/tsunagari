@@ -7,6 +7,7 @@ import com.tsunagari.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -43,6 +44,18 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
     public Optional<Member> findByNickname(String nickname) { return userRepository.findByNickname(nickname); }
+
+
+    @Transactional
+    public boolean updateIsHostToYes(Long memberId) {
+        return userRepository.findById(memberId)
+                .map(member -> {
+                    member.setIshost("Y");
+                    userRepository.save(member);
+                    return true;
+                })
+                .orElse(false);
+    }
 
     public void updateMember(Long memberId, String nickname, String password, String phone, String intro) {
         Optional<Member> optionalMember = userRepository.findById(memberId);

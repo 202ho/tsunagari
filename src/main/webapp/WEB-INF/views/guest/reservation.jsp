@@ -19,30 +19,32 @@
             <div class="reservation-item-box">
                 <c:forEach var="item" items="${list}" varStatus="status">
 
-                    <div class="reservation-item ${status.index % 2 == 0 ? 'even' : 'odd'}" data-activity-id="${item.id}">
+                    <div class="reservation-item ${status.index == 0 ? 'top' : ''}">
 
                         <div class="reservation-item-img-box-layout">
                             <div class="reservation-item-img-box">
-                                <img src="${item.thumbnail}">
+                                <img src="${item.activity.thumbnail}">
                             </div>
                         </div>
 
                         <div class="reservation-item-info-box">
                             <div class="reservation-item-date">
-                                <p>${item.date}</p>
+                                <p class="reservation-dday ${item.dday}">${item.dday}</p>
+                                <p class="reservation-date">${item.dateStr}</p>
                             </div>
 
-                            <div class="reservation-item-title">
-                                <p>${item.title}</p>
+                            <div class="reservation-item-title ${item.dday}">
+                                <p>${item.activity.title}</p>
                             </div>
 
                             <div class="reservation-item-address">
-                                <p>${item.address}</p>
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p>${item.activity.address}</p>
                             </div>
+                        </div>
 
-                            <div class="reservation-item-button-box">
-                                <p>취소</p>
-                            </div>
+                        <div class="reservation-item-button-box ${item.dday}">
+                            <button class="btn btn-light border guest-reservation-cancel" data-reservation-id="${item.id}">취소</button>
                         </div>
 
                     </div>
@@ -74,7 +76,7 @@
         </c:if>
 
         <c:if test="${listCnt == 0}">
-            <div style="margin-top: 120px;">예약이 없습니다.</div>
+            <div style="margin: 120px;">예약이 없습니다.</div>
         </c:if>
     </div>
     </div>

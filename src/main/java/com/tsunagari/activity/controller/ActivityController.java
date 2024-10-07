@@ -3,6 +3,8 @@ package com.tsunagari.activity.controller;
 import com.tsunagari.activity.entity.Activity;
 import com.tsunagari.activity.repository.ActivityRepository;
 import com.tsunagari.activity.service.ActivityService;
+import com.tsunagari.category.entity.Category;
+import com.tsunagari.category.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -17,7 +19,10 @@ import java.util.List;
 public class ActivityController {
 
     @Autowired
-    ActivityService activityService;
+    private ActivityService activityService;
+
+    @Autowired
+    private CategoryService categoryService;
 
     @Autowired
     ActivityRepository activityRepository;
@@ -29,9 +34,8 @@ public class ActivityController {
         Page<Activity> activityPage = Page.empty();
         String title = "";
         if(!category.isEmpty()) {
-            System.out.println("category => " + category);
             title = category + " 카테고리";
-            //
+            activityPage = activityService.findByCategoryContainingIgnoreCase(page,pageGroupSize,category);
         } else if(!search.isEmpty()) {
             title = search + " 검색 결과";
             activityPage = activityService.findByTitleContainingIgnoreCase( page, pageGroupSize, search);
@@ -73,9 +77,9 @@ public class ActivityController {
     }
 
     @GetMapping("/activity/new")
-    public String getNewActivity() {
-
-
+    public String getNewActivity( Model model) {
+        List<Category> categoryList = categoryService.getAllCategories();
+        model.addAttribute("categoryList", categoryList);
         return "activity/new";
     }
 }

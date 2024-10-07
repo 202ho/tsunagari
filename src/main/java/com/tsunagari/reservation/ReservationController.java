@@ -2,8 +2,8 @@ package com.tsunagari.reservation;
 
 import com.tsunagari.activity.entity.Activity;
 import com.tsunagari.user.entity.Member;
-import com.tsunagari.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.tsunagari.user.service.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +20,6 @@ public class ReservationController {
 
     @Autowired
     private UserService userService;
-
 
     //    @RequestParam("activityId")
 //    @RequestParam("memberId")

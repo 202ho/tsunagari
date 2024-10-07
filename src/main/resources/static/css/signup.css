@@ -1,6 +1,5 @@
 @charset "UTF-8";
 .signup-form{
-	padding-top:200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,7 +20,8 @@
 	color: #ffffff;
 	background-color: #3da5ff;
 	margin:5px;
-
+	width:90%;
+	height:40px;
 }
 
 .signup-input-button{
@@ -53,4 +53,13 @@
 .signup-input-button:active{
 	transform: translateY(2px);
 	box-shadow:none;
+}
+
+.signup-layout {
+display:flex;
+flex-direction: column;
+margin-top : 60px;
+margin-bottom: 100px;
+justify-content:center;
+align-items:center;
 }

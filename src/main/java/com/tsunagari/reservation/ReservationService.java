@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 
 @Service
 public class ReservationService {
@@ -48,13 +48,62 @@ public class ReservationService {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date reseravtionDate = dateFormat.parse(date);
 
-        Reservation reservation = new Reservation(0, member, activity, new Date(),activity.getPrice());   //예약생성
+        Reservation reservation = new Reservation(0, member, activity, new Date());   //예약생성
+
         reservationRepository.save(reservation);     //예약저장
     }
 
     public Page<Reservation> getReservationsByGuestId(Long memberId, int pageNumber, int pageSize) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
         return reservationRepository.findByMemberIdOrderByDateDesc(memberId, pageable);
+    }
+
+    public List<MonthDayReservation>  getGroupedReservations(Long hostId, String dateString) {
+        String[] parts = dateString.split("-");
+        int year = Integer.parseInt(parts[0]);
+        int month = Integer.parseInt(parts[1]);
+        List<Object[]> results = reservationRepository.findGroupedByActivityAndDate(hostId, year, month);
+        List<MonthDayReservation> ret = new ArrayList();
+        for (Object[] result : results) {
+            Integer activityId = (Integer) result[0];
+            Date date = (Date) result[1];
+            String title = (String) result[2];
+            String address = (String) result[3];
+            Long count = ((Number) result[4]).longValue();
+            MonthDayReservation reserv = new MonthDayReservation(activityId,date,title,address,count);
+            ret.add(reserv);
+        }
+        return ret;
+    }
+
+    public List<RevenueReservation>  findGroupedByActivity(Long hostId, String dateString) {
+        String[] parts = dateString.split("-");
+        int year = Integer.parseInt(parts[0]);
+        int month = Integer.parseInt(parts[1]);
+        List<Object[]> results = reservationRepository.findGroupedByActivity(hostId, year, month);
+        List<RevenueReservation> ret = new ArrayList();
+
+        for (Object[] result : results) {
+            Integer activityId = (Integer) result[0];
+            String title = (String) result[1];
+            Long count = ((Number) result[2]).longValue();
+            Long priceTotal = ((Number) result[3]).longValue();
+
+            RevenueReservation reservation = new RevenueReservation(activityId,title,count,priceTotal);
+            ret.add(reservation);
+        }
+        return ret;
+    }
+
+
+    public boolean deleteReservationById(Long id) {
+        Optional<Reservation> reservation = reservationRepository.findById(id);
+        if (reservation.isPresent()) {
+            reservationRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
