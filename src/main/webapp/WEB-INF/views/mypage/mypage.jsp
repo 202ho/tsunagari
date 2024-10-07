@@ -12,20 +12,6 @@
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <div class="sidebar">
-    <div class="user-info">
-        <h2>닉네임</h2>
-        <p>이메일@example.com</p>
-    </div>
-    <ul class="menu">
-        <li><a href="#member-info">회원 정보</a></li>
-        <li><a href="#reservation-history">예약 내역</a></li>
-        <li><a href="#host-application">호스트 신청</a></li>
-        <div class="logout-container">
-            <li class="small-link"><a href="/logout" >로그아웃</a></li>
-            <li class="small-link"><a href="#withdraw">회원탈퇴</a></li>
-        </div>
-    </ul>
-</div>
 <form action="/memberupdete" name="regForm" method="post" class="signup-form" onsubmit="validateForm(event)">
     <input type="hidden" name="csrf_token" value="${sessionScope.csrfToken}" />
     <input type="hidden" name="phone" value="">
@@ -38,7 +24,7 @@
 		<td align="left"> Email </td>
 		</tr>
 		<tr>
-			<td><input type="text" name="email" class="signup-input"> <input type="button" value="중복확인" class="signup-input signup-input-button"></td>
+			<td><input type="text" name="email" value="${member.email}" class="signup-input"> <input type="button" value="중복확인" class="signup-input signup-input-button"></td>
 		</tr>
 		<tr>
 			<td align="left" > Password </td>
@@ -56,7 +42,7 @@
 			<td align="left" > Nickname</td>
 		</tr>
 		<tr>
-			<td><input type="text" name="nickname" class="signup-input"> <input type="button" value="중복확인" class="signup-input signup-input-button"></td>
+			<td><input type="text" name="nickname" value="${member.nickname}" lass="signup-input"> <input type="button" value="중복확인" class="signup-input signup-input-button"></td>
 		</tr>
 		<tr>
 		<td align="left" > Phone</td>
@@ -73,7 +59,7 @@
 		</tr>
 		<tr>
 		<td>
-		<textarea size="50pt" name="intro" class="signup-textarea"></textarea>
+		<textarea size="50pt" name="intro" value="${member.intro}" class="signup-textarea"></textarea>
 		</td>
 		</tr>
 		<tr>

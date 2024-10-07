@@ -108,4 +108,20 @@ public class Member implements UserDetails {
     public Long getId() {
         return id;
     }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setIntro(String intro) {
+        this.intro = intro;
+    }
 }

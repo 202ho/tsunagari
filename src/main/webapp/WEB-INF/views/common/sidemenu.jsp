@@ -9,7 +9,7 @@
                 <div class="sidemenu-header-profile">
                     <h4 class="offcanvas-title" id="offcanvasNavbarLabel">이메일</h4>
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">닉네임</h5>
-                    <a class="nav-link " aria-current="page" href="#">로그아웃</a>
+                    <a class="nav-link " aria-current="page" href="/logout?redirectURL=${pageContext.request.requestURI}">로그아웃</a>
                 </div>
 
             </div>
