@@ -1,6 +1,7 @@
 package com.tsunagari.category.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 public class Category {
@@ -15,7 +16,11 @@ public class Category {
 
     //카테고리별 저장된 게시글의 수
     @Column
+    @ColumnDefault("0")
     private int postCount;
+
+    public Category() {
+    }
 
     public Category(int id, String name, int postCount) {
      this.id = id;
@@ -26,10 +31,24 @@ public class Category {
     public int getId() {
         return id;
     }
-    public String getName(){
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
         return name;
     }
-    public int getPostCount(){
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getPostCount() {
         return postCount;
+    }
+
+    public void setPostCount(int postCount) {
+        this.postCount = postCount;
     }
 }
