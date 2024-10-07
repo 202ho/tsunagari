@@ -6,18 +6,19 @@
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
  <div class="activity-layout" style="display: flex; justify-content: center;">
+
+
 <div class="container">
-    <!-- Left Side: Activity Information with Image -->
-    <div class="activity-info">
-        <h2>${activity.title}</h2>
+
+    <div class="activity-info" >
+    <div>
+        <h1><b>${activity.title}</b></h1><br>
         <p><strong>호스트:</strong> ${activity.hostid}</p>
         <p><strong>주소:</strong> ${activity.address}</p>
-        <p><strong>날짜:</strong> ${activity.regdate} ~ ${activity.enddate}</p>
+        <p><strong>날짜:</strong> ${activity.enddate}</p>
         <p><strong>가격:</strong> ${activity.price}원</p>
     </div>
-    <div class="activity-thumbnail">
-        <img class="thumbnailImg" src="${activity.thumbnail}" alt="Thumbnail"> <!-- 이미지 위치 변경 -->
-    </div>
+        <div><img src="${activity.thumbnail}" alt="Thumbnail"></div>
 </div>
 
 <!-- Visit Schedule Below -->
@@ -42,6 +43,8 @@
     </form>
 </div>
 </div>
+</div>
+<!-- END container -->
 </div>
  <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
