@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/docHead.jsp" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>회원가입</title>
 <link href="resources/css/signup.css" rel="stylesheet" type="text/css">
 <script src="resources/js/signup.js"></script>
 </head>
@@ -15,7 +10,9 @@
     <input type="hidden" name="phone" value="">
 	<table>
 		<tr>
-			<td align="center"></td>
+			<td align="center">
+			    <h4>회원가입</h4>
+			</td>
 		</tr>
 		<tr>
 		<td align="left"> Email </td>
