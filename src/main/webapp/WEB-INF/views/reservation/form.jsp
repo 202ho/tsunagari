@@ -11,14 +11,14 @@
 <div class="container">
 
     <div class="activity-info" >
-    <div>
+    <div class="activity-host-info">
         <h1><b>${activity.title}</b></h1><br>
         <p><strong>호스트:</strong> ${activity.hostid}</p>
         <p><strong>주소:</strong> ${activity.address}</p>
         <p><strong>날짜:</strong> ${activity.enddate}</p>
         <p><strong>가격:</strong> ${activity.price}원</p>
     </div>
-        <div><img src="${activity.thumbnail}" alt="Thumbnail"></div>
+        <div class="activity-thumbnail"><img src="${activity.thumbnail}" alt="Thumbnail"></div>
 </div>
 
 <!-- Visit Schedule Below -->
@@ -32,9 +32,8 @@
     </div>
     <div class="reservation-summary">
         <p>예약 시간: 오후 2시 30분</p>
-        <p>금액: ${activity.price}원</p>
     </div>
-    <form action="/reservation/submit" method="post">
+    <form action="/guest/reservation" method="post">
         <input type="hidden" name="activityId" value="${activity.id}">
         <input type="hidden" name="memberId" value="${memberId}">
         <input type="hidden" name="reservationDate" value="${reservation.date}">

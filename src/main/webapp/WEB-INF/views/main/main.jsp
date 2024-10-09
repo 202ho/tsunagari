@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="/resources/css/main.css">
 <link rel="stylesheet" href="/resources/css/slick.css">
 <script src="/resources/js/activity.js"></script>
-<script src="/resource/js/slideSlick.js"></script>
+<script src="/resources/js/slideSlick.js"></script>
 
 </head>
 <body>
@@ -54,7 +54,13 @@
                 <img src="${categories.image}" class="categoryImg">전체보기</a>
             </div>
  </section>
-    <div class="activity-item-box">
+
+
+    <div class="activity-recommend-section">
+     <div class="activity-recommend">인기 많은 액티비티</div>
+     <div class="activity-categories" onclick="location.href='/activity/list'">전체보기</div>
+        </div>
+      <div class="main-activity-item-box">
         <c:forEach var="activityItem" items="${accList}">
             <div class="activity-item" data-activity-id="${activityItem.id}">
                 <div class="activity-item-img-box">
