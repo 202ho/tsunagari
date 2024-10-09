@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
@@ -24,6 +25,9 @@ public class WebSecurityConfig {
 
     @Autowired
     private UserDetailService userService;
+
+    @Autowired
+    private AuthenticationFailureHandler customFailureHandler;
 
     // 스프링 시큐리티 기능 비활성화 지정
     @Bean
@@ -41,9 +45,10 @@ public class WebSecurityConfig {
                         .anyRequest().permitAll() // 모든 요청을 허용
                 )
                 .formLogin(formLogin -> formLogin
-                        .loginPage("/signin")
+                        .loginPage("/login")
                         .loginProcessingUrl("/login-process")
-                        .defaultSuccessUrl("/activity/list") // 로그인 성공 후 이동할 URL
+                        .failureHandler(customFailureHandler)
+                        .defaultSuccessUrl("/main") // 로그인 성공 후 이동할 URL
                 )
                 .logout(logout -> logout
                         .logoutSuccessUrl("/main") // 로그아웃 성공 후 이동할 URL

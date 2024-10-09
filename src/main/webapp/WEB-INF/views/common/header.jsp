@@ -23,7 +23,7 @@
                     </div>
                 </sec:authorize>
                 <sec:authorize access="!isAuthenticated()">
-                    <button type="button" class="btn btn-outline-primary me-2 header-login-btn" onclick="location.href='/signin'" style="color: #2E8EE5; border-color: #2E8EE5; font-size:0.9rem;">로그인</button>
+                    <button type="button" class="btn btn-outline-primary me-2 header-login-btn" onclick="location.href='/login'" style="color: #2E8EE5; border-color: #2E8EE5; font-size:0.9rem;">로그인</button>
                     <button type="button" class="btn btn-primary" onclick="location.href='/signup'" style="background-color: #2E8EE5; border-color: #2E8EE5; font-size:0.9rem;">회원가입</button>
                 </sec:authorize>
             </div>
