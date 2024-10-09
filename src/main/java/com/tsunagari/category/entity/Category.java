@@ -14,6 +14,9 @@ public class Category {
     @Column(name ="name", nullable = false )
     private String name;
 
+    @Column(name ="image" )
+    private String image;
+
     //카테고리별 저장된 게시글의 수
     @Column
     @ColumnDefault("0")
@@ -22,11 +25,13 @@ public class Category {
     public Category() {
     }
 
-    public Category(int id, String name, int postCount) {
-     this.id = id;
-     this.name = name;
-     this.postCount= postCount;
+    public Category(int id, String name, String image, int postCount) {
+        this.id = id;
+        this.name = name;
+        this.image = image;
+        this.postCount = postCount;
     }
+
 
     public int getId() {
         return id;
@@ -42,6 +47,14 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public int getPostCount() {
