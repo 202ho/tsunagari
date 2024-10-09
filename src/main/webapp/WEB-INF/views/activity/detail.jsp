@@ -44,7 +44,7 @@
         <hr>
         <h1>컨텐츠 소개 </h1>
         <div class="activity-content">
-            ${activity.content}
+            <p style="white-space:pre-line;" >${activity.content}</p>
         </div>
         <hr>
 

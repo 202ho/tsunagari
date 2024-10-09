@@ -5,14 +5,17 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<h4>마이페이지</h4>
+
 <form action="/guest/mypage" name="regForm" method="post" class="signup-form" onsubmit="validateForm(event)">
+
+
     <input type="hidden" name="csrf_token" value="${sessionScope.csrfToken}" />
     <input type="hidden" name="phone" value="">
 	<table>
 		<tr>
-			<td align="center"></td>
-
+			<td align="center">
+			    <h4 class="mypage-title">마이페이지</h4>
+			</td>
 		</tr>
 		<tr>
 		<td align="left"> Email </td>
