@@ -24,4 +24,5 @@ public class CategoryController {
         // 'categories.jsp' 파일을 반환하여 카테고리 목록을 보여줌
         return "categories";  // JSP 파일은 'categories.jsp'로 연결됨
     }
+
 }

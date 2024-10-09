@@ -5,22 +5,24 @@ INSERT INTO TEST(title) VALUES('title3');
 INSERT INTO TEST(title) VALUES('title4');
 INSERT INTO TEST(title) VALUES('title5');
 
-INSERT INTO Category(name) VALUES('아웃도어');
-INSERT INTO Category(name) VALUES('피트니스');
-INSERT INTO Category(name) VALUES('뷰티');
-INSERT INTO Category(name) VALUES('공예');
-INSERT INTO Category(name) VALUES('스포츠');
-INSERT INTO Category(name) VALUES('베이킹');
-INSERT INTO Category(name) VALUES('취미');
-INSERT INTO Category(name) VALUES('온라인');
-INSERT INTO Category(name) VALUES('자기계발');
-INSERT INTO Category(name) VALUES('모임');
-INSERT INTO Category(name) VALUES('심리상담');
-INSERT INTO Category(name) VALUES('국내여행');
-INSERT INTO Category(name) VALUES('해외여행');
-INSERT INTO Category(name) VALUES('수상레포츠');
-INSERT INTO Category(name) VALUES('요리');
-INSERT INTO Category(name) VALUES('음료');
+INSERT INTO category (id, name, image) VALUES (1, '아웃도어', '/resources/image/cateimage/Outdoor.jpg');
+INSERT INTO category (id, name, image) VALUES (2, '피트니스', '/resources/image/cateimage/image2.jpg');
+INSERT INTO category (id, name, image) VALUES (3, '뷰티', '/resources/image/cateimage/image3.jpg');
+INSERT INTO category (id, name, image) VALUES (4, '공예', '/resources/image/cateimage/image3.jpg');
+INSERT INTO category (id, name, image) VALUES (5, '스포츠', '/resources/image/cateimage/image4.jpg');
+INSERT INTO category (id, name, image) VALUES (6, '베이킹', '/resources/image/cateimage/Outdoor.jpg');
+INSERT INTO category (id, name, image) VALUES (7, '취미', '/resources/image/cateimage/image2.jpg');
+INSERT INTO category (id, name, image) VALUES (8, '온라인', '/resources/image/cateimage/image3.jpg');
+INSERT INTO category (id, name, image) VALUES (9, '자기계발', '/resources/image/cateimage/image4.jpg');
+INSERT INTO category (id, name, image) VALUES (10, '모임', '/resources/image/cateimage/Outdoor.jpg');
+INSERT INTO category (id, name, image) VALUES (11, '심리상담', '/resources/image/cateimage/image2.jpg');
+INSERT INTO category (id, name, image) VALUES (12, '국내여행', '/resources/image/cateimage/image3.jpg');
+INSERT INTO category (id, name, image) VALUES (13, '해외여행', '/resources/image/cateimage/image4.jpg');
+INSERT INTO category (id, name, image) VALUES (14, '수상레포츠', '/resources/image/cateimage/image2.jpg');
+INSERT INTO category (id, name, image) VALUES (15, '요리', '/resources/image/cateimage/image3.jpg');
+INSERT INTO category (id, name, image) VALUES (16, '음료', '/resources/image/cateimage/image4.jpg');
+
+
 
 INSERT INTO member(email, nickname, password, ishost, intro, phone) VALUES('test@test.com', 'test','test', 'Y', '안녕하세요', '01012344567');
 INSERT INTO member(email, nickname, password, ishost, intro, phone) VALUES('test2@test2.com', 'test','test', 'Y', '안녕하세요', '01012344567');

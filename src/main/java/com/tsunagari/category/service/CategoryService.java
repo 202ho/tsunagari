@@ -11,14 +11,9 @@ import java.util.List;
 public class CategoryService {
 
     @Autowired
-    private  CategoryRepository categoryRepository;
+    private CategoryRepository categoryRepository;
 
-    public List<Category> findAll(){
-        return categoryRepository.findAll();
+    public List<Category> findAll() {
+        return categoryRepository.findAll();  // 모든 카테고리 데이터를 가져옴
     }
-
-    public List<Category> getAllCategories(){
-        return categoryRepository.findAll();
-    }
-
 }

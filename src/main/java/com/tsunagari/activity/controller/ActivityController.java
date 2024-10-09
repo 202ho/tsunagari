@@ -87,7 +87,7 @@ public class ActivityController {
 
     @GetMapping("/activity/new")
     public String getNewActivity( Model model) {
-        List<Category> categoryList = categoryService.getAllCategories();
+        List<Category> categoryList = categoryService.findAll();
         model.addAttribute("categoryList", categoryList);
         return "activity/new";
     }
