@@ -1,45 +1,35 @@
 .container {
     display: block;
-    justify-content: flex-start;
-    width: 80%;
+    width: 50%;
     margin: 0 auto;
 }
 
 .activity-info {
-    display: flex; /* flexbox 적용 */
-    justify-content: space-between; /* 양쪽 정렬 */
-    width: 90%; /* 전체 너비 */
-    padding-right: 20px;
-    align-items : center;
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+    align-items: center;
     margin: 20px auto;
     padding: 20px;
-
 }
 
-.activity-info div {
-    width: 50%; /* 텍스트와 이미지 각각 50% */
-    padding-right: 10px;
+
+.activity-host-info{
     padding-left : 40px;
-    justify-content: space-evenly;
 }
 
+.activity-thumbnail{
+    justify-content: space-around;
+    width: 60%;
+    display: flex;
+    align-items: stretch;
+    }
 
 .activity-info img {
     width: 70%; /* 이미지가 공간을 가득 채우도록 */
-    height: 50%;
+    height: 60%;
 }
 
-<!--
-.activity-thumbnail {
-    display : inline-block;
-    width: 40%;
-}
-
-.activity-thumbnail img {
-    width: 100%;
-    height: auto;
-}
--->
 
 .visit-schedule {
     width: 80%;

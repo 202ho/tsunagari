@@ -5,6 +5,8 @@ import com.tsunagari.activity.repository.ActivityRepository;
 import com.tsunagari.activity.service.ActivityService;
 import com.tsunagari.category.entity.Category;
 import com.tsunagari.category.service.CategoryService;
+import com.tsunagari.user.entity.Member;
+import com.tsunagari.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -26,6 +28,10 @@ public class ActivityController {
 
     @Autowired
     ActivityRepository activityRepository;
+
+    @Autowired
+    UserRepository userRepository;
+
 
     @GetMapping("/activity/list")
     public String getActivityList(@RequestParam(defaultValue = "") String category, @RequestParam(defaultValue = "") String search, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "0") int currentPage , Model model) {
@@ -71,8 +77,11 @@ public class ActivityController {
         Activity activity = activityRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid activity ID: " + id));
 
+        List<Member> member = userRepository.findAll();
+
         model.addAttribute("activity", activity);
         model.addAttribute("id", id);
+        model.addAttribute("member", member);
         return "activity/detail";
     }
 
