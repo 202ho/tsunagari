@@ -39,7 +39,7 @@ public class ActivityService {
     }
 
     @Transactional
-    public int saveActivity(Activity activity) {
+    public int saveActivity(Activity activ ity) {
         Activity savedActivity = activityRepository.save(activity);
         return savedActivity.getId(); // Return the ID of the saved activity
     }

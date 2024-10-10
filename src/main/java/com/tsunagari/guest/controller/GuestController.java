@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,6 +46,20 @@ public class GuestController {
         return "guest/mypage";
     }
 
+    @PostMapping("/reservation")
+    public String postReservation(@RequestParam("activityId") int activityId, @RequestParam("reservationDate") String reservationDate, Model model)
+    {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        Optional<Member> user = userService.findByEmail(email);
+        // save
+
+        System.out.println("activityId를 예약하라! -> " + activityId);
+        System.out.println("user 예약하라! -> " + user.get().getEmail());
+
+
+        return getReservation(0,0,model);
+    }
+
     @GetMapping("/reservation")
     public String getReservation(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "0") int currentPage , Model model) {
 
@@ -65,9 +80,6 @@ public class GuestController {
         if( remain == 0) pageCnt -= 1;
         int subMax = Math.min(pageSize * (currentPage + 1), reservationList.size());
         List<Reservation> subList = reservationList.subList( pageSize * currentPage  , subMax);
-
-
-
 
         model.addAttribute("page",page);
         model.addAttribute("currentPage",currentPage);

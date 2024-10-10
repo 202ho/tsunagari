@@ -69,9 +69,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-.activity-map {
-    width: 100%;
-    height: 300px;
+.google-Map {
     background-color: #f5f2f2;
     margin-bottom: 20px;
     border-radius: 10px;

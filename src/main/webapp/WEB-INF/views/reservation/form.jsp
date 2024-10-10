@@ -30,14 +30,15 @@
             <option value="2024-09-10">2024년 9월 10일</option>
         </select>
     </div>
+    <!--
     <div class="reservation-summary">
         <p>예약 시간: 오후 2시 30분</p>
     </div>
-    <form action="/guest/reservation" method="post">
+     -->
+    <form name="new-reservation" action="/guest/reservation" method="post">
         <input type="hidden" name="activityId" value="${activity.id}">
         <input type="hidden" name="memberId" value="${memberId}">
-        <input type="hidden" name="reservationDate" value="${reservation.date}">
-        <input type="hidden" name="price" value="${activity.price}">
+        <input type="hidden" name="reservationDate" id="selected-reservation-date" >
         <button type="submit" class="submit-btn">신청 예약하기</button>
     </form>
 </div>
