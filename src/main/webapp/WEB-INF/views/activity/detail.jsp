@@ -7,6 +7,12 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkWirYYhn0lh4l7RVfcIY-raG_uynSjag&callback=myMap" async defer></script>
 
 <link href="/resources/css/detail.css" rel="stylesheet" type="text/css">
+<script>
+$(document).ready(function() {
+    myMap("${activity.x}", "${activity.y}", "어딘가의 주소");
+});
+
+</script>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>

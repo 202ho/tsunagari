@@ -35,12 +35,29 @@
         <p>예약 시간: 오후 2시 30분</p>
     </div>
      -->
+
+    <div class="reservation-date-info-wrapper">
+    <div class="reservation-date-info-titel">방문일정</div>
+    <div class="reservation-date-info-container" overflow="hidden" width="100%">
+    <div class="reservation-date-select"></div>
+    <div class="reservation-date-info-detail-info">
+    <Strong>방문 일정에 따라 세부 정보가 달라질 수 있어요</Strong>
+    <br>
+    일정 확인 후 세부정보를 다시 한번 확인해 주세요!
+
     <form name="new-reservation" action="/guest/reservation" method="post">
         <input type="hidden" name="activityId" value="${activity.id}">
         <input type="hidden" name="memberId" value="${memberId}">
         <input type="hidden" name="reservationDate" id="selected-reservation-date" >
         <button type="submit" class="submit-btn">신청 예약하기</button>
     </form>
+
+    </div>
+    </div>
+
+  <!-- End wrapper -->
+    </div>
+
 </div>
 </div>
 </div>
