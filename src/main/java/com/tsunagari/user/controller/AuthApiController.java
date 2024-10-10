@@ -111,4 +111,5 @@ public class AuthApiController {
 
         return ResponseEntity.ok(response);
     }
+
 }

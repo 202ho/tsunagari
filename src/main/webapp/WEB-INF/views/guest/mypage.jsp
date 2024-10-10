@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/docHead.jsp" %>
 <link href="/resources/css/mypage.css" rel="stylesheet" type="text/css">
@@ -17,6 +18,15 @@
 			    <h4 class="mypage-title">마이페이지</h4>
 			</td>
 		</tr>
+		<c:if test="${not empty member.memberimage}">
+                <img src="${member.memberimage}" alt="Post Image" class="img-fluid my-3">
+        </c:if>
+        <tr align="right">
+        <td>
+        <label for="memberimage" class="signup-input signup-input-button" style="display: flex; justify-content: center; align-items: center;">사진 선택</label>
+            <input type="file" name="memberimage" accept="image/*">
+        </td>
+        </tr>
 		<tr>
 		<td align="left"> Email </td>
 		</tr>

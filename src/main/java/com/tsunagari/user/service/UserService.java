@@ -27,7 +27,8 @@ public class UserService {
                 dto.getNickname(),
                 dto.getIshost(),
                 dto.getIntro(),
-                dto.getPhone()
+                dto.getPhone(),
+                dto.getMemberimage()
         );
         return userRepository.save(member).getId();
     }

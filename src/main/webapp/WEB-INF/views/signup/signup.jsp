@@ -5,7 +5,7 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<form action="/signup" name="regForm" method="post" class="signup-form" onsubmit="validateForm(event)">
+<form action="/signup" name="regForm" method="post" class="signup-form" onsubmit="validateForm(event)" enctype="multipart/form-data">
     <input type="hidden" name="csrf_token" value="${sessionScope.csrfToken}" />
     <input type="hidden" name="phone" value="">
 	<table>
@@ -13,6 +13,12 @@
 			<td align="center">
 			    <h4>회원가입</h4>
 			</td>
+		</tr>
+		<tr align="right">
+		<td>
+		<label for="memberimage" class="signup-input signup-input-button" style="display: flex; justify-content: center; align-items: center;">사진 선택</label>
+        <input type="file" name="memberimage" accept="image/*">
+		</td>
 		</tr>
 		<tr>
 		<td align="left"> Email </td>
