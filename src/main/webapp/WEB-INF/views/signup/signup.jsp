@@ -9,6 +9,8 @@
     <input type="hidden" name="csrf_token" value="${sessionScope.csrfToken}" />
     <input type="hidden" name="phone" value="">
 	<table>
+
+	
 		<tr>
 			<td align="center">
 			    <h4>회원가입</h4>
