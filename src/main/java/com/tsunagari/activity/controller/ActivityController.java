@@ -79,9 +79,6 @@ public class ActivityController {
 
         List<Member> member = userRepository.findAll();
 
-        System.out.println("activity 위도 ==>"+ activity.getX());
-        System.out.println("activity 위도 ==>"+ activity.getY());
-
 
         model.addAttribute("activity", activity);
         model.addAttribute("id", id);

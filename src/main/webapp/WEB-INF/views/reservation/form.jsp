@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/docHead.jsp" %>
 <link href="/resources/css/reservation.css" rel="stylesheet" type="text/css">
-
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/resources/js/datepicker.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -26,20 +31,8 @@
     <h3>방문 일정</h3>
     <div class="calendar">
         <label for="reservationDate">예약 날짜를 선택하세요:</label>
-        <select id="reservationDate" name="reservationDate">
-            <option value="2024-09-10">2024년 9월 10일</option>
-        </select>
+ <input type="text" id="datepicker" name="datepicker">
     </div>
-    <!--
-    <div class="reservation-summary">
-        <p>예약 시간: 오후 2시 30분</p>
-    </div>
-     -->
-
-    <div class="reservation-date-info-wrapper">
-    <div class="reservation-date-info-titel">방문일정</div>
-    <div class="reservation-date-info-container" overflow="hidden" width="100%">
-    <div class="reservation-date-select"></div>
     <div class="reservation-date-info-detail-info">
     <Strong>방문 일정에 따라 세부 정보가 달라질 수 있어요</Strong>
     <br>
