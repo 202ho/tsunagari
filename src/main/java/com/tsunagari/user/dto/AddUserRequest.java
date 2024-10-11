@@ -11,8 +11,8 @@ public class AddUserRequest {
     private String intro;
     private String phone;
     private String ishost;
-    //private String memberimage;
     private MultipartFile memberimage;
+
 
     public AddUserRequest(String email, String password, String nickname, String intro, String phone, String ishost, MultipartFile memberimage) {
         this.email = email;
@@ -74,10 +74,6 @@ public class AddUserRequest {
     public String getIshost() {
         return ishost;
     }
-
-    //public String getMemberimage() {return memberimage;}
-
-    //public void setMemberimage(String memberimage) {this.memberimage = memberimage;}
 
     public MultipartFile getMemberimage() {return memberimage;}
 

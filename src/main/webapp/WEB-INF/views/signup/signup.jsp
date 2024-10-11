@@ -14,14 +14,20 @@
 			    <h4>회원가입</h4>
 			</td>
 		</tr>
-		<tr align="right">
-		<td>
-		<label for="memberimage" class="signup-input signup-input-button" style="display: flex; justify-content: center; align-items: center;">사진 선택</label>
-        <input type="file" name="memberimage" accept="image/*">
-		</td>
-		</tr>
 		<tr>
-		<td align="left"> Email </td>
+            <td align="center">
+                <img id="profileImage" src="/resources/image/proflie_image.png" alt="Profile Image" style="display:block; width: 100px; height: 100px; border-radius: 50%;">
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <input type="file" id="memberimage" name="memberimage" accept="image/*" onchange="previewImage(event)" style="display:none;">
+                <label for="memberimage" class="signup-input signup-input-button" style="display: flex; justify-content: center; align-items: center; cursor: pointer; user-select: none;">사진 선택</label>
+            </td>
+        </tr>
+
+		<tr>
+		    <td align="left"> Email </td>
 		</tr>
 		<tr>
 			<td><input type="text" name="email" class="signup-input"> <input type="button" value="중복확인" id="register-email-check-btn" class="signup-input signup-input-button"></td>
