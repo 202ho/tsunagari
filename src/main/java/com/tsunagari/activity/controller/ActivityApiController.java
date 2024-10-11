@@ -56,6 +56,7 @@ public class ActivityApiController {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         try { end = formatter.parse("2099-12-30"); }
         catch (Exception e){ end = new Date(); }
+
         String addr = address+address2;
         Activity activity = new Activity(hostId, title, content, addr, now, end,price,0, 100,"", city ,longitude,latitude, "",category);
         int newActivyId = activityService.saveActivity(activity);

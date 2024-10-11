@@ -1,12 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/docHead.jsp" %>
 <link href="/resources/css/reservation.css" rel="stylesheet" type="text/css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="/resources/js/datepicker.js"></script>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-  <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -42,7 +38,7 @@
         <input type="hidden" name="activityId" value="${activity.id}">
         <input type="hidden" name="memberId" value="${memberId}">
         <input type="hidden" name="reservationDate" id="selected-reservation-date" >
-        <button type="submit" class="submit-btn">신청 예약하기</button>
+        <button type="button" id="new-reservation-btn" class="submit-btn">신청 예약하기</button>
     </form>
 
     </div>
