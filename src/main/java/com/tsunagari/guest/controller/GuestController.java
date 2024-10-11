@@ -3,7 +3,6 @@ package com.tsunagari.guest.controller;
 import com.tsunagari.activity.entity.Activity;
 import com.tsunagari.reservation.Reservation;
 import com.tsunagari.reservation.ReservationService;
-import com.tsunagari.s3.S3Service;
 import com.tsunagari.user.entity.Member;
 import com.tsunagari.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,9 +27,6 @@ public class GuestController {
 
     @Autowired
     private ReservationService reservationService;
-
-    @Autowired
-    private S3Service s3service;
 
     @GetMapping("/mypage")
     public String getMypage(Model model) {
@@ -92,15 +87,12 @@ public class GuestController {
             @RequestParam("password") String password,
             @RequestParam("phone") String phone,
             @RequestParam("intro") String intro,
-            @RequestParam(value = "memberimage", required = false) MultipartFile memberimage,
             Model model) {
-
-        String memberImageUrl = memberimage != null ? s3service.uploadImageToS3(memberimage) : "";
 
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         Optional<Member> user = userService.findByEmail(email);
         if (user.isPresent()) {
-            userService.updateMember(user.get().getId(), nickname, password, phone, intro, memberImageUrl);
+            userService.updateMember(user.get().getId(), nickname, password, phone, intro);
 
             return "redirect:/main";
         } else {
