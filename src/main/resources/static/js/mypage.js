@@ -1,14 +1,3 @@
-function previewImage(event) {
-       const image = document.getElementById('profileImage');
-       const file = event.target.files[0];
-       if (file) {
-           image.src = URL.createObjectURL(file);
-           image.style.display = 'block'; // 이미지 보이게 설정
-       } else {
-           image.style.display = 'none'; // 파일이 없으면 숨김
-       }
-   }
-
 $(document).ready(function() {
     let isNicknameChecked = false;
 
@@ -76,8 +65,6 @@ $(document).ready(function() {
 
     // 폼 검증 함수
     function validateForm(event) {
-
-
         // 닉네임 중복 확인 여부 확인
         if (!isNicknameChecked) {
             alert("닉네임 중복 확인을 해주세요.");

@@ -1,6 +1,5 @@
 package com.tsunagari.user.service;
 
-import com.tsunagari.s3.S3Service;
 import com.tsunagari.user.dto.RegisterRequest;
 import com.tsunagari.user.entity.Member;
 import com.tsunagari.user.dto.AddUserRequest;
@@ -20,16 +19,7 @@ public class UserService {
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    @Autowired
-    private S3Service s3service;
-
-
-
     public Long save(AddUserRequest dto) {
-        // S3에 이미지 업로드 및 URL 객체 생성
-        String memberImageUrl = dto.getMemberimage() != null ? s3service.uploadImageToS3(dto.getMemberimage()) : "";
-
         // 패스워드를 암호화하고 Member 객체를 생성
         Member member = new Member(
                 dto.getEmail(),
@@ -38,7 +28,7 @@ public class UserService {
                 dto.getIshost(),
                 dto.getIntro(),
                 dto.getPhone(),
-                memberImageUrl
+                dto.getMemberimage()
         );
         return userRepository.save(member).getId();
     }
@@ -68,7 +58,7 @@ public class UserService {
                 .orElse(false);
     }
 
-    public void updateMember(Long memberId, String nickname, String password, String phone, String intro, String memberimage) {
+    public void updateMember(Long memberId, String nickname, String password, String phone, String intro) {
         Optional<Member> optionalMember = userRepository.findById(memberId);
 
         if (optionalMember.isPresent()) {
@@ -76,7 +66,6 @@ public class UserService {
             member.setNickname(nickname);
             member.setPhone(phone);
             member.setIntro(intro);
-            member.setMemberimage(memberimage);
 
             // 비밀번호가 비어있지 않은 경우에만 업데이트
             if (password != null && !password.isEmpty()) {
