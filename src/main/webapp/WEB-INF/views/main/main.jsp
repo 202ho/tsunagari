@@ -44,8 +44,8 @@
         <c:forEach var="activity" items="${accList}">
             <div class="categorywon">
             <!-- 카테고리의 이름이 와야하는지? 엑티비티 id가 와야하는지? -->
-               <a class="categories-search-btn" href="/activity/list?search=${activity.category}" data-name="${activity.title}">
-                 <img src="${activity.thumbnail}" class="categoryImg">${activity.title}</a>
+               <a class="categories-search-btn" href="/activity/list?categoryid=${activity.category.id}" data-name="${activity.title}">
+                 <img src="${activity.category.image}" class="categoryImg">${activity.title}</a>
             </div>
         </c:forEach>
 

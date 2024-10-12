@@ -35,4 +35,9 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
     List<Activity> findTop4ByOrderByLikecountDesc();
 
     List<Activity> findAll();
+
+    List<Activity> findByCategory_Id(Long categoryId);
+
+    List<Activity> findByCategoryId(Long categoryId);
+    Page<Activity> findByCategoryId(Long categoryId, Pageable pageable);
 }
