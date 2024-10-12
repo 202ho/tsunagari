@@ -10,34 +10,43 @@ header ul > li {
 
 .category{
     display: flex;
-    justify-content: space-between;
-    margin: 5px;
-    padding-top : 12px;
-    padding-bottom : 12px;
-    }
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 800px;
+    row-gap: 15px;
+}
 
 .categorywon {
-    width: 100px;
-    height: 100px;
-    border-radius: 70%;
-    background-color : gray;
-    overflow: hidden;
-    position: relative;
+    width: 130px;
+    height: 130px;
     display: flex;
     justify-content: center;
-    align-items : center;
-    margin: 10px;
-    }
+    align-items: center;
+    flex-direction: column;
+    color: gray;
+    font-size: 0.9rem;
+    gap: 8px;
+}
 
 .categoryImg {
     width: 100px;
     height: 100px;
-    border-radius: 70%;
+    border-radius: 50%;
     object-fit: cover;
-    position : absolute;
-    top :0;
-    left : 0;
-    }
+}
+
+.category-all-circle {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #f2f2f2;
+}
 
 .carousel-caption-custom {
     position: absolute;
