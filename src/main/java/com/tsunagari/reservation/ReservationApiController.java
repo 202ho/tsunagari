@@ -2,11 +2,8 @@ package com.tsunagari.reservation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,12 +36,20 @@ public class ReservationApiController {
 
         System.out.println("Creating reservation for memberId: " + memberId + ", activityId: " + activityId + ", date: " + date);
 
+        boolean result = reservationService.createReservation(activityId, memberId, date);
 
-        try {
-            reservationService.createReservation(activityId, memberId, date);
-            return ResponseEntity.ok().build();
-        } catch (ParseException e) {
-            return ResponseEntity.badRequest().body("날짜 형식이 올바르지 않습니다.");
+        if(result) {
+
+            System.out.println("## submitReservation success");
+            Map<String,String > response = new HashMap<>();
+            response.put("result ", "success");
+            return ResponseEntity.ok(response);
+
+        } else {
+            System.out.println("## submitReservation eror");
+            Map<String,String > response = new HashMap<>();
+            response.put("result ", "fail");
+            return  ResponseEntity.badRequest().body(response);
         }
     }
 }

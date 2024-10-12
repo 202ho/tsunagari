@@ -30,11 +30,11 @@ $(document).ready(function() {
         $.ajax({
             url: '/api/reservation/new',
             type : 'POST',
-                data: formData,
-                contentType: false,  // FormData 전송 시 필수
-                processData: false,  // FormData 전송 시 필수
-                dataType: 'json',
-            success: function(response){
+            data: formData,
+            dataType: 'json',
+            contentType: false,  // FormData 전송 시 필수
+            processData: false,  // FormData 전송 시 필수
+            success: function(response) {
                 alert('예약이 완료 되었습니다.');
                 window.location.href = "/guest/reservation";
             },

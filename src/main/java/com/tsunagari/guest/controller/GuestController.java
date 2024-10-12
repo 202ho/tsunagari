@@ -73,8 +73,7 @@ public class GuestController {
         int pageGroupSize = 30;
         Page<Reservation> reservationPage = Page.empty();
         if(user.isPresent()){
-//            Long guestId = user.get().getId();
-            Long guestId = 2L;
+            Long guestId = user.get().getId();
             reservationPage = reservationService.getReservationsByGuestId(guestId, page, pageGroupSize);
         }
         List<Reservation> reservationList = reservationPage.getContent();

@@ -39,18 +39,18 @@ public class ReservationController {
         return "reservation/form";
     }
 
-    @PostMapping("/reservation/submit")
-    public String submitReservation(@RequestParam("activityId") Long activityId,
-                                    @RequestParam("memberId")Long memberId,
-                                    @RequestParam("date")String date, Model model) {
-        try {
-            reservationService.createReservation(memberId, activityId, date);
-        }catch (ParseException e){
-            model.addAttribute("errorMessage", "날짜 형식이 올바르지 않습니다.");
-            return "reservation/form";
-        }
-        return "redirect:/guest/reservation";
-    }
+//    @PostMapping("/reservation/submit")
+//    public String submitReservation(@RequestParam("activityId") Long activityId,
+//                                    @RequestParam("memberId")Long memberId,
+//                                    @RequestParam("date")String date, Model model) {
+//        try {
+//            reservationService.createReservation(memberId, activityId, date);
+//        }catch (ParseException e){
+//            model.addAttribute("errorMessage", "날짜 형식이 올바르지 않습니다.");
+//            return "reservation/form";
+//        }
+//        return "redirect:/guest/reservation";
+//    }
 
 
 }
