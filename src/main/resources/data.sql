@@ -6,21 +6,21 @@ INSERT INTO TEST(title) VALUES('title4');
 INSERT INTO TEST(title) VALUES('title5');
 
 INSERT INTO category (id, name, image) VALUES (1, '아웃도어', '/resources/image/cateimage/Outdoor.jpg');
-INSERT INTO category (id, name, image) VALUES (2, '피트니스', '/resources/image/cateimage/image2.jpg');
-INSERT INTO category (id, name, image) VALUES (3, '뷰티', '/resources/image/cateimage/image3.jpg');
-INSERT INTO category (id, name, image) VALUES (4, '공예', '/resources/image/cateimage/image3.jpg');
-INSERT INTO category (id, name, image) VALUES (5, '스포츠', '/resources/image/cateimage/image4.jpg');
-INSERT INTO category (id, name, image) VALUES (6, '베이킹', '/resources/image/cateimage/Outdoor.jpg');
-INSERT INTO category (id, name, image) VALUES (7, '취미', '/resources/image/cateimage/image2.jpg');
-INSERT INTO category (id, name, image) VALUES (8, '온라인', '/resources/image/cateimage/image3.jpg');
-INSERT INTO category (id, name, image) VALUES (9, '자기계발', '/resources/image/cateimage/image4.jpg');
-INSERT INTO category (id, name, image) VALUES (10, '모임', '/resources/image/cateimage/Outdoor.jpg');
-INSERT INTO category (id, name, image) VALUES (11, '심리상담', '/resources/image/cateimage/image2.jpg');
-INSERT INTO category (id, name, image) VALUES (12, '국내여행', '/resources/image/cateimage/image3.jpg');
-INSERT INTO category (id, name, image) VALUES (13, '해외여행', '/resources/image/cateimage/image4.jpg');
-INSERT INTO category (id, name, image) VALUES (14, '수상레포츠', '/resources/image/cateimage/image2.jpg');
-INSERT INTO category (id, name, image) VALUES (15, '요리', '/resources/image/cateimage/image3.jpg');
-INSERT INTO category (id, name, image) VALUES (16, '음료', '/resources/image/cateimage/image4.jpg');
+INSERT INTO category (id, name, image) VALUES (2, '피트니스', '/resources/image/cateimage/Fitness.jpg');
+INSERT INTO category (id, name, image) VALUES (3, '뷰티', '/resources/image/cateimage/Beauty.jpg');
+INSERT INTO category (id, name, image) VALUES (4, '공예', '/resources/image/cateimage/Craft.jpg');
+INSERT INTO category (id, name, image) VALUES (5, '스포츠', '/resources/image/cateimage/Sports.jpg');
+INSERT INTO category (id, name, image) VALUES (6, '베이킹', '/resources/image/cateimage/Baking.jpg');
+INSERT INTO category (id, name, image) VALUES (7, '취미', '/resources/image/cateimage/Hobby.jpg');
+INSERT INTO category (id, name, image) VALUES (8, '온라인', '/resources/image/cateimage/Online.jpg');
+INSERT INTO category (id, name, image) VALUES (9, '자기계발', '/resources/image/cateimage/SelfImprovement.jpg');
+INSERT INTO category (id, name, image) VALUES (10, '모임', '/resources/image/cateimage/Meeting.jpg');
+INSERT INTO category (id, name, image) VALUES (11, '심리상담', '/resources/image/cateimage/Counsel.jpg');
+INSERT INTO category (id, name, image) VALUES (12, '국내여행', '/resources/image/cateimage/Travel.jpg');
+INSERT INTO category (id, name, image) VALUES (13, '해외여행', '/resources/image/cateimage/Trip.jpg');
+INSERT INTO category (id, name, image) VALUES (14, '수상레포츠', '/resources/image/cateimage/WaterSports.jpg');
+INSERT INTO category (id, name, image) VALUES (15, '요리', '/resources/image/cateimage/Cook.jpg');
+INSERT INTO category (id, name, image) VALUES (16, '음료', '/resources/image/cateimage/Drink.jpg');
 
 
 

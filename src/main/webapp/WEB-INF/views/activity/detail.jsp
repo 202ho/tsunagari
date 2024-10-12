@@ -13,7 +13,23 @@
         <div class="activity-thumbnail">
             <img src="${activity.thumbnail}" alt="Activity Thumbnail">
         </div>
+
         <h1><b>${activity.title}</b></h1>
+        <div class="line-it-button"
+               data-lang="ko"
+               data-type="share-a"
+               data-ver="3"
+               data-url="https://yourwebsite.com"
+               data-color="default"
+               data-size="small"
+               data-count="false"
+               style="display: none;"></div>
+
+          <!-- LINE SDK 추가 -->
+          <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+
+
+
         <hr>
         <div class="detail-address-container">
         <div class="detail-address">${activity.address}</div>
