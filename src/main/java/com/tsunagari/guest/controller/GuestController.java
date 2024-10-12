@@ -95,12 +95,22 @@ public class GuestController {
             @RequestParam(value = "memberimage", required = false) MultipartFile memberimage,
             Model model) {
 
-        String memberImageUrl = memberimage != null ? s3service.uploadImageToS3(memberimage) : "";
+
 
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         Optional<Member> user = userService.findByEmail(email);
         if (user.isPresent()) {
-            userService.updateMember(user.get().getId(), nickname, password, phone, intro, memberImageUrl);
+            Member member = user.get();
+            // 기존 이미지 URL을 유지
+            String memberImageUrl = member.getMemberimage();
+
+            // 새로운 파일이 선택되었을 때만 업로드 처리
+            if (memberimage != null && !memberimage.isEmpty()) {
+                memberImageUrl = s3service.uploadImageToS3(memberimage);  // 새로운 이미지 업로드
+            }
+
+            // 회원 정보 업데이트
+            userService.updateMember(member.getId(), nickname, password, phone, intro, memberImageUrl);
 
             return "redirect:/main";
         } else {

@@ -9,10 +9,9 @@
 
     <form action="/guest/mypage" name="regForm" method="post" class="signup-form" onsubmit="validateForm(event)" enctype="multipart/form-data">
 
-
         <input type="hidden" name="csrf_token" value="${sessionScope.csrfToken}" />
         <input type="hidden" name="phone" value="">
-        <input type="hidden" id="existingMemberImage" value="${member.memberimage}"> <!-- 기존 이미지 경로 -->
+
         <table>
             <tr>
                 <td align="center">

@@ -76,7 +76,13 @@ $(document).ready(function() {
 
     // 폼 검증 함수
     function validateForm(event) {
+    const memberImageInput = document.getElementById('memberimage');
 
+    // 파일이 선택되지 않은 경우
+    if (!memberImageInput.value) {
+        // 파일 입력 필드를 삭제
+        memberImageInput.removeAttribute('name');
+    }
 
         // 닉네임 중복 확인 여부 확인
         if (!isNicknameChecked) {
