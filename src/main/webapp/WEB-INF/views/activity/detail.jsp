@@ -6,12 +6,10 @@
 <script src="/resources/js/googlemap.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRq8roIjbUxN7FVN0L6AoiaOclx2eorXk&callback=initMap"></script>
 
-<link href="/resources/css/detail.css" rel="stylesheet" type="text/css">
 <script>
 $(document).ready(function() {
     myMap("${activity.x}", "${activity.y}", "어딘가의 주소");
 });
-
 </script>
 </head>
 <body>
