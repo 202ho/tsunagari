@@ -1,6 +1,8 @@
 package com.tsunagari.user.dto;
 
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class AddUserRequest {
 
     private String email;
@@ -9,14 +11,17 @@ public class AddUserRequest {
     private String intro;
     private String phone;
     private String ishost;
+    private MultipartFile memberimage;
 
-    public AddUserRequest(String email, String password, String nickname, String intro, String phone, String ishost) {
+
+    public AddUserRequest(String email, String password, String nickname, String intro, String phone, String ishost, MultipartFile memberimage) {
         this.email = email;
         this.password = password;
         this.nickname = nickname;
         this.intro = intro;
         this.phone = phone;
         this.ishost = ishost;
+        this.memberimage = memberimage;
     }
 
     public AddUserRequest() {
@@ -69,4 +74,8 @@ public class AddUserRequest {
     public String getIshost() {
         return ishost;
     }
+
+    public MultipartFile getMemberimage() {return memberimage;}
+
+    public void setMemberimage(MultipartFile memberimage) {this.memberimage = memberimage;}
 }

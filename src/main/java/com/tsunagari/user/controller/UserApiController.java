@@ -1,5 +1,6 @@
 package com.tsunagari.user.controller;
 
+import com.tsunagari.s3.S3Service;
 import com.tsunagari.user.dto.AddUserRequest;
 import com.tsunagari.user.entity.Member;
 import com.tsunagari.user.repository.UserRepository;
@@ -14,11 +15,17 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Optional;
 
 
@@ -33,9 +40,14 @@ public class UserApiController {
     private UserRepository userRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Autowired
+    private S3Service s3service;
+
+
 
     @PostMapping("/signup")
-    public String signup(AddUserRequest request) {
+    public String signup(AddUserRequest request,
+                         Model model) {
         userService.save(request); // 회원 가입 메서드 호출
         return "redirect:/signin"; // 회원 가입이 완료된 이후에 로그인 페이지로 이동
     }
