@@ -1,3 +1,14 @@
+function previewImage(event) {
+       const image = document.getElementById('profileImage');
+       const file = event.target.files[0];
+       if (file) {
+           image.src = URL.createObjectURL(file);
+           image.style.display = 'block'; // 이미지 보이게 설정
+       } else {
+           image.style.display = 'none'; // 파일이 없으면 숨김
+       }
+   }
+
 $(document).ready(function() {
     let isEmailChecked = false;
     let isNicknameChecked = false;
@@ -101,6 +112,12 @@ $('input[name="email"]').on('focus', function() {
 
     // 폼 검증 함수
     function validateForm(event) {
+    const fileInput = document.getElementById('memberimage');
+    if (!fileInput.files.length) {
+        // 파일이 선택되지 않았을 때 name 속성을 빈 문자열로 설정
+        fileInput.setAttribute('name', '');
+    }
+
         // 이메일 중복 확인 여부 확인
         if (!isEmailChecked) {
             alert("이메일 중복 확인을 해주세요.");
@@ -155,6 +172,7 @@ $('input[name="email"]').on('focus', function() {
             }
         }
     }
+
 
     // 폼 제출 시 validateForm 함수 호출
     $('form[name="regForm"]').on('submit', function(event) {

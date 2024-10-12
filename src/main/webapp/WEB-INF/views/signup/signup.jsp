@@ -5,17 +5,31 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<form action="/signup" name="regForm" method="post" class="signup-form" onsubmit="validateForm(event)">
+<form action="/signup" name="regForm" method="post" class="signup-form" onsubmit="validateForm(event)" enctype="multipart/form-data">
     <input type="hidden" name="csrf_token" value="${sessionScope.csrfToken}" />
     <input type="hidden" name="phone" value="">
 	<table>
+
+	
 		<tr>
 			<td align="center">
 			    <h4>회원가입</h4>
 			</td>
 		</tr>
 		<tr>
-		<td align="left"> Email </td>
+            <td align="center">
+                <img id="profileImage" src="/resources/image/proflie_image.png" alt="Profile Image" style="display:block; width: 100px; height: 100px; border-radius: 50%;">
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <input type="file" id="memberimage" name="memberimage" accept="image/*" onchange="previewImage(event)" style="display:none;">
+                <label for="memberimage" class="signup-input signup-input-button" style="display: flex; justify-content: center; align-items: center; cursor: pointer; user-select: none;">사진 선택</label>
+            </td>
+        </tr>
+
+		<tr>
+		    <td align="left"> Email </td>
 		</tr>
 		<tr>
 			<td><input type="text" name="email" class="signup-input"> <input type="button" value="중복확인" id="register-email-check-btn" class="signup-input signup-input-button"></td>

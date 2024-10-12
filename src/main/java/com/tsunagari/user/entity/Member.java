@@ -37,17 +37,21 @@ public class Member implements UserDetails {
     @Column(name = "ishost")
     private String ishost;
 
+    @Column(name = "memberimage")
+    private String memberimage;
+
     public Member() {
     }
 
 
-    public Member(String email, String password, String nickname, String ishost, String intro, String phone) {
+    public Member(String email, String password, String nickname, String ishost, String intro, String phone, String memberimage) {
         this.email = email;
         this.password = password;
         this.nickname = nickname;
         this.ishost = ishost;
         this.intro = intro;
         this.phone = phone;
+        this.memberimage = memberimage;
     }
 
     public Member(String email, String password, String nickname) {
@@ -149,4 +153,8 @@ public class Member implements UserDetails {
     public void setIshost(String ishost) {
         this.ishost = ishost;
     }
+
+    public String getMemberimage() {return memberimage;}
+
+    public void setMemberimage(String memberimage) {this.memberimage = memberimage;}
 }
