@@ -120,6 +120,11 @@
     height: 160px;
     gap:4px;
     border-top : 1px solid rgb(230,230,230);
+    cursor: pointer;
+}
+
+.reservation-item:hover{
+    box-shadow: 0 0 6px #2E8DED;
 }
 
 .reservation-item.top {
@@ -128,7 +133,6 @@
 
 .reservation-item p {
     margin: 0;
-    cursor: default;
 }
 
 
@@ -168,9 +172,9 @@
 .calender-nav {
     width: 780px;
     display:flex;
-        justify-content:flex-start;
-        align-items:center;
-margin-bottom: 30px;
+    justify-content:flex-start;
+    align-items:center;
+    margin-bottom: 30px;
     gap: 10px;
 }
 .toastui-calendar-section-button {
@@ -220,6 +224,10 @@ margin-bottom: 30px;
     align-items: center;
     gap: 10px;
     color: gray;
+}
+
+.reservation-item-button-box {
+    padding-right: 10px;
 }
 
 .reservation-item-button-box.End {

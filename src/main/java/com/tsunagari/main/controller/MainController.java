@@ -1,12 +1,11 @@
 package com.tsunagari.main.controller;
 
-
 import com.tsunagari.activity.entity.Activity;
-import com.tsunagari.activity.repository.ActivityRepository;
 import com.tsunagari.activity.service.ActivityService;
 import com.tsunagari.category.entity.Category;
-import com.tsunagari.category.repository.CategoryRepository;
 import com.tsunagari.category.service.CategoryService;
+import com.tsunagari.main.entity.Board;
+import com.tsunagari.main.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,10 +21,6 @@ import java.util.List;
 @Controller
 public class MainController {
 
-    //좋아요 수가 많은 순으로 액티비티 검색
-    @Autowired
-    private ActivityRepository activityRepository;
-
     @Autowired
     private ActivityService activityService;
 
@@ -33,24 +28,18 @@ public class MainController {
     private CategoryService categoryService;
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private BoardService boardService;
 
     @GetMapping("/main")
     public String getPouplarActivity(Model model){
-        Activity pouplarActivity = activityRepository.findTopByOrderByLikecountDesc();
-        List<Activity> aclist = activityRepository.findTop4ByOrderByLikecountDesc();
+        List<Activity> aclist = activityService.findTop4ByOrderByLikecountDesc();
         List<Category> categoryList = categoryService.findAll();
-        List<Category> categoryamount = categoryRepository.findTop4NByOrderByPostCountDesc();
+        List<Board> boardList = boardService.findAll();
 
-        System.out.println("acc list size => " + aclist.size());
-        System.out.println("get popular => " + pouplarActivity.getTitle());
-        System.out.println("get amount size => " + categoryamount.size() );
-        System.out.println("categoryList ==>" + categoryList.size());
-
-        model.addAttribute("acc", pouplarActivity);
         model.addAttribute("accList", aclist );
         model.addAttribute("categoryList", categoryList);
-        model.addAttribute("cateamount", categoryamount);
+        model.addAttribute("boardList", boardList);
+
         return "main/main";
     }
 

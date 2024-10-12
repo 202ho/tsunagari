@@ -48,7 +48,7 @@ public class ActivityController {
             title = search + " 검색 결과";
             activityPage = activityService.findByTitleContainingIgnoreCase( page, pageGroupSize, search);
         } else {
-            title = "인기 액티비티";
+            title = "\uD83D\uDCC8 인기 액티비티";
             activityPage = activityService.getActivitiesLikecountDesc(page, pageGroupSize);
         }
         List<Activity> activityList = activityPage.getContent();

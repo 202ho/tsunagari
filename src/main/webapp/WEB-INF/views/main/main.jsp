@@ -7,6 +7,7 @@
 <script src="/resources/js/slideSlick.js"></script>
 
 </head>
+
 <body>
  <%@ include file="/WEB-INF/views/common/header.jsp" %>
  <div class="activity-layout" style="display: flex; justify-content: center;">
@@ -16,14 +17,11 @@
       <div class ="slick-slider">
          <div id="carouselExample" class="carousel slide h-100">
              <div class="carousel-inner h-100">
-                 <c:forEach var="activityItem" items="${accList}" varStatus="status">
+                 <c:forEach var="boardItem" items="${boardList}" varStatus="status">
                      <div class="carousel-item h-100 ${status.index == 0 ? 'active' : ''}">
-                       <a href="/activity/list?search=${activityItem.id}">
-                            <img src="${activityItem.thumbnail}" class="d-block w-100 h-100" alt="...">
-                            <div class="carousel-caption-custom">
-                                <h2>${activityItem.title}</h2>
+                       <a href="${boardItem.link}">
+                            <img src="/resources/image/board/${boardItem.image}" class="d-block w-100 h-100" alt="...">
                        </a>
-                            </div>
                      </div>
                  </c:forEach>
 
@@ -41,42 +39,48 @@
         </div>
 
  <section class="category">
-        <c:forEach var="activity" items="${accList}">
-            <div class="categorywon">
-            <!-- 카테고리의 이름이 와야하는지? 엑티비티 id가 와야하는지? -->
-               <a class="categories-search-btn" href="/activity/list?categoryid=${activity.category.id}" data-name="${activity.title}">
-                 <img src="${activity.category.image}" class="categoryImg">${activity.title}</a>
-            </div>
-        </c:forEach>
 
+        <c:forEach var="i" begin="1" end="11">
+               <c:set var="categoryItem" value="${categoryList[i]}" />
+            <div class="categorywon">
+                <a class="categories-search-btn" href="/activity/list?categoryid=${categoryItem.id}" >
+                    <img src="${categoryItem.image}" class="categoryImg">
+                </a>
+                <div>${categoryItem.name}</div>
+            </div>
+
+        </c:forEach>
             <div class="categorywon">
                 <a href="/categories">
-                <img src="${categories.image}" class="categoryImg">전체보기</a>
+                <div class="category-all-circle"><svg width="34" height="36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3.05" y="4.05" width="11.65" height="11.65" rx="1.95" stroke="#FE8256" stroke-width="2.1"></rect><rect x="3.05" y="20.3" width="11.65" height="11.65" rx="1.95" stroke="#FE8256" stroke-width="2.1"></rect><rect x="19.3" y="4.05" width="11.65" height="11.65" rx="1.95" stroke="#FE8256" stroke-width="2.1"></rect><rect x="19.3" y="20.3" width="11.65" height="11.65" rx="1.95" stroke="#FE8256" stroke-width="2.1"></rect></svg></div>
+                </a>
+                <div>전체보기</div>
             </div>
  </section>
 
 
     <div class="activity-recommend-section">
-     <div class="activity-recommend">인기 많은 액티비티</div>
+     <div class="activity-recommend">🤩 &nbsp; 인기 많은 액티비티</div>
      <div class="activity-categories" onclick="location.href='/activity/list'">전체보기</div>
         </div>
       <div class="main-activity-item-box">
         <c:forEach var="activityItem" items="${accList}">
+
             <div class="activity-item" data-activity-id="${activityItem.id}">
                 <div class="activity-item-img-box">
                     <div class="activity-item-img-box-layout">
                         <img src="${activityItem.thumbnail}">
-                        <div class="activity-item-like" data-activity-id="${activityItem.id}"></div>
                     </div>
                 </div>
+
                  <div class="activity-item-city">
-                    <p>${activityItem.city}</p>
+                    <span>${activityItem.city}</span>
                  </div>
                  <div class="activity-item-title">
-                    <p>${activityItem.title}</p>
+                    ${activityItem.title}
                  </div>
                  <div class="activity-item-price">
-                    <p>${activityItem.likecount}</p>
+                    ${activityItem.price}원
                  </div>
             </div>
         </c:forEach>

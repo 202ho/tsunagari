@@ -30,15 +30,11 @@ public class HostApiController {
 
     @GetMapping("/reservation")
     public ResponseEntity<?> getReservation(@RequestParam(defaultValue = "") String date) {
-//        String email = SecurityContextHolder.getContext().getAuthentication().getName();
-//        Optional<Member> user = userService.findByEmail(email);
-//        if(user.isEmpty()) return ResponseEntity.badRequest().build();
-
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        Optional<Member> user = userService.findByEmail(email);
+        if(user.isEmpty()) return ResponseEntity.badRequest().build();
         Map<String, List<MonthDayReservation>> response = new HashMap<>();
-//        Member member = user.get();
-        // Long hostId= member.getId();
-        Long hostId = 3L;
-
+        Long hostId = user.get().getId();
         List<MonthDayReservation> reservationList = reservationService.getGroupedReservations(hostId,date);
         response.put("reservation",reservationList);
         return ResponseEntity.ok(response);
@@ -46,14 +42,12 @@ public class HostApiController {
 
     @GetMapping("/revenue")
     public  ResponseEntity<?> getRevenue(@RequestParam(defaultValue = "") String date) {
-//        String email = SecurityContextHolder.getContext().getAuthentication().getName();
-//        Optional<Member> user = userService.findByEmail(email);
-//        if(user.isEmpty()) return ResponseEntity.badRequest().build();
-
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        Optional<Member> user = userService.findByEmail(email);
+        if(user.isEmpty()) return ResponseEntity.badRequest().build();
         Map<String, List<RevenueReservation>> response = new HashMap<>();
-//        Member member = user.get();
-//         Long hostId= member.getId();
-        Long hostId = 3L;
+        Member member = user.get();
+         Long hostId= member.getId();
         List<RevenueReservation> reservationList = reservationService.findGroupedByActivity(hostId,date);
         response.put("reservation",reservationList);
         return ResponseEntity.ok(response);

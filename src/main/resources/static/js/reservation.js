@@ -2,6 +2,16 @@ const colorSet = ['#ffe3fc', '#FDFD96', '#cff2ff', '#cfffdc'];
 
 $(document).ready(function() {
 
+   $('.reservation-item').on('click', function(e) {
+        e.preventDefault();
+        let activityid = $(this).data('activity-id');
+        if(activityid) {
+            let goto = '/activity/detail/' + activityid;
+            window.location.href= goto;
+        }
+    });
+
+
     // 게스트 예약 취소버튼
     $('.guest-reservation-cancel').on('click', function(e) {
         e.preventDefault();
