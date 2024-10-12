@@ -1,10 +1,10 @@
 package com.tsunagari.activity.entity;
 
+import com.tsunagari.category.entity.Category;
 import jakarta.persistence.*;
 
 import java.util.Date;
 
-// 엑티비티 키워드에서 키워드를 조회,
 @Entity
 public class Activity {
 
@@ -13,41 +13,56 @@ public class Activity {
     @Column(name = "id", updatable = false)
     private int id;
 
-    @Column(name = "hostid",nullable = false)
+    @Column(name = "hostid", nullable = false)
     private Long hostid;
-    @Column(name = "title",nullable = false)
+
+    @Column(name = "title", nullable = false)
     private String title;
-    @Column(name = "content",nullable = false)
+
+    @Column(name = "content", nullable = false)
     private String content;
-    @Column(name = "address",nullable = false)
+
+    @Column(name = "address", nullable = false)
     private String address;
-    @Column(name = "regdate",nullable = false)
+
+    @Column(name = "regdate", nullable = false)
     private Date regdate;
-    @Column(name = "enddate",nullable = false)
+
+    @Column(name = "enddate", nullable = false)
     private Date enddate;
-    @Column(name = "price",nullable = false)
+
+    @Column(name = "price", nullable = false)
     private int price;
-    //찜
-    @Column(name = "likecount",nullable = false)
+
+    @Column(name = "likecount", nullable = false)
     private int likecount;
 
-    @Column(name = "maxpeople",nullable = false)
+    @Column(name = "maxpeople", nullable = false)
     private int maxpeople;
+
     @Column(name = "keyword", nullable = false)
     private String keyword;
-    @Column(name = "city",nullable = false)
+
+    @Column(name = "city", nullable = false)
     private String city;
+
     @Column(name = "x", nullable = false)
     private String x; // 위도
-    @Column(name = "y",nullable = false)
+
+    @Column(name = "y", nullable = false)
     private String y; // 경도
-    @Column(name = "thumbnail",nullable = false)
+
+    @Column(name = "thumbnail", nullable = false)
     private String thumbnail;
-    @Column(name = "category",nullable = false)
-    private String category;
 
+    @ManyToOne // Many activities can belong to one category
+    @JoinColumn(name = "categoryid") // foreign key
+    private Category category; // Category 객체로 변경
 
-    public Activity( Long hostid, String title, String content, String address, Date regdate, Date enddate, int price, int likecount, int maxpeople, String keyword, String city, String x, String y, String thumbnail, String category) {
+    // 생성자
+    public Activity(Long hostid, String title, String content, String address, Date regdate, Date enddate,
+                    int price, int likecount, int maxpeople, String keyword, String city, String x, String y,
+                    String thumbnail, Category category) { // Category 인자를 추가
         this.hostid = hostid;
         this.title = title;
         this.content = content;
@@ -62,15 +77,18 @@ public class Activity {
         this.x = x;
         this.y = y;
         this.thumbnail = thumbnail;
-        this.category = category;
+        this.category = category; // Category 속성 초기화
     }
 
     public Activity() {
-
     }
 
+    public Activity(Long hostId, String title, String content, String addr, Date now, Date end, int price, int likecount, int maxpeople, String keyword, String city, String longitude, String latitude, String thumbnail, String category) {
+    }
+
+    // Getter 및 Setter 메서드
     public int getId() {
-        return id;
+        return id; //
     }
 
     public void setId(int id) {
@@ -189,11 +207,11 @@ public class Activity {
         this.thumbnail = thumbnail;
     }
 
-    public String getCategory() {
-        return category;
+    public Category getCategory() {
+        return category; // 추가된 Getter
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) { // 추가된 Setter
         this.category = category;
     }
 }
