@@ -16,6 +16,5 @@ public interface CategoryRepository extends JpaRepository<Category,Long> {
 
     @Query("SELECT d FROM Detail d WHERE d.category.id = :categoryId")
     List<Detail> findDetailsByCategoryId(@Param("categoryId") Long categoryId);
-
 }
 

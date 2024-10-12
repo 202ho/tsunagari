@@ -10,6 +10,7 @@
 }
 
 .category-title {
+    margin-top:70px;
     text-align: center; /* 중앙 정렬 */
     font-weight: bold; /* 두껍게 */
     color: black; /* 글자 색상을 검은색으로 설정 */
@@ -42,7 +43,7 @@
     width: 100%; /* 이미지 너비 조정 */
     height: 100%; /* 이미지 높이를 박스와 동일하게 설정 */
     object-fit: cover; /* 이미지 비율 유지하며 박스 가득 채움 */
-
+    filter:brightness(0.7);
 
 }
 
@@ -55,4 +56,8 @@
     top: 50%; /* 상단에서 50% 위치 */
     left: 50%; /* 왼쪽에서 50% 위치 */
     transform: translate(-50%, -50%); /* 중앙으로 이동 */
+}
+
+.category-link {
+    width:150%;
 }

@@ -39,4 +39,5 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
     List<Activity> findByCategory_Id(Long categoryId);
 
     List<Activity> findByCategoryId(Long categoryId);
+    Page<Activity> findByCategoryId(Long categoryId, Pageable pageable);
 }

@@ -56,7 +56,7 @@ public class Activity {
     private String thumbnail;
 
     @ManyToOne // Many activities can belong to one category
-    @JoinColumn(name = "category_id") // foreign key
+    @JoinColumn(name = "categoryid") // foreign key
     private Category category; // Category 객체로 변경
 
     // 생성자

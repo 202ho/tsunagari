@@ -30,6 +30,11 @@ public class ActivityService {
         return activityRepository.findByTitleContainingIgnoreCase(keyword, pageable);
     }
 
+    public Page<Activity> findByCategoryId(int pageNumber, int pageSize, Long categoryId) {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(Sort.Order.desc("id")));
+        return activityRepository.findByCategoryId(categoryId, pageable);
+    }
+
     public Page<Activity> findByCategoryContainingIgnoreCase(int pageNumber, int pageSize, String keyword) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(Sort.Order.desc("id")));
         return activityRepository.findByCategoryContainingIgnoreCase(keyword, pageable);
