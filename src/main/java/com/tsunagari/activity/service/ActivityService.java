@@ -10,6 +10,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class ActivityService {
 
@@ -28,6 +30,11 @@ public class ActivityService {
         return activityRepository.findByTitleContainingIgnoreCase(keyword, pageable);
     }
 
+    public Page<Activity> findByCategoryId(int pageNumber, int pageSize, Long categoryId) {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(Sort.Order.desc("id")));
+        return activityRepository.findByCategoryId(categoryId, pageable);
+    }
+
     public Page<Activity> findByCategoryContainingIgnoreCase(int pageNumber, int pageSize, String keyword) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(Sort.Order.desc("id")));
         return activityRepository.findByCategoryContainingIgnoreCase(keyword, pageable);
@@ -41,11 +48,15 @@ public class ActivityService {
     @Transactional
     public int saveActivity(Activity activity) {
         Activity savedActivity = activityRepository.save(activity);
-        return savedActivity.getId(); // Return the ID of the saved activity
+        return Math.toIntExact(savedActivity.getId()); // Return the ID of the saved activity
     }
 
     public boolean updateActivityThumbnail(int activityId, String thumbnail) {
         int updatedCount = activityRepository.updateThumbnail(activityId, thumbnail);
         return updatedCount > 0;
+    }
+
+    public List<Activity> findByCategoryId(Long categoryId) {
+        return activityRepository.findByCategoryId(categoryId); // 카테고리 ID로 액티비티 찾기
     }
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ActivityController {
@@ -34,14 +35,15 @@ public class ActivityController {
 
 
     @GetMapping("/activity/list")
-    public String getActivityList(@RequestParam(defaultValue = "") String category, @RequestParam(defaultValue = "") String search, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "0") int currentPage , Model model) {
+    public String getActivityList(@RequestParam(defaultValue = "") String categoryid, @RequestParam(defaultValue = "") String search, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "0") int currentPage , Model model) {
 
         int pageGroupSize = 40;
         Page<Activity> activityPage = Page.empty();
         String title = "";
-        if(!category.isEmpty()) {
-            title = category + " 카테고리";
-            activityPage = activityService.findByCategoryContainingIgnoreCase(page,pageGroupSize,category);
+        if(!categoryid.isEmpty()) {
+            Optional<Category> category = categoryService.findById(categoryid);
+            title = category.get().getName() + " 카테고리";
+            activityPage = activityService.findByCategoryId(page,pageGroupSize,category.get().getId());
         } else if(!search.isEmpty()) {
             title = search + " 검색 결과";
             activityPage = activityService.findByTitleContainingIgnoreCase( page, pageGroupSize, search);
@@ -88,7 +90,7 @@ public class ActivityController {
 
     @GetMapping("/activity/new")
     public String getNewActivity( Model model) {
-        List<Category> categoryList = categoryService.getAllCategories();
+        List<Category> categoryList = categoryService.findAll();
         model.addAttribute("categoryList", categoryList);
         return "activity/new";
     }
