@@ -13,8 +13,5 @@
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <h2> index jsp</h2>
-     <div>
-        <img src="resources/image/dog.jpg" style="width:100px">
-     </div>
 </body>
 </html>

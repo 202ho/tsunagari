@@ -53,7 +53,6 @@ public class HostController {
         int subMax = Math.min(pageSize * (currentPage + 1), activityList.size());
         List<Activity> subActivityList = activityList.subList( pageSize * currentPage  , subMax);
 
-
         model.addAttribute("title",title);
         model.addAttribute("page",page);
         model.addAttribute("currentPage",currentPage);
