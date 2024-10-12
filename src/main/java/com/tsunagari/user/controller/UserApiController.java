@@ -47,11 +47,7 @@ public class UserApiController {
 
     @PostMapping("/signup")
     public String signup(AddUserRequest request,
-                         @RequestParam(value = "memberimage", required = false) MultipartFile memberimage,
                          Model model) {
-
-        // 업로드한 URL을 AddUserRequest에 설정
-        request.setMemberimage(memberimage);
         userService.save(request); // 회원 가입 메서드 호출
         return "redirect:/signin"; // 회원 가입이 완료된 이후에 로그인 페이지로 이동
     }
