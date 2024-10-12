@@ -40,6 +40,13 @@ public class Reservation {
         this.date = date;
     }
 
+    public Reservation( Member member, Activity activity, Date date) {
+
+        this.member = member;
+        this.activity = activity;
+        this.date = date;
+    }
+
     public int getId() {
         return id;
     }

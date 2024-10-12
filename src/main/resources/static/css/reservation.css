@@ -11,6 +11,7 @@
     align-items: center;
     margin: 20px auto;
     padding: 20px;
+    padding-bottom  :
 }
 
 
@@ -36,10 +37,24 @@
     margin: 20px auto;
     padding: 20px;
     border-top: 1px solid #ccc;
+    padding-top: 4px;
 }
+
+.visit-schedule-line{
+      width: 100%;
+      height: 200px;
+
+      margin-bottom: 20px;
+      margin-top: 20px;
+      border-radius: 7px;
+      display: inline-block;
+
+}
+
 
 .calendar {
     margin-bottom: 20px;
+    margin-top : 20px
 }
 
 .reservation-summary {
@@ -55,7 +70,22 @@
     color: white;
     border: none;
     cursor: pointer;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
 }
+.datepicekr-input{
+    border-radius:5px;
+}
+
+.new-reservation-input{
+    display:flex;
+    flex-direction: row-reverse;
+}
+.reservation-date-info-detail-info strong {
+
+}
+
 
 
 .reservation-layout {

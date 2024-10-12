@@ -81,6 +81,7 @@ public class ActivityController {
 
         List<Member> member = userRepository.findAll();
 
+
         model.addAttribute("activity", activity);
         model.addAttribute("id", id);
         model.addAttribute("member", member);

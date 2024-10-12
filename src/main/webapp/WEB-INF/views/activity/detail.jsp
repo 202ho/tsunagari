@@ -3,7 +3,16 @@
 <link rel="stylesheet" href="/resources/css/detail.css">
 <link rel="stylesheet" href="/resources/css/layout.css">
 <script src="/resources/js/activity.js"></script>
+<script src="/resources/js/googlemap.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRq8roIjbUxN7FVN0L6AoiaOclx2eorXk&callback=initMap"></script>
+
 <link href="/resources/css/detail.css" rel="stylesheet" type="text/css">
+<script>
+$(document).ready(function() {
+    myMap("${activity.x}", "${activity.y}", "어딘가의 주소");
+});
+
+</script>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -61,22 +70,19 @@
         <h1>컨텐츠 소개 </h1>
         <div class="activity-content">
             <p style="white-space:pre-line;" >${activity.content}</p>
+
         </div>
         <hr>
 
+        <!-- 구글 맵 들어갈 자리 -->
         <h1>오시는 길</h1>
-        <div class="activity-map">
-            <!-- 구글 맵 들어갈 자리 -->
+        <div class="google-Map" id="googleMap" style="width:100%; height: 400px;">
         </div>
+
         <hr>
-        <div class="activity-category">
-            Categories: ${activity.category}
-        </div>
+
     </div>
 </div>
-  <!--<div>
-    <a href="/reservation/form?activityId=${id}" class="btn btn-primary">예약하기</a>
-    </div> -->
 
     <div class="Wrapper-Floating-Act">
         <div class="Wrapper-Floating-btn">
@@ -85,9 +91,15 @@
         </div>
     </div>
 
+  <!--<div>
+    <a href="/reservation/form?activityId=${id}" class="btn btn-primary">예약하기</a>
+    </div> -->
+
+
 <!-- End layout -->
 </div>
     <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+
 </body>
 
 </html>
