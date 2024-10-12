@@ -39,21 +39,26 @@ public class ReservationService {
     }
 
     //예약정보 저장
-    public void createReservation( Long activityId,Long memberId, String date) throws ParseException {
+    public boolean createReservation( Long activityId,Long memberId, String date)  {
         Member member = getmemberById(memberId); //조회
         Activity activity = getActivityById(activityId); //조회
 
+        try {
+            //String date -> Date date 변환
+            //입력받을 때 String / 엔티티 저장 할 때 date
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            Date reseravtionDate = dateFormat.parse(date);
 
-         System.out.println(member.getEmail());
-        System.out.println(activity.getTitle());
-        //String date -> Date date 변환
-        //입력받을 때 String / 엔티티 저장 할 때 date
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date reseravtionDate = dateFormat.parse(date);
+            Reservation reservation = new Reservation( member, activity, reseravtionDate);   //예약생성
 
-        Reservation reservation = new Reservation( member, activity, reseravtionDate);   //예약생성
+            reservationRepository.save(reservation);     //예약저장
+            return  true;
+        } catch (Exception e) {
+            System.out.println("createReservation error");
+            e.printStackTrace();
+            return  false;
+        }
 
-        reservationRepository.save(reservation);     //예약저장
     }
 
     public Page<Reservation> getReservationsByGuestId(Long memberId, int pageNumber, int pageSize) {
