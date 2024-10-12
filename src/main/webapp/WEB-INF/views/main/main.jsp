@@ -62,26 +62,27 @@
 
 
     <div class="activity-recommend-section">
-     <div class="activity-recommend">인기 많은 액티비티</div>
+     <div class="activity-recommend">🤩 &nbsp; 인기 많은 액티비티</div>
      <div class="activity-categories" onclick="location.href='/activity/list'">전체보기</div>
         </div>
       <div class="main-activity-item-box">
         <c:forEach var="activityItem" items="${accList}">
+
             <div class="activity-item" data-activity-id="${activityItem.id}">
                 <div class="activity-item-img-box">
                     <div class="activity-item-img-box-layout">
                         <img src="${activityItem.thumbnail}">
-                        <div class="activity-item-like" data-activity-id="${activityItem.id}"></div>
                     </div>
                 </div>
+
                  <div class="activity-item-city">
-                    <p>${activityItem.city}</p>
+                    <span>${activityItem.city}</span>
                  </div>
                  <div class="activity-item-title">
-                    <p>${activityItem.title}</p>
+                    ${activityItem.title}
                  </div>
                  <div class="activity-item-price">
-                    <p>${activityItem.likecount}</p>
+                    ${activityItem.price}원
                  </div>
             </div>
         </c:forEach>
