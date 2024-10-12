@@ -124,14 +124,12 @@ hr {
 }
 
 .Wrapper-Floating-Act {
-    position: fixed;
     bottom: 0px;
     left: 0px;
     width: 100%;
     padding: 12px 20px 24px;
-    box-shadow: rgba(0, 0, 0, 0.08) 0px -10px 30px -10px;
     background-color: white;
-    z-index: 200;
+
 }
 
 .Wrapper-Floating-btn {

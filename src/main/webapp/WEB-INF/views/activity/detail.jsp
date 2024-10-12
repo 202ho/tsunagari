@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="/resources/css/layout.css">
 <script src="/resources/js/activity.js"></script>
 <script src="/resources/js/googlemap.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkWirYYhn0lh4l7RVfcIY-raG_uynSjag&callback=myMap" async defer></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRq8roIjbUxN7FVN0L6AoiaOclx2eorXk&callback=initMap"></script>
 
 <link href="/resources/css/detail.css" rel="stylesheet" type="text/css">
 <script>
@@ -67,9 +67,6 @@ $(document).ready(function() {
 
     </div>
 </div>
-  <!--<div>
-    <a href="/reservation/form?activityId=${id}" class="btn btn-primary">예약하기</a>
-    </div> -->
 
     <div class="Wrapper-Floating-Act">
         <div class="Wrapper-Floating-btn">
@@ -77,6 +74,11 @@ $(document).ready(function() {
             <div class="submit-btn">예약하기</div>
         </div>
     </div>
+
+  <!--<div>
+    <a href="/reservation/form?activityId=${id}" class="btn btn-primary">예약하기</a>
+    </div> -->
+
 
 <!-- End layout -->
 </div>

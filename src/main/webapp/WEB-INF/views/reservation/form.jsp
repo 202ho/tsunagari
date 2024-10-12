@@ -4,6 +4,7 @@
 <script src="/resources/js/datepicker.js"></script>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
 </head>
+
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
  <div class="activity-layout" style="display: flex; justify-content: center;">
@@ -24,26 +25,29 @@
 
 <!-- Visit Schedule Below -->
 <div class="visit-schedule">
+<div class="visit-schedule-line">
     <h3>방문 일정</h3>
-    <div class="calendar">
-        <label for="reservationDate">예약 날짜를 선택하세요:</label>
- <input type="text" id="datepicker" name="datepicker">
-    </div>
+    <br>
     <div class="reservation-date-info-detail-info">
     <Strong>방문 일정에 따라 세부 정보가 달라질 수 있어요</Strong>
     <br>
     일정 확인 후 세부정보를 다시 한번 확인해 주세요!
-
-    <form name="new-reservation" action="/guest/reservation" method="post">
+    <br>
+    <div class="calendar">
+            <label for="reservationDate">예약 날짜를 선택하세요:</label>
+     <input class="datepicekr-input" type="text" id="datepicker" name="datepicker">
+        </div>
+    <div class= "new-reservation-input">
+    <form name="new-reservation" id="new-reservation-form" action="/guest/reservation" method="post">
         <input type="hidden" name="activityId" value="${activity.id}">
         <input type="hidden" name="memberId" value="${memberId}">
         <input type="hidden" name="reservationDate" id="selected-reservation-date" >
         <button type="button" id="new-reservation-btn" class="submit-btn">신청 예약하기</button>
     </form>
-
     </div>
     </div>
-
+    </div>
+</div>
   <!-- End wrapper -->
     </div>
 

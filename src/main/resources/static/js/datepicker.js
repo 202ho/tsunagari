@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", function() {
+
+$(document).ready(function() {
     // datepicker 초기화
     $("#datepicker").datepicker({
         dateFormat: "yy-mm-dd", // 날짜 형식 설정
@@ -23,25 +24,25 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         console.log('new-reservation-btn click');
-        let formData = new FormData($('#new-reservation')[0]);
-        console.log(FormData);
+        let formData = new FormData($('#new-reservation-form')[0]);
+        console.log(formData);
 
-    $.ajax({
-        url: '/api/reservation/new',
-        type : 'POST',
-        data: formData,
-        contentType: 'application/json',
-        contentType: false, // 수정된 부분
-        processData: false, // 수정된 부분
-        dataType: 'json',
-        success: function(response){
-            alert('예약이 완료 되었습니다.');
-            window.location.href = "/reservation/form";
-        },
-         error: function(xhr, status, error) {
-         alert('다시 시도해 주세요');
+        $.ajax({
+            url: '/api/reservation/new',
+            type : 'POST',
+                data: formData,
+                contentType: false,  // FormData 전송 시 필수
+                processData: false,  // FormData 전송 시 필수
+                dataType: 'json',
+            success: function(response){
+                alert('예약이 완료 되었습니다.');
+                window.location.href = "/guest/reservation";
+            },
+            error: function(xhr, status, error) {
+                alert('다시 시도해 주세요');
             }
         });
+
 
     });
 });
