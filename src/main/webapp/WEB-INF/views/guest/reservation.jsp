@@ -19,7 +19,7 @@
             <div class="reservation-item-box">
                 <c:forEach var="item" items="${list}" varStatus="status">
 
-                    <div class="reservation-item ${status.index == 0 ? 'top' : ''}">
+                    <div class="reservation-item ${status.index == 0 ? 'top' : ''}" data-activity-id="${item.activity.id}">
 
                         <div class="reservation-item-img-box-layout">
                             <div class="reservation-item-img-box">
