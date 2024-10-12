@@ -1,8 +1,6 @@
 package com.tsunagari.main.controller;
 
-
 import com.tsunagari.activity.entity.Activity;
-import com.tsunagari.activity.repository.ActivityRepository;
 import com.tsunagari.activity.service.ActivityService;
 import com.tsunagari.category.entity.Category;
 import com.tsunagari.category.service.CategoryService;
@@ -23,10 +21,6 @@ import java.util.List;
 @Controller
 public class MainController {
 
-    //좋아요 수가 많은 순으로 액티비티 검색
-    @Autowired
-    private ActivityRepository activityRepository;
-
     @Autowired
     private ActivityService activityService;
 
@@ -38,16 +32,12 @@ public class MainController {
 
     @GetMapping("/main")
     public String getPouplarActivity(Model model){
-        Activity pouplarActivity = activityRepository.findTopByOrderByLikecountDesc();
-        List<Activity> aclist = activityRepository.findTop4ByOrderByLikecountDesc();
+        List<Activity> aclist = activityService.findTop4ByOrderByLikecountDesc();
         List<Category> categoryList = categoryService.findAll();
-        List<Category> categoryamount = categoryService.findTop4NByOrderByPostCountDesc();
         List<Board> boardList = boardService.findAll();
-        
-        model.addAttribute("acc", pouplarActivity);
+
         model.addAttribute("accList", aclist );
         model.addAttribute("categoryList", categoryList);
-        model.addAttribute("cateamount", categoryamount);
         model.addAttribute("boardList", boardList);
 
         return "main/main";
