@@ -16,14 +16,11 @@
       <div class ="slick-slider">
          <div id="carouselExample" class="carousel slide h-100">
              <div class="carousel-inner h-100">
-                 <c:forEach var="activityItem" items="${accList}" varStatus="status">
+                 <c:forEach var="boardItem" items="${boardList}" varStatus="status">
                      <div class="carousel-item h-100 ${status.index == 0 ? 'active' : ''}">
-                       <a href="/activity/list?search=${activityItem.id}">
-                            <img src="${activityItem.thumbnail}" class="d-block w-100 h-100" alt="...">
-                            <div class="carousel-caption-custom">
-                                <h2>${activityItem.title}</h2>
+                       <a href="${boardItem.link}">
+                            <img src="/resources/image/board/${boardItem.image}" class="d-block w-100 h-100" alt="...">
                        </a>
-                            </div>
                      </div>
                  </c:forEach>
 

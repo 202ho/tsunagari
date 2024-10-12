@@ -88,6 +88,11 @@ a:visited {
     margin-right: 15px;
 }
 
+.carousel-item img {
+    object-fit: cover;
+    object-position: left top;
+}
+
 
 .activity-recommend{
     font-size : 20px;
@@ -107,3 +112,4 @@ a:visited {
    justify-content: space-around;
    width: 800px;
    gap: 16px;
+}
