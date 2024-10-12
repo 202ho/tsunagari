@@ -42,7 +42,7 @@
                 <div class="new-form-item border-bottom">
                     <div class="new-form-label">소개</div>
                     <div class="input-group new-form-data-box">
-                        <textarea class="form-control" name="new-activity-content" style="height:150px;"></textarea>
+                        <textarea class="form-control" name="new-activity-content" style="height:150px; wrap:hard"></textarea>
                     </div>
                 </div>
 
