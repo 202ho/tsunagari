@@ -1,4 +1,5 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="core" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
     <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@ include file="/WEB-INF/views/common/docHead.jsp" %>
     <link href="/resources/css/mypage.css" rel="stylesheet" type="text/css">
@@ -70,9 +71,9 @@
             </tr>
             <tr>
                 <td>
-                <input type="tel" name="phone1" maxlength="3" class="signup-input signup-input-tel">-
-                <input type="tel" name="phone2" maxlength="4" class="signup-input signup-input-tel">-
-                <input type="tel" name="phone3" maxlength="4" class="signup-input signup-input-tel">
+                <input type="tel" name="phone1" maxlength="3" value="${fn:substring(member.phone, 0, 3)}" class="signup-input signup-input-tel">-
+                <input type="tel" name="phone2" maxlength="4" value="${fn:substring(member.phone, 4, 8)}" class="signup-input signup-input-tel">-
+                <input type="tel" name="phone3" maxlength="4" value="${fn:substring(member.phone, 9, 13)}" class="signup-input signup-input-tel">
                 </td>
             </tr>
             <tr>
