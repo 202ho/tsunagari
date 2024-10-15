@@ -1,0 +1,59 @@
+.signup-form {
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-input[readonly] {
+    background-color: #f0f0f0; /* 연한 회색 */
+}
+
+.signup-input {
+    border: 1px solid gray;
+    box-sizing: border-box;
+    border-radius: 7px;
+    font-size: 12pt;
+    width: 270px;
+    height: 30px;
+    margin: 5px;
+}
+
+.signup-input-submit {
+    color: #ffffff;
+    background-color: #3da5ff;
+    margin: 5px;
+}
+
+.signup-input-button {
+    color: #ffffff;
+    background-color: #3da5ff;
+    margin: 5px;
+    width: 70px;
+    height: 30px;
+    font-size: 10pt;
+}
+
+.signup-input-tel {
+    width: 73px;
+    height: 30px;
+}
+
+.signup-textarea {
+    resize: none;
+    font-size: 12pt;
+    width: 350px;
+    height: 80px;
+    border: 1px solid gray;
+    border-radius: 7px;
+}
+
+.signup-input-submit:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+
+.signup-input-button:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}

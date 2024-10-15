@@ -1,0 +1,235 @@
+.container {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.activity-info {
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    padding-bottom  :
+}
+
+
+.activity-host-info{
+    padding-left : 40px;
+}
+
+.activity-thumbnail{
+    justify-content: space-around;
+    width: 60%;
+    display: flex;
+    align-items: stretch;
+    }
+
+.activity-info img {
+    width: 70%; /* 이미지가 공간을 가득 채우도록 */
+    height: 60%;
+}
+
+
+.visit-schedule {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 4px;
+}
+
+.visit-schedule-line{
+      width: 100%;
+      height: 200px;
+
+      margin-bottom: 20px;
+      margin-top: 20px;
+      border-radius: 7px;
+      display: inline-block;
+
+}
+
+
+.calendar {
+    margin-bottom: 20px;
+    margin-top : 20px
+}
+
+.reservation-summary {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #ff5a5f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+.datepicekr-input{
+    border-radius:5px;
+}
+
+.new-reservation-input{
+    display:flex;
+    flex-direction: row-reverse;
+}
+.reservation-date-info-detail-info strong {
+
+}
+
+
+
+.reservation-layout {
+
+    display:flex;
+    justify-content:center;
+    align-items : center;
+}
+
+.reservation-content {
+    width:800px;
+    display:flex;
+    flex-direction: column;
+        justify-content:center;
+        align-items : center;
+
+}
+
+.title-box {
+    display:flex;
+            justify-content:flex-start;
+}
+
+.reservation-item-box {
+    width:100%;
+}
+
+.reservation-item {
+    display:flex;
+    justify-content:center;
+    align-items : center;
+    height: 160px;
+    gap:4px;
+    border-top : 1px solid rgb(230,230,230);
+    cursor: pointer;
+}
+
+.reservation-item:hover{
+    box-shadow: 0 0 6px #2E8DED;
+}
+
+.reservation-item.top {
+        border-top: none;
+}
+
+.reservation-item p {
+    margin: 0;
+}
+
+
+.reservation-item-img-box-layout {
+    width:160px;
+    height:100%;
+    padding:10px;
+}
+
+.reservation-item-img-box {
+    width:100%;
+    height:100%;
+}
+
+.reservation-item-img-box img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+.reservation-item-info-box {
+    flex-grow: 1;
+    height:100%;
+    padding: 10px 10px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.calendar-app-layout {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+        margin: 30px;
+}
+.calender-nav {
+    width: 780px;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+.toastui-calendar-section-button {
+    display:none;
+}
+.calendar-app-layout h5{
+    width:780px;
+    margin-bottom:30px;
+    margin-top:20px;
+}
+.calender-nav-date {
+    margin-left: 1rem;
+    font-size: 1.25rem;
+}
+
+.reservation-item-date {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-start;
+}
+.reservation-dday {
+    color: #2E8DEC;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.reservation-item .End {
+    color: darkgray;
+}
+
+.reservation-date {
+    color: gray;
+    font-weight: 200;
+    font-size: 1rem;
+}
+
+.reservation-item-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.reservation-item-address {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    color: gray;
+}
+
+.reservation-item-button-box {
+    padding-right: 10px;
+}
+
+.reservation-item-button-box.End {
+    display:none;
+}
