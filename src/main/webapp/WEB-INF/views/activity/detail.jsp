@@ -5,7 +5,7 @@
 <script src="/resources/js/activity.js"></script>
 <script src="/resources/js/googlemap.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRq8roIjbUxN7FVN0L6AoiaOclx2eorXk&callback=initMap"></script>
-
+<script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
 <script>
 $(document).ready(function() {
     myMap("${activity.x}", "${activity.y}", "어딘가의 주소");
@@ -26,16 +26,10 @@ $(document).ready(function() {
                data-lang="ko"
                data-type="share-a"
                data-ver="3"
-               data-url="https://yourwebsite.com"
+               data-url="http://3.37.57.237:8080/activity/detail/${activity.id}"
                data-color="default"
-               data-size="small"
                data-count="false"
                style="display: none;"></div>
-
-          <!-- LINE SDK 추가 -->
-          <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-
-
 
         <hr>
         <div class="detail-address-container">
