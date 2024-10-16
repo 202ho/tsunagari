@@ -3,6 +3,7 @@ package com.tsunagari.user.controller;
 import com.tsunagari.user.dto.EmailCheckRequest;
 import com.tsunagari.user.dto.NicknameCheckRequest;
 import com.tsunagari.user.dto.RegisterRequest;
+import com.tsunagari.user.email.EmailService;
 import com.tsunagari.user.entity.Member;
 import com.tsunagari.user.service.UserDetailService;
 import com.tsunagari.user.service.UserService;
@@ -20,6 +21,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthApiController {
+
+    @Autowired
+    private EmailService emailService;
 
     @Autowired
     private UserService userService;
@@ -111,5 +115,25 @@ public class AuthApiController {
 
         return ResponseEntity.ok(response);
     }
-
+    //인증 번호 전송
+    @PostMapping("/sendEmail")
+    public ResponseEntity<String> sendVerificationCode(@RequestParam String email) {
+        try {
+            emailService.sendCodeToEmail(email);
+            return ResponseEntity.ok("");
+        } catch (Exception e) {
+            // 에러 처리
+            return ResponseEntity.status(500).body("");
+        }
+    }
+    // 인증번호 확인
+    @PostMapping("/verifycode")
+    public ResponseEntity<String> verifyCode(@RequestParam String email, @RequestParam String code) {
+        boolean isValid = emailService.verifyCode(email, code);
+        if (isValid) {
+            return ResponseEntity.ok("확인 되었습니다.");
+        } else {
+            return ResponseEntity.status(400).body("");
+        }
+    }
 }
