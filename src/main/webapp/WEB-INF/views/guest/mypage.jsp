@@ -72,8 +72,8 @@
             <tr>
                 <td>
                 <input type="tel" name="phone1" maxlength="3" value="${fn:substring(member.phone, 0, 3)}" class="signup-input signup-input-tel">-
-                <input type="tel" name="phone2" maxlength="4" value="${fn:substring(member.phone, 4, 8)}" class="signup-input signup-input-tel">-
-                <input type="tel" name="phone3" maxlength="4" value="${fn:substring(member.phone, 9, 13)}" class="signup-input signup-input-tel">
+                <input type="tel" name="phone2" maxlength="4" value="${fn:substring(member.phone, 3, 7)}" class="signup-input signup-input-tel">-
+                <input type="tel" name="phone3" maxlength="4" value="${fn:substring(member.phone, 7, 11)}" class="signup-input signup-input-tel">
                 </td>
             </tr>
             <tr>
