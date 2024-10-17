@@ -1,7 +1,5 @@
 package com.tsunagari.reservation;
 
-import java.util.Date;
-
 public class RevenueReservation {
     public Integer activityId;
     String title;

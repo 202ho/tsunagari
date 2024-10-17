@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/docHead.jsp" %>
 <link rel="stylesheet" href="/resources/css/detail.css">
-<link rel="stylesheet" href="/resources/css/layout.css">
 <script src="/resources/js/activity.js"></script>
 <script src="/resources/js/googlemap.js"></script>
 <script>
-
 function initMap() {
    myMap("${activity.x}", "${activity.y}", "${activity.address}");
 }
@@ -26,15 +24,11 @@ function initMap() {
                data-lang="ko"
                data-type="share-a"
                data-ver="3"
-               data-url="https://yourwebsite.com"
+               data-url="http://3.37.57.237:8080/activity/detail/${activity.id}"
                data-color="default"
-               data-size="small"
                data-count="false"
                style="display: none;"></div>
-
-          <!-- LINE SDK 추가 -->
-          <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-
+         <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
 
 
         <hr>
@@ -86,14 +80,16 @@ function initMap() {
 
     <div class="Wrapper-Floating-Act">
         <div class="Wrapper-Floating-btn">
-            <button class="Wrapper-Floating-btn-btn" onclick="location.href='/reservation/form?activityId=${id}';">
-            <div class="submit-btn">예약하기</div>
+            <sec:authorize access="isAuthenticated()">
+                <button class="Wrapper-Floating-btn-btn" onclick="location.href='/reservation/form?activityId=${id}';">
+                <div class="submit-btn">예약하기</div>
+            </sec:authorize>
+            <sec:authorize access="!isAuthenticated()">
+                <button class="Wrapper-Floating-btn-btn disabled" onclick="location.href='/login'">
+                <div class="submit-btn">로그인하기</div>
+            </sec:authorize>
         </div>
     </div>
-
-  <!--<div>
-    <a href="/reservation/form?activityId=${id}" class="btn btn-primary">예약하기</a>
-    </div> -->
 
 
 <!-- End layout -->

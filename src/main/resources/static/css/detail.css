@@ -157,3 +157,7 @@ hr {
     border: none;
     border-radius: 10px;
 }
+
+.Wrapper-Floating-btn-btn.disabled {
+    background : gray;
+}

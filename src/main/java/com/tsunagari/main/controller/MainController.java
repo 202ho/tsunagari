@@ -30,6 +30,19 @@ public class MainController {
     @Autowired
     private BoardService boardService;
 
+    @GetMapping("/")
+    public String home(Model model) {
+        List<Activity> aclist = activityService.findTop4ByOrderByLikecountDesc();
+        List<Category> categoryList = categoryService.findAll();
+        List<Board> boardList = boardService.findAll();
+
+        model.addAttribute("accList", aclist );
+        model.addAttribute("categoryList", categoryList);
+        model.addAttribute("boardList", boardList);
+
+        return "main/main";
+    }
+
     @GetMapping("/main")
     public String getPouplarActivity(Model model){
         List<Activity> aclist = activityService.findTop4ByOrderByLikecountDesc();
