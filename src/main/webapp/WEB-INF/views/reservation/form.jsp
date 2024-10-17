@@ -26,7 +26,7 @@
 <!-- Visit Schedule Below -->
 <div class="visit-schedule">
 <div class="visit-schedule-line">
-    <h3>방문 일정</h3>
+    <div class="visit-schedule-title">방문 일정</div>
     <br>
     <div class="reservation-date-info-detail-info">
     <Strong>방문 일정에 따라 세부 정보가 달라질 수 있어요</Strong>
