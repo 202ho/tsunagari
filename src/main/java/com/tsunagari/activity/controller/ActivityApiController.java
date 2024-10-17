@@ -66,7 +66,7 @@ public class ActivityApiController {
 
         System.out.println("new category => " + categoryid);
         String addr = address+address2;
-        Activity activity = new Activity(hostId, title, content, addr, now, end, price,0, 100,"", city ,longitude,latitude, "",category.get());
+        Activity activity = new Activity(hostId, title, content, addr, now, end, price,0, 100,"", city ,latitude,longitude, "",category.get());
         int newActivyId = activityService.saveActivity(activity);
 
         String s3url = s3service.uploadImageToS3(photo);
