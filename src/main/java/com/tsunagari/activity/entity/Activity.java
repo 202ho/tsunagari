@@ -83,8 +83,7 @@ public class Activity {
     public Activity() {
     }
 
-    public Activity(Long hostId, String title, String content, String addr, Date now, Date end, int price, int likecount, int maxpeople, String keyword, String city, String longitude, String latitude, String thumbnail, String category) {
-    }
+
 
     // Getter 및 Setter 메서드
     public int getId() {

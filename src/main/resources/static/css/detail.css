@@ -22,6 +22,7 @@
     width: 600px;
     height : 300px;
     border-radius: 10px;
+    object-fit: contain;
 }
 
 h1 {
@@ -33,12 +34,13 @@ h1 {
 
 .activity-host{
    width: 100%;
-   height: 200px;
+   height: 130px;
    background-color: #f5f2f2;
    margin-bottom: 20px;
    margin-top: 20px;
    border-radius: 7px;
-   display : inline-block;
+   display : flex;
+   align-items:center;
 }
 
 .activity-host-photo{
@@ -92,7 +94,7 @@ hr {
 
 .hostid{
     font-size : 17px;
-
+    font-weight : bold;
 }
 
 .host-wording{
@@ -154,4 +156,8 @@ hr {
     background : #2e8ee5;
     border: none;
     border-radius: 10px;
+}
+
+.Wrapper-Floating-btn-btn.disabled {
+    background : gray;
 }

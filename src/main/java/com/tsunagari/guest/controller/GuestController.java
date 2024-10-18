@@ -37,10 +37,9 @@ public class GuestController {
     @GetMapping("/mypage")
     public String getMypage(Model model) {
 
-
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
-
         Optional<Member> user = userService.findByEmail(email);
+
         if (user.isPresent()) {
             Member member = user.get();
             model.addAttribute("member", member);
@@ -56,12 +55,6 @@ public class GuestController {
     {
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         Optional<Member> user = userService.findByEmail(email);
-        // save
-
-        System.out.println("activityId를 예약하라! -> " + activityId);
-        System.out.println("user 예약하라! -> " + user.get().getEmail());
-
-
         return getReservation(0,0,model);
     }
 
@@ -104,10 +97,8 @@ public class GuestController {
             @RequestParam("phone") String phone,
             @RequestParam("intro") String intro,
             @RequestParam(value = "memberimage", required = false) MultipartFile memberimage,
-            Model model) {
-
-
-
+            Model model
+    ) {
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         Optional<Member> user = userService.findByEmail(email);
         if (user.isPresent()) {

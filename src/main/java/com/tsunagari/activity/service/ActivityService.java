@@ -59,4 +59,7 @@ public class ActivityService {
     public List<Activity> findByCategoryId(Long categoryId) {
         return activityRepository.findByCategoryId(categoryId); // 카테고리 ID로 액티비티 찾기
     }
+    public List<Activity> findTop4ByOrderByLikecountDesc() {
+        return activityRepository.findTop4ByOrderByLikecountDesc();
+    }
 }

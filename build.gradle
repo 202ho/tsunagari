@@ -6,6 +6,7 @@ plugins {
 
 group = 'com'
 version = '0.0.1-SNAPSHOT'
+apply plugin: 'war'
 
 java {
 	toolchain {
@@ -17,7 +18,11 @@ repositories {
 	mavenCentral()
 }
 
+bootWar.enabled = false
+war.enabled = true
+
 dependencies {
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	implementation 'mysql:mysql-connector-java:8.0.33'
 	implementation 'org.springframework.security:spring-security-taglibs'
 	implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'

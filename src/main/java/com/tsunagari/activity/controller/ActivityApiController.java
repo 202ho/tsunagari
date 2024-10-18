@@ -2,6 +2,8 @@ package com.tsunagari.activity.controller;
 
 import com.tsunagari.activity.entity.Activity;
 import com.tsunagari.activity.service.ActivityService;
+import com.tsunagari.category.entity.Category;
+import com.tsunagari.category.service.CategoryService;
 import com.tsunagari.reservation.RevenueReservation;
 import com.tsunagari.s3.S3Service;
 import com.tsunagari.user.entity.Member;
@@ -31,6 +33,9 @@ public class ActivityApiController {
     @Autowired
     private S3Service s3service;
 
+    @Autowired
+    private CategoryService categoryService;
+
     @PostMapping("/new")
     public ResponseEntity<?> createActivity(
             @RequestParam("new-activity-title") String title,
@@ -40,7 +45,7 @@ public class ActivityApiController {
             @RequestParam("new-activity-city") String city,
             @RequestParam("new-activity-price") int price,
             @RequestParam("new-activity-photo") MultipartFile photo,
-            @RequestParam("new-activity-category") String category,
+            @RequestParam("new-activity-category") String categoryid,
             @RequestParam("new-activity-x") String longitude,
             @RequestParam("new-activity-y") String latitude
     ) {
@@ -56,9 +61,12 @@ public class ActivityApiController {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         try { end = formatter.parse("2099-12-30"); }
         catch (Exception e){ end = new Date(); }
+        Optional<Category> category = categoryService.findById(categoryid);
+        if(category.isEmpty()) return ResponseEntity.badRequest().build();
 
+        System.out.println("new category => " + categoryid);
         String addr = address+address2;
-        Activity activity = new Activity(hostId, title, content, addr, now, end,price,0, 100,"", city ,longitude,latitude, "",category);
+        Activity activity = new Activity(hostId, title, content, addr, now, end, price,0, 100,"", city ,latitude,longitude, "",category.get());
         int newActivyId = activityService.saveActivity(activity);
 
         String s3url = s3service.uploadImageToS3(photo);

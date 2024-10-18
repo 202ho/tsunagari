@@ -26,6 +26,9 @@ public class CategoryService {
         return  categoryRepository.findById(Long.valueOf(id));
     }
 
+    public  List<Category> findTop4NByOrderByPostCountDesc() {
+        return categoryRepository.findTop4NByOrderByPostCountDesc();
+    }
 
 
 }

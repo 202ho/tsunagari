@@ -30,7 +30,7 @@
                     <div class="new-form-data-box">
                         <c:forEach var="category" items="${categoryList}" varStatus="status">
                             <div class="form-check-category">
-                                <input class="form-check-input" type="radio" name="new-activity-category" value="${category.name}" id="${category.id}" <c:if test="${status.first}">checked</c:if> >
+                                <input class="form-check-input" type="radio" name="new-activity-category" value="${category.id}" id="${category.id}" <c:if test="${status.first}">checked</c:if> >
                                 <label class="form-check-label" for="${category.id}">
                                     ${category.name}
                                 </label>

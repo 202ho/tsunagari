@@ -4,6 +4,8 @@ INSERT INTO test(title) VALUES('title3');
 INSERT INTO test(title) VALUES('title4');
 INSERT INTO test(title) VALUES('title5');
 
+SET SQL_SAFE_UPDATES = 0;
+
 INSERT INTO category (id, name, image) VALUES (1, '아웃도어', '/resources/image/cateimage/Outdoor.jpg');
 INSERT INTO category (id, name, image) VALUES (2, '피트니스', '/resources/image/cateimage/Fitness.jpg');
 INSERT INTO category (id, name, image) VALUES (3, '뷰티', '/resources/image/cateimage/Beauty.jpg');
@@ -73,7 +75,6 @@ INSERT INTO activity (hostid, title, content, address, regdate, enddate, price, 
 (1, 'Art Class', 'Unleash your creativity with painting.', '987 Art Blvd', '2024-09-25', '2024-09-26', 6000, 24, 10, 'art class', 'Chicago', 'thumbnail6.jpg', 10, '33.450701', '126.570667'),
 (1, 'Wine Tasting Tour', 'Explore local wineries.', '654 Vineyard Rd', '2024-09-20', '2024-09-20', 12000, 25, 20, 'wine tasting', 'Napa Valley', 'thumbnail5.jpg', 11, '33.450701', '126.570667');
 
-SET SQL_SAFE_UPDATES = 0;
 UPDATE activity SET thumbnail = 'https://dictionary.cambridge.org/ko/images/thumb/dog_noun_001_04904.jpg?version=6.0.31';
 
 INSERT INTO reservation (memberid, activityid, date) VALUES (2, 1, '2024-09-01');
