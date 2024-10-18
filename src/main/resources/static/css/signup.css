@@ -68,3 +68,7 @@ align-items:center;
 input[type="file"] {
     display: none; /* 기본 파일 입력 숨기기 */
 }
+.signup-input-veritycode{
+	width:127px;
+	height:30px;
+}
