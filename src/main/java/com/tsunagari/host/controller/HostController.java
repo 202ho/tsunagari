@@ -61,7 +61,7 @@ public class HostController {
         model.addAttribute("nextDisabled", activityPage.isLast() ? "disabled" : "");
         model.addAttribute("activityList",subActivityList);
         model.addAttribute("activityCnt",activityCnt);
-        model.addAttribute("pageLink","/host/activity");
+        model.addAttribute("pageLink","/host/activity?");
         model.addAttribute("newActivity",true);
 
         return "host/activity";

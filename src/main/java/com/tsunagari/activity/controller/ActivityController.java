@@ -42,16 +42,20 @@ public class ActivityController {
         int pageGroupSize = 40;
         Page<Activity> activityPage = Page.empty();
         String title = "";
+        String pageLink = "/activity/list";
         if(!categoryid.isEmpty()) {
             Optional<Category> category = categoryService.findById(categoryid);
             title = category.get().getName() + " 카테고리";
             activityPage = activityService.findByCategoryId(page,pageGroupSize,category.get().getId());
+            pageLink += "?categoryid=" + categoryid + "&";
         } else if(!search.isEmpty()) {
             title = search + " 검색 결과";
             activityPage = activityService.findByTitleContainingIgnoreCase( page, pageGroupSize, search);
+            pageLink += "?search=" + search + "&";
         } else {
             title = "\uD83D\uDCC8 인기 액티비티";
             activityPage = activityService.getActivitiesLikecountDesc(page, pageGroupSize);
+            pageLink += "?";
         }
         List<Activity> activityList = activityPage.getContent();
 
@@ -71,7 +75,7 @@ public class ActivityController {
         model.addAttribute("nextDisabled", activityPage.isLast() ? "disabled" : "");
         model.addAttribute("activityList",subActivityList);
         model.addAttribute("activityCnt",activityCnt);
-        model.addAttribute("pageLink","/activity/list");
+        model.addAttribute("pageLink",pageLink);
 
         return "activity/list";
     }
