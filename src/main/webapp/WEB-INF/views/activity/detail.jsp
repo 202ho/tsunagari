@@ -37,17 +37,19 @@ function initMap() {
         </div>
 
         <div class="activity-host">
-        <div class="activity-host-photo"><img src="" alt="hostPhoto">
+            <div class="activity-host-photo" style="overflow: hidden;">
+                <img src="${member.memberimage}" alt="hostPhoto" style="width: 100%; object-fit: cover; height: 100%;">
+            </div>
+            <div class="activity-host-intro">
+                <div>
+                    <div class="hostid">
+                        <div class="host-wording">호스트</div>
+                        ${member.nickname}님
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="activity-host-intro">
-            <div>
-            <div class="hostid">
-            <div class="host-wording">호스트</div>
-            ${activity.hostid}님</div>
 
-        </div>
-        </div>
-        </div>
 <!--
         <div class="detailPage-float" id="floating-index-btn">
         <ul class="datailpage-ul">

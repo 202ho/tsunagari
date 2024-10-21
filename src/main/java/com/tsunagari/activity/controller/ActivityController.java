@@ -7,8 +7,10 @@ import com.tsunagari.category.entity.Category;
 import com.tsunagari.category.service.CategoryService;
 import com.tsunagari.user.entity.Member;
 import com.tsunagari.user.repository.UserRepository;
+import com.tsunagari.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +33,7 @@ public class ActivityController {
     ActivityRepository activityRepository;
 
     @Autowired
-    UserRepository userRepository;
+    UserService userService;
 
 
     @GetMapping("/activity/list")
@@ -78,9 +80,7 @@ public class ActivityController {
     public String getActivityDetail(@PathVariable Long id, Model model) {
         Activity activity = activityRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid activity ID: " + id));
-
-        List<Member> member = userRepository.findAll();
-
+        Member member = userService.findById(activity.getHostid());
 
         model.addAttribute("activity", activity);
         model.addAttribute("id", id);

@@ -25,8 +25,6 @@ public class UserService {
     @Autowired
     private S3Service s3service;
 
-    
-
     public Long save(AddUserRequest dto) {
         // S3에 이미지 업로드 및 URL 객체 생성
         String memberImageUrl = dto.getMemberimage() != null ? s3service.uploadImageToS3(dto.getMemberimage()) : "";
@@ -90,7 +88,8 @@ public class UserService {
         }
     }
 
-
-
-
+    public Member findById(Long id) {
+        Optional<Member> opMember = userRepository.findById(id);
+        return opMember.orElse(null);
+    }
 }
