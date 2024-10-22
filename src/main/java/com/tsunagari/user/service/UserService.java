@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
+
 @Service
 public class UserService {
 
@@ -23,8 +24,6 @@ public class UserService {
 
     @Autowired
     private S3Service s3service;
-
-
 
     public Long save(AddUserRequest dto) {
         // S3에 이미지 업로드 및 URL 객체 생성
@@ -87,5 +86,10 @@ public class UserService {
         } else {
             throw new RuntimeException("사용자를 찾을 수 없습니다.");
         }
+    }
+
+    public Member findById(Long id) {
+        Optional<Member> opMember = userRepository.findById(id);
+        return opMember.orElse(null);
     }
 }

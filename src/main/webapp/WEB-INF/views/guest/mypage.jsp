@@ -23,11 +23,11 @@
                 <td align="center">
                     <core:choose>
                     <core:when test="${not empty member.memberimage}">
-                        <img id="profileImage" src="${member.memberimage}" alt="Profile Image" style="display:block; width: 100px; height: 100px; border-radius: 50%;">
+                        <img id="profileImage" src="${member.memberimage}" alt="Profile Image" style="display:block; width: 100px; height: 100px; border-radius: 50%; border: 1px solid lightgray;"">
                     </core:when>
 
                     <core:otherwise>
-                        <img id="profileImage" src="/resources/image/proflie_image.png" alt="Default Profile Image" style="display:block; width: 100px; height: 100px; border-radius: 50%;">
+                        <img id="profileImage" src="/resources/image/proflie_image.png" alt="Default Profile Image" style="display:block; width: 100px; height: 100px; border-radius: 50%; border: 1px solid lightgray;"">
                     </core:otherwise>
                     </core:choose>
                 </td>

@@ -12,6 +12,9 @@ function previewImage(event) {
 $(document).ready(function() {
     let isEmailChecked = false;
     let isNicknameChecked = false;
+    let isCodeVerified = false;
+    let timer;
+    let isTimerExpired = false;
 
 // 이메일 입력 필드에 포커스가 가면 사용 가능 표시 초기화
 $('input[name="email"]').on('focus', function() {
@@ -21,6 +24,14 @@ $('input[name="email"]').on('focus', function() {
         'background-color': '',
         'color': ''
     }).val('중복확인'); // 버튼 텍스트 초기화
+    $('#check-veritycode-bnt').css({
+        'background-color': '',
+        'color': ''
+    }).val('인증번호 확인'); // 인증번호 확인 버튼 초기화
+            isCodeVerified = false; // 인증번호 확인 초기화
+            isTimerExpired = false; // 타이머 만료 상태 초기화
+            clearInterval(timer); // 기존 타이머 중지
+            $('#timer').text(''); // 타이머 텍스트 초기화
 });
 
     // 이메일 체크 버튼 이벤트 리스너
@@ -109,6 +120,84 @@ $('input[name="email"]').on('focus', function() {
             }
         });
     });
+    // 이메일 인증번호 전송
+    $('#send-email-bnt').on('click', function() {
+        var email = $('input[name="email"]').val().trim();
+        if (!email) {
+            return alert("이메일을 입력해주세요.");
+        }
+        isCodeVerified = false; // 인증번호 확인 초기화
+        alert("인증번호를 전송했습니다.");
+        $('#check-veritycode-bnt')
+           .css({'background-color': '', 'color': ''})
+           .val('인증번호 확인'); // 버튼 텍스트 초기화
+        startTimer(); // 타이머 시작
+
+        isTimerExpired = false; // 타이머 만료 상태 초기화
+        // 인증번호 전송 요청
+        $.ajax({
+            url: '/api/auth/sendEmail',
+            type: 'POST',
+            data: { email: email },
+            success: function(response) {},
+            error: function(xhr) {
+                alert("인증번호 전송에 실패했습니다: " + xhr.responseText);
+            }
+        });
+    });
+
+    // 인증번호 확인
+    $('#check-veritycode-bnt').on('click', function() {
+        var email = $('input[name="email"]').val().trim();
+        var code = $('input[name="verifycode"]').val().trim();
+        if (!code) {
+            return alert("인증번호를 입력해주세요.");
+        }
+
+        if (isTimerExpired) {
+            return alert("인증번호 유효시간이 만료되었습니다."); // 타이머 만료 시 메시지
+        }
+
+        $.ajax({
+            url: '/api/auth/verifycode',
+            type: 'POST',
+            data: { email: email, code: code },
+            success: function(response) {
+                alert(response);
+                isCodeVerified = true; // 인증번호 확인 완료
+                $('#check-veritycode-bnt')
+                .css({'background-color': '#2FC97A','color': 'white'})
+                .val('확인완료'); // 버튼 텍스트 변경
+                clearInterval(timer); // 타이머 중지
+                $('#timer').text(''); // 타이머 텍스트 초기화
+            },
+            error: function(xhr) {
+                alert("인증번호 확인에 실패했습니다: " + xhr.responseText);
+            }
+        });
+    });
+
+    // 타이머 시작 함수
+    function startTimer() {
+        var timeLeft = 300; // 5분 (300초)
+        $('#timer').text("남은 시간: 5:00"); // 초기 시간 설정
+
+        // 타이머 인터벌
+        timer = setInterval(function() {
+            timeLeft--;
+            var minutes = Math.floor(timeLeft / 60);
+            var seconds = timeLeft % 60;
+
+            $('#timer').text("남은 시간: " + minutes + ":" + (seconds < 10 ? '0' : '') + seconds);
+
+            // 시간이 다 되면
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                isTimerExpired = true; // 타이머 만료 상태 설정
+                $('#timer').text("인증번호 유효시간이 만료되었습니다."); // 타이머 메시지 설정
+            }
+        }, 1000);
+    }
 
     // 폼 검증 함수
     function validateForm(event) {
@@ -127,6 +216,12 @@ $('input[name="email"]').on('focus', function() {
         // 닉네임 중복 확인 여부 확인
         if (!isNicknameChecked) {
             alert("닉네임 중복 확인을 해주세요.");
+            event.preventDefault();
+            return;
+        }
+        // 인증번호 확인 여부 확인
+        if (!isCodeVerified) {
+            alert("인증번호 확인을 해주세요.");
             event.preventDefault();
             return;
         }

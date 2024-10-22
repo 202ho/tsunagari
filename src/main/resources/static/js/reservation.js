@@ -15,6 +15,7 @@ $(document).ready(function() {
     // 게스트 예약 취소버튼
     $('.guest-reservation-cancel').on('click', function(e) {
         e.preventDefault();
+        e.stopPropagation();
         let reservationId = $(this).data('reservation-id');
         $(this).prop('disabled', true);
         $.ajax({

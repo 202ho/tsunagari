@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +18,12 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     List<Reservation> findByActivityId(Long ActivityId);
     Optional<Reservation> findById(Long id);
     Page<Reservation> findByMemberIdOrderByDateDesc(Long memberId, Pageable pageable);
+
+    @Query("SELECT r FROM Reservation r WHERE r.member.id = :memberId AND r.date < :today ORDER BY r.date DESC")
+    Page<Reservation> findPastReservationsByMemberId(@Param("memberId") Long memberId, @Param("today") Date today, Pageable pageable);
+
+    @Query("SELECT r FROM Reservation r WHERE r.member.id = :memberId AND r.date >= :today ORDER BY r.date ASC")
+    Page<Reservation> findUpcomingReservationsByMemberId(@Param("memberId") Long memberId, @Param("today") Date today, Pageable pageable);
 
     @Query("SELECT new com.tsunagari.reservation.MonthDayReservation( r.activity.id, r.date, r.activity.title, r.activity.address, COUNT(r)) FROM Reservation r " +
             "JOIN r.activity a " +

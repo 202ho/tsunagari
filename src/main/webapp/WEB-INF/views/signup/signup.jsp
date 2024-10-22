@@ -36,6 +36,13 @@
 		</tr>
 		<input type="hidden" id="email-check-result" value="N">
 		<tr>
+		    <td><input type="text" name="verifycode" class="signup-input"><div id="timer" style="margin-left: 10px; font-size: 12px; color: gray;"></div></td>
+		</tr>
+		<tr>
+		<td><input type="button" value="인증번호 전송" id="send-email-bnt" class="signup-input signup-input-button signup-input-veritycode">
+        <input type="button" value="인증번호 확인" id="check-veritycode-bnt" class="signup-input signup-input-button signup-input-veritycode"></td>
+		</tr>
+		<tr>
 			<td align="left" > Password </td>
 		</tr>
 		<tr>

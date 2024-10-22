@@ -7,8 +7,10 @@ import com.tsunagari.category.entity.Category;
 import com.tsunagari.category.service.CategoryService;
 import com.tsunagari.user.entity.Member;
 import com.tsunagari.user.repository.UserRepository;
+import com.tsunagari.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +33,7 @@ public class ActivityController {
     ActivityRepository activityRepository;
 
     @Autowired
-    UserRepository userRepository;
+    UserService userService;
 
 
     @GetMapping("/activity/list")
@@ -40,16 +42,20 @@ public class ActivityController {
         int pageGroupSize = 40;
         Page<Activity> activityPage = Page.empty();
         String title = "";
+        String pageLink = "/activity/list";
         if(!categoryid.isEmpty()) {
             Optional<Category> category = categoryService.findById(categoryid);
             title = category.get().getName() + " 카테고리";
             activityPage = activityService.findByCategoryId(page,pageGroupSize,category.get().getId());
+            pageLink += "?categoryid=" + categoryid + "&";
         } else if(!search.isEmpty()) {
             title = search + " 검색 결과";
             activityPage = activityService.findByTitleContainingIgnoreCase( page, pageGroupSize, search);
+            pageLink += "?search=" + search + "&";
         } else {
             title = "\uD83D\uDCC8 인기 액티비티";
             activityPage = activityService.getActivitiesLikecountDesc(page, pageGroupSize);
+            pageLink += "?";
         }
         List<Activity> activityList = activityPage.getContent();
 
@@ -69,7 +75,7 @@ public class ActivityController {
         model.addAttribute("nextDisabled", activityPage.isLast() ? "disabled" : "");
         model.addAttribute("activityList",subActivityList);
         model.addAttribute("activityCnt",activityCnt);
-        model.addAttribute("pageLink","/activity/list");
+        model.addAttribute("pageLink",pageLink);
 
         return "activity/list";
     }
@@ -78,9 +84,7 @@ public class ActivityController {
     public String getActivityDetail(@PathVariable Long id, Model model) {
         Activity activity = activityRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid activity ID: " + id));
-
-        List<Member> member = userRepository.findAll();
-
+        Member member = userService.findById(activity.getHostid());
 
         model.addAttribute("activity", activity);
         model.addAttribute("id", id);

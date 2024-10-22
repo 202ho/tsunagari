@@ -3,13 +3,12 @@
 <link rel="stylesheet" href="/resources/css/detail.css">
 <script src="/resources/js/activity.js"></script>
 <script src="/resources/js/googlemap.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRq8roIjbUxN7FVN0L6AoiaOclx2eorXk&callback=initMap"></script>
-<script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
 <script>
-$(document).ready(function() {
-    myMap("${activity.x}", "${activity.y}", "어딘가의 주소");
-});
+function initMap() {
+   myMap("${activity.x}", "${activity.y}", "${activity.address}");
+}
 </script>
+
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -29,6 +28,8 @@ $(document).ready(function() {
                data-color="default"
                data-count="false"
                style="display: none;"></div>
+         <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+
 
         <hr>
         <div class="detail-address-container">
@@ -36,18 +37,19 @@ $(document).ready(function() {
         </div>
 
         <div class="activity-host">
-        <div class="activity-host-photo"><img src="" alt="hostPhoto">
+            <div class="activity-host-photo" style="overflow: hidden;">
+                <img src="${member.memberimage}" alt="hostPhoto" style="width: 100%; object-fit: cover; height: 100%;">
+            </div>
+            <div class="activity-host-intro">
+                <div>
+                    <div class="hostid">
+                        <div class="host-wording">호스트</div>
+                        ${member.nickname}님
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="activity-host-intro">
-            <div>
-            <div class="hostid">
-            <div class="host-wording">호스트</div>
-            ${activity.hostid}</div>
-            <!-- 호스트로 저장된 후에 작성된 호스트 자기소개 member에 저장된게 맞는지?-->
-            <div class="host-intro">호스트 자기소개</div>
-        </div>
-        </div>
-        </div>
+
 <!--
         <div class="detailPage-float" id="floating-index-btn">
         <ul class="datailpage-ul">
@@ -69,6 +71,9 @@ $(document).ready(function() {
         <h1>오시는 길</h1>
         <div class="google-Map" id="googleMap" style="width:100%; height: 400px;">
         </div>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRq8roIjbUxN7FVN0L6AoiaOclx2eorXk&callback=initMap" async="async" defer="defer"></script>
+
 
         <hr>
 
