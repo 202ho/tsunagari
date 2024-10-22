@@ -15,6 +15,11 @@
             <h5 style="margin:0;">나의 예약</h5>
         </div>
 
+        <div class="mode-selector w-100 mb-3">
+            <a  class="btn ${mode == 'upcoming' ? 'btn-primary' : 'btn-light border-secondary-subtle'}" href="${pageLink}?page=0&currentPage=0&mode=upcoming">다가오는 예약</a>
+            <a class="ms-2 btn ${mode == 'past' ? 'btn-primary' : 'btn-light border-secondary-subtle'}" href="${pageLink}?page=0&currentPage=0&mode=past">지난 예약</a>
+        </div>
+
         <c:if test="${listCnt != 0}">
             <div class="reservation-item-box">
                 <c:forEach var="item" items="${list}" varStatus="status">
@@ -55,19 +60,19 @@
             <nav aria-label="Page navigation " style="margin-top:50px;">
                 <ul class="pagination">
                     <li class="page-item ${prevDisabled}">
-                        <a class="page-link" href="${pageLink}?page=${page-1}&currentPage=${0}" aria-label="Previous">
+                        <a class="page-link" href="${pageLink}?page=${page-1}&currentPage=${0}&mode=${mode}" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
                     <c:forEach var="pageIdx" begin="0" end="${pageCnt}">
                         <c:set var="active" value="active" />
                         <c:set var="deactivate" value=" " />
-                        <li class="page-item"><a class="page-link ${pageIdx == currentPage ? active : deactivate}" href="${pageLink}?page=${page}&currentPage=${pageIdx}">
+                        <li class="page-item"><a class="page-link ${pageIdx == currentPage ? active : deactivate}" href="${pageLink}?page=${page}&currentPage=${pageIdx}&mode=${mode}">
                                 ${pageIdx+1 +(page*5)}</a>
                         </li>
                     </c:forEach>
                     <li class="page-item ${nextDisabled}">
-                        <a class="page-link" href="${pageLink}?page=${page+1}&currentPage=${0}" aria-label="Next">
+                        <a class="page-link" href="${pageLink}?page=${page+1}&currentPage=${0}&mode=${mode}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>

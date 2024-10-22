@@ -55,11 +55,11 @@ public class GuestController {
     {
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         Optional<Member> user = userService.findByEmail(email);
-        return getReservation(0,0,model);
+        return getReservation(0,0, "upcoming",model);
     }
 
     @GetMapping("/reservation")
-    public String getReservation(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "0") int currentPage , Model model) {
+    public String getReservation(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "0") int currentPage , @RequestParam(defaultValue = "upcoming") String mode, Model model) {
 
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         Optional<Member> user = userService.findByEmail(email);
@@ -67,7 +67,11 @@ public class GuestController {
         Page<Reservation> reservationPage = Page.empty();
         if(user.isPresent()){
             Long guestId = user.get().getId();
-            reservationPage = reservationService.getReservationsByGuestId(guestId, page, pageGroupSize);
+            if(mode.equals("upcoming")) {
+                reservationPage = reservationService.getUpcomingReservations(guestId, page, pageGroupSize);
+            } else {
+                reservationPage = reservationService.getPastReservations(guestId, page, pageGroupSize);
+            }
         }
         List<Reservation> reservationList = reservationPage.getContent();
         int reservationCnt = reservationList.size();
@@ -86,7 +90,7 @@ public class GuestController {
         model.addAttribute("list",subList);
         model.addAttribute("listCnt",reservationCnt);
         model.addAttribute("pageLink","/guest/reservation");
-
+        model.addAttribute("mode",mode);
         return "guest/reservation";
     }
 

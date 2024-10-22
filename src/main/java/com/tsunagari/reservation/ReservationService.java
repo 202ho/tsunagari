@@ -40,13 +40,13 @@ public class ReservationService {
     public boolean createReservation( Long activityId,Long memberId, String date)  {
         Member member = getmemberById(memberId); //조회
         Activity activity = getActivityById(activityId); //조회
+        String newDate = date + " 23:59:59";
 
         try {
             //String date -> Date date 변환
             //입력받을 때 String / 엔티티 저장 할 때 date
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            Date reseravtionDate = dateFormat.parse(date);
-
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date reseravtionDate = dateFormat.parse(newDate);
             Reservation reservation = new Reservation( member, activity, reseravtionDate);   //예약생성
 
             reservationRepository.save(reservation);     //예약저장
@@ -62,6 +62,16 @@ public class ReservationService {
     public Page<Reservation> getReservationsByGuestId(Long memberId, int pageNumber, int pageSize) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
         return reservationRepository.findByMemberIdOrderByDateDesc(memberId, pageable);
+    }
+
+    public Page<Reservation> getPastReservations(Long memberId, int pageNumber, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        return reservationRepository.findPastReservationsByMemberId(memberId, new Date(), pageable);
+    }
+
+    public Page<Reservation> getUpcomingReservations(Long memberId, int pageNumber, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        return reservationRepository.findUpcomingReservationsByMemberId(memberId, new Date(), pageable);
     }
 
     public List<MonthDayReservation>  getGroupedReservations(Long hostId, String dateString) {
