@@ -27,6 +27,7 @@ $(document).ready(function() {
         let formData = new FormData($('#new-reservation-form')[0]);
         console.log(formData);
 
+        $(this).prop('disabled', true);
         $.ajax({
             url: '/api/reservation/new',
             type : 'POST',
@@ -40,6 +41,7 @@ $(document).ready(function() {
             },
             error: function(xhr, status, error) {
                 alert('다시 시도해 주세요');
+                $(this).prop('disabled', false);
             }
         });
 
