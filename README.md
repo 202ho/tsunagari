@@ -18,6 +18,9 @@
 - Backend : Java、JSP、Spring Boot、JPA、MYSQL
 - Infra : Ubuntu、AWS EC2、AWS RDS、AWS S3
 
+## [規模]
+- 全4名
+
 <!--
 참고
 https://wepplication.github.io/tools/beautifyCode/
